@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/inputtrailerViewNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="40dp"
+        android:text="@string/data_number"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/inputtrailerViewTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/inputtrailerViewNumber"
+        android:layout_marginTop="30dp"
+        android:text="@string/data_time"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/inputtrailerViewError"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/inputtrailerViewTime"
+        android:layout_marginTop="30dp"
+        android:text="@string/data_error"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/inputtrailerEditError"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/inputtrailerViewError"
+        android:layout_alignBottom="@+id/inputtrailerViewError"
+        android:layout_alignParentRight="true"
+        android:ems="10"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/inputtrailerEditMS"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/inputtrailerViewTime"
+        android:layout_alignBottom="@+id/inputtrailerViewTime"
+        android:layout_alignParentRight="true"
+        android:ems="10"
+        android:inputType="number|text" />
+
+    <EditText
+        android:id="@+id/inputtrailerEditNumber"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/inputtrailerViewNumber"
+        android:layout_alignBottom="@+id/inputtrailerViewNumber"
+        android:layout_alignParentRight="true"
+        android:ems="10"
+        android:inputType="number" >
+        
+        <requestFocus />
+    </EditText>
+
+    <Button
+        android:id="@+id/inputtrailerbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/inputtrailerEditError"
+        android:layout_below="@+id/inputtrailerEditError"
+        android:layout_marginTop="30dp"
+        android:text="@string/btn_save" />
+
+    <EditText
+        android:id="@+id/inputtrailerEditP"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/inputtrailerEditMS"
+        android:layout_alignBottom="@+id/inputtrailerEditMS"
+        android:layout_alignLeft="@+id/inputtrailerEditError"
+        android:ems="10"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/inputtrailerEditMP"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/inputtrailerEditMS"
+        android:layout_alignBottom="@+id/inputtrailerEditMS"
+        android:layout_toLeftOf="@+id/inputtrailerEditMS"
+        android:ems="10"
+        android:inputType="number" />
+
+</RelativeLayout>

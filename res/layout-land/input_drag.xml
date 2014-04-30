@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/inputdragViewNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="40dp"
+        android:text="@string/data_number"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/inputdragViewTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/inputdragViewNumber"
+        android:layout_marginTop="30dp"
+        android:text="@string/data_time"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/inputdragEditMS"
+        android:layout_width="85dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/inputdragViewTime"
+        android:layout_alignBottom="@+id/inputdragViewTime"
+        android:layout_alignParentRight="true"
+        android:ems="10"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/inputdragEditNumber"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/inputdragViewNumber"
+        android:layout_alignBottom="@+id/inputdragViewNumber"
+        android:layout_alignParentRight="true"
+        android:ems="10"
+        android:inputType="number" >
+        
+        <requestFocus />
+    </EditText>
+
+    <Button
+        android:id="@+id/inputdragbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/inputdragCheckBox"
+        android:layout_below="@+id/inputdragCheckBox"
+        android:layout_marginTop="30dp"
+        android:text="@string/btn_save" />
+
+    <EditText
+        android:id="@+id/inputdragEditMP"
+        android:layout_width="85dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/inputdragEditMS"
+        android:layout_alignBottom="@+id/inputdragEditMS"
+        android:layout_alignLeft="@+id/inputdragEditNumber"
+        android:ems="10"
+        android:inputType="number" />
+
+    <CheckBox
+        android:id="@+id/inputdragCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/inputdragEditMP"
+        android:layout_below="@+id/inputdragEditMP"
+        android:layout_marginTop="30dp"
+        android:text="@string/data_round"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/colon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/inputdragCheckBox"
+        android:layout_toLeftOf="@+id/inputdragEditMS"
+        android:text=":"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+</RelativeLayout>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/inputslalomViewNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="40dp"
+        android:text="@string/data_number"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/inputslalomViewTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/inputslalomViewNumber"
+        android:layout_marginTop="30dp"
+        android:text="@string/data_time"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/inputslalomViewError"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/inputslalomViewTime"
+        android:layout_marginTop="30dp"
+        android:text="@string/data_error"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/inputslalomEditNumber"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/inputslalomViewNumber"
+        android:layout_alignBottom="@+id/inputslalomViewNumber"
+        android:layout_alignParentRight="true"
+        android:ems="10"
+        android:inputType="number" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/inputslalomEditMS"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/inputslalomViewTime"
+        android:layout_alignBottom="@+id/inputslalomViewTime"
+        android:layout_alignParentRight="true"
+        android:ems="10"
+        android:inputType="number|text" />
+
+    <EditText
+        android:id="@+id/inputslalomEditError"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/inputslalomViewError"
+        android:layout_alignBottom="@+id/inputslalomViewError"
+        android:layout_alignParentRight="true"
+        android:ems="10"
+        android:inputType="number" />
+
+    <Button
+        android:id="@+id/inputslalombtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/inputslalomEditError"
+        android:layout_below="@+id/inputslalomEditError"
+        android:layout_marginTop="30dp"
+        android:text="@string/btn_save" />
+
+    <EditText
+        android:id="@+id/inputslalomEditP"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/inputslalomEditMS"
+        android:layout_alignBottom="@+id/inputslalomEditMS"
+        android:layout_alignLeft="@+id/inputslalomEditError"
+        android:ems="10"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/inputslalomEditMP"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/inputslalomEditMS"
+        android:layout_alignBottom="@+id/inputslalomEditMS"
+        android:layout_toLeftOf="@+id/inputslalomEditMS"
+        android:ems="10"
+        android:inputType="number" />
+
+</RelativeLayout>

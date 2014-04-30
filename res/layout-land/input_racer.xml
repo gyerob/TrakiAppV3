@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/inputracerViewName"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:text="@string/data_name"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/inputracerEditTown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/inputracerViewTown"
+        android:layout_alignBottom="@+id/inputracerViewTown"
+        android:layout_marginLeft="30dp"
+        android:layout_toRightOf="@+id/inputracerViewTown"
+        android:ems="10"
+        android:inputType="text" >
+    </EditText>
+
+    <TextView
+        android:id="@+id/inputracerViewTown"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/inputracerViewNumber"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="10dp"
+        android:text="@string/data_town"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/inputracerEditNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/inputracerViewNumber"
+        android:layout_alignBottom="@+id/inputracerViewNumber"
+        android:layout_marginLeft="30dp"
+        android:layout_toRightOf="@+id/inputracerViewNumber"
+        android:ems="10"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/inputracerEditName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/inputracerViewName"
+        android:layout_alignBottom="@+id/inputracerViewName"
+        android:layout_marginLeft="30dp"
+        android:layout_toRightOf="@+id/inputracerViewName"
+        android:ems="10"
+        android:inputType="text" >
+
+    </EditText>
+
+    <TextView
+        android:id="@+id/inputracerViewNumber"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/inputracerViewName"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="10dp"
+        android:text="@string/data_number"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <CheckBox
+        android:id="@+id/inputracerSlalom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/inputracerEditNumber"
+        android:layout_alignBottom="@+id/inputracerEditNumber"
+        android:layout_marginLeft="20dp"
+        android:layout_toRightOf="@+id/inputracerEditNumber"
+        android:text="@string/data_slalom" />
+
+    <CheckBox
+        android:id="@+id/inputracerDrag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/inputracerEditTown"
+        android:layout_alignBottom="@+id/inputracerEditTown"
+        android:layout_marginLeft="20dp"
+        android:layout_toRightOf="@+id/inputracerEditTown"
+        android:text="@string/data_drag" />
+
+    <CheckBox
+        android:id="@+id/inputracerTrailer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/inputracerEditName"
+        android:layout_alignBottom="@+id/inputracerEditName"
+        android:layout_marginLeft="20dp"
+        android:layout_toRightOf="@+id/inputracerEditName"
+        android:text="@string/data_trailer" />
+
+    <CheckBox
+        android:id="@+id/inputracerSex"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/inputracerEditTown"
+        android:layout_alignTop="@+id/inputracerbtn"
+        android:text="@string/data_sex" />
+
+    <Button
+        android:id="@+id/inputracerbtnupdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/inputracerSex"
+        android:layout_marginLeft="24dp"
+        android:layout_toRightOf="@+id/inputracerSex"
+        android:text="@string/btn_update" />
+
+    <Button
+        android:id="@+id/inputracerbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/inputracerEditTown"
+        android:layout_marginTop="24dp"
+        android:layout_toRightOf="@+id/inputracerbtnupdate"
+        android:text="@string/btn_save" />
+
+    <Button
+        android:id="@+id/inputracerbtndelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/inputracerbtn"
+        android:layout_marginTop="24dp"
+        android:layout_toRightOf="@+id/inputracerbtn"
+        android:text="@string/btn_delete" />
+
+</RelativeLayout>
