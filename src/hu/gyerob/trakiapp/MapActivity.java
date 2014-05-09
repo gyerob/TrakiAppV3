@@ -1,30 +1,27 @@
 package hu.gyerob.trakiapp;
 
-import map.TrakiMapRenderer;
-import map.TrakiSurfaceView;
+import map.TrakiMapRenderer2;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.pm.ConfigurationInfo;
+import android.opengl.GLSurfaceView;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Button;
+import android.view.View.OnTouchListener;
+import android.widget.Toast;
 
 public class MapActivity extends Activity {
 
-	private TrakiSurfaceView felulet;
-	private Button cambutton;
+	private GLSurfaceView felulet;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		setContentView(R.layout.activity_map);
-		
-		felulet = (TrakiSurfaceView) findViewById(R.id.trakiSurfaceView1);
-		cambutton = (Button) findViewById(R.id.cambutton);
+		felulet = new GLSurfaceView(this);
 
 		// OpenGL ES 2 kompatibilitás ellenõrzés
 		final ActivityManager activityManager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
@@ -38,33 +35,63 @@ public class MapActivity extends Activity {
 						|| Build.MODEL.contains("Emulator") || Build.MODEL
 							.contains("Android SDK built for x86")));
 
+		final TrakiMapRenderer2 mapRenderer = new TrakiMapRenderer2(this);
+
 		if (supportsEs2) {
 			// OpenGL ES 2 context
 			felulet.setEGLContextClientVersion(2);
 
 			// Renderer beállítás
-			felulet.setRenderer(new TrakiMapRenderer(this));
-		} else
+			felulet.setRenderer(mapRenderer);
+		} else {
+			Toast.makeText(this, "Az eszköz nem támogatja az OpenGL ES 2.0-t.",
+					Toast.LENGTH_LONG).show();
 			return;
+		}
 
-		cambutton.setOnClickListener(forgat);
+		felulet.setOnTouchListener(new OnTouchListener() {
+			float previousX, previousY;
+
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				if (event != null) {
+					if (event.getAction() == MotionEvent.ACTION_DOWN) {
+						previousX = event.getX();
+						previousY = event.getY();
+					} else if (event.getAction() == MotionEvent.ACTION_MOVE) {
+						final float deltaX = event.getX() - previousX;
+						final float deltaY = event.getY() - previousY;
+
+						previousX = event.getX();
+						previousY = event.getY();
+
+						felulet.queueEvent(new Runnable() {
+							@Override
+							public void run() {
+								mapRenderer.handledrag(deltaX, deltaY);
+							}
+						});
+					}
+
+					return true;
+				} else {
+					return false;
+				}
+			}
+		});
+
+		setContentView(felulet);
 	}
 
-	private OnClickListener forgat = new OnClickListener() {
-		
-		@Override
-		public void onClick(View v) {
-			felulet.cam();
-		}
-	};
-	
 	@Override
 	protected void onPause() {
 		super.onPause();
+		felulet.onPause();
 	}
 
 	@Override
 	protected void onResume() {
 		super.onResume();
+		felulet.onResume();
 	}
 }

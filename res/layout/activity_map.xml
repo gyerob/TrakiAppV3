@@ -3,15 +3,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <map.TrakiSurfaceView
+    <SurfaceView
         android:id="@+id/trakiSurfaceView1"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
-
-    <Button
-        android:id="@+id/cambutton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Forgat" />
 
 </FrameLayout>
