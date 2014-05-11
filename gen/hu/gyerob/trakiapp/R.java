@@ -1346,8 +1346,8 @@ containing a value of this type.
     public static final class raw {
         public static final int heightmap_fragment_shader=0x7f060000;
         public static final int heightmap_vertex_shader=0x7f060001;
-        public static final int particle_fragment_shader=0x7f060002;
-        public static final int particle_vertex_shader=0x7f060003;
+        public static final int line_fragment_shader=0x7f060002;
+        public static final int line_vertex_shader=0x7f060003;
         public static final int per_pixel_fragment_shader=0x7f060004;
         public static final int per_pixel_vertex_shader=0x7f060005;
         public static final int simple_fragment_shader=0x7f060006;

@@ -7,10 +7,12 @@ import static android.opengl.GLES20.GL_DEPTH_TEST;
 import static android.opengl.GLES20.glClear;
 import static android.opengl.GLES20.glClearColor;
 import static android.opengl.GLES20.glEnable;
+import static android.opengl.GLES20.glLineWidth;
 import static android.opengl.GLES20.glViewport;
 import static android.opengl.Matrix.invertM;
 import static android.opengl.Matrix.multiplyMM;
 import static android.opengl.Matrix.rotateM;
+import static android.opengl.Matrix.scaleM;
 import static android.opengl.Matrix.setIdentityM;
 import static android.opengl.Matrix.translateM;
 import static android.opengl.Matrix.transposeM;
@@ -23,8 +25,9 @@ import map.utils.MatrixHelper;
 import map.utils.TextureHelper;
 import android.content.Context;
 import android.opengl.GLSurfaceView;
+import android.util.Log;
 
-public class TrakiMapRenderer2 implements GLSurfaceView.Renderer {
+public class TrakiMapRenderer implements GLSurfaceView.Renderer {
 
 	private final float[] modelMatrix = new float[16];
 	private final float[] viewMatrix = new float[16];
@@ -45,22 +48,81 @@ public class TrakiMapRenderer2 implements GLSurfaceView.Renderer {
 	private BuoyShaderProgram buoyprogram;
 	private Buoy buoy;
 	private int buoytexture;
+	
+	private LineShaderProgram lineprogram;
+	private Line line;
 
 	private float xRotation, yRotation;
+	private float moveX, moveY;
+	
+	private float[] obstacles = {
+			//bálák
+			8.0f,		5.0f,
+			32.0f,		8.0f,
+			65.0f,		5.0f,
+			
+			8.0f,		-5.0f,
+			32.0f,		-8.0f,
+			65.0f,		-5.0f,
 
-	public TrakiMapRenderer2(Context context) {
+			//bólyák
+			16.0f,		5.0f,
+			24.0f,		8.0f,
+			40.0f,		8.0f,
+			42.75f,		8.0f,
+			45.5f,		8.0f,
+			48.0f,		8.0f,
+			48.0f,		4.0f,
+			48.0f,		2.0f,
+			48.0f,		12.0f,
+			48.0f,		16.0f,
+			48.0f,		20.0f,
+			48.0f,		24.0f,
+			60.0f,		16.0f,
+			60.0f,		21.0f,
+			69.0f,		8.0f,
+			
+			64.0f,		0.0f,
+
+			16.0f,		-5.0f,
+			24.0f,		-8.0f,
+			40.0f,		-8.0f,
+			42.75f,		-8.0f,
+			45.5f,		-8.0f,
+			48.0f,		-8.0f,
+			48.0f,		-4.0f,
+			48.0f,		-2.0f,
+			48.0f,		-12.0f,
+			48.0f,		-16.0f,
+			48.0f,		-20.0f,
+			48.0f,		-24.0f,
+			60.0f,		-16.0f,
+			60.0f,		-21.0f,
+			69.0f,		-8.0f
+	};
+
+	public TrakiMapRenderer(Context context) {
 		this.context = context;
 	}
 
-	private void updateview() {
+	private void updateview(boolean moved) {
 		setIdentityM(viewMatrix, 0);
 		// rotateM(viewMatrix, 0, -yRotation, 1f, 0f, 0f);
 		rotateM(viewMatrix, 0, -xRotation, 0f, 1f, 0f);
-
-		translateM(viewMatrix, 0, 0, -1.5f, -5f);
+		
+		if (moved){
+			moveX += (float) Math.sin(xRotation / 180 * Math.PI);
+			moveY += (float) Math.cos(xRotation / 180 * Math.PI);
+			Log.d("szögek", "movex: " + moveX + " moveY: " + moveY);
+		}
+		translateM(viewMatrix, 0, 0f + moveX, -3.5f, 0f + moveY);
+		//translateM(viewMatrix, 0, 0f, -3.5f, 0f + yRotation);
+		rotateM(viewMatrix, 0, 90f, 0f, 1f, 0f);
 	}
 
 	public void handledrag(float deltax, float deltay) {
+		boolean moved = false;
+		float yrot = yRotation;
 		xRotation += deltax / 16f;
 		yRotation += deltay / 16f;
 
@@ -70,7 +132,10 @@ public class TrakiMapRenderer2 implements GLSurfaceView.Renderer {
 			yRotation = 180;
 		}
 
-		updateview();
+		if (yrot == yRotation) moved = false; 
+		else moved = true;
+		
+		updateview(moved);
 	}
 
 	private void updateMvpMatrix() {
@@ -92,9 +157,9 @@ public class TrakiMapRenderer2 implements GLSurfaceView.Renderer {
 		glViewport(0, 0, width, height);
 
 		MatrixHelper.perspectiveM(projectionMatrix, 45, (float) width
-				/ (float) height, 1f, 100f);
+				/ (float) height, 1f, 300f);
 
-		updateview();
+		updateview(false);
 	}
 
 	@Override
@@ -103,29 +168,53 @@ public class TrakiMapRenderer2 implements GLSurfaceView.Renderer {
 
 		glEnable(GL_CULL_FACE);
 		glEnable(GL_DEPTH_TEST);
+		glLineWidth(5.0f);
+		
+		moveX = moveY = 0.0f;
 
 		baleprogram = new BaleShaderProgram(context);
 		bale = new Bale();
 
 		buoyprogram = new BuoyShaderProgram(context);
 		buoy = new Buoy();
+		
+		lineprogram = new LineShaderProgram(context);
+		line = new Line();
 
 		baletexture = TextureHelper.loadTexture(context, R.drawable.balaside);
 		buoytexture = TextureHelper.loadTexture(context, R.drawable.buoy);
+		
+		updateview(false);
 	}
 
 	@Override
 	public void onDrawFrame(GL10 gl) {
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-		drawBale(0f, 0f);
-		drawBuoy(0f, 0f);
+		drawLine();
+		
+		int j = 0;
+		for (int i = 0; i < obstacles.length / 2; i++){
+			if (i < 6) drawBale(obstacles[j++], obstacles[j++]);
+			else drawBuoy(obstacles[j++], obstacles[j++]);
+		}
+	}
+	
+	private void drawLine() {
+		setIdentityM(modelMatrix, 0);
+		translateM(modelMatrix, 0, 0, 0f, 0);
+		updateMvpMatrix();
+
+		lineprogram.useProgram();
+		lineprogram.setUniforms(modelViewProjectionMatrix, 0);
+		line.bindData(lineprogram);
+		line.draw();
 	}
 
 	private void drawBale(float x, float z) {
 		setIdentityM(modelMatrix, 0);
-		// scaleM(modelMatrix, 0, 0.2f, 0.2f, 0.2f);
 		translateM(modelMatrix, 0, x, 1f, z);
+		scaleM(modelMatrix, 0, 0.75f, 0.75f, 0.75f);
 		updateMvpMatrix();
 
 		baleprogram.useProgram();
@@ -136,8 +225,8 @@ public class TrakiMapRenderer2 implements GLSurfaceView.Renderer {
 
 	private void drawBuoy(float x, float z) {
 		setIdentityM(modelMatrix, 0);
-		// scaleM(modelMatrix, 0, 0.2f, 0.2f, 0.2f);
 		translateM(modelMatrix, 0, x, 1f, z);
+		scaleM(modelMatrix, 0, 0.2f, 0.2f, 0.2f);
 		updateMvpMatrix();
 
 		buoyprogram.useProgram();

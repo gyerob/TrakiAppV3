@@ -1,6 +1,6 @@
 package hu.gyerob.trakiapp;
 
-import map.TrakiMapRenderer2;
+import map.TrakiMapRenderer;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
@@ -35,7 +35,7 @@ public class MapActivity extends Activity {
 						|| Build.MODEL.contains("Emulator") || Build.MODEL
 							.contains("Android SDK built for x86")));
 
-		final TrakiMapRenderer2 mapRenderer = new TrakiMapRenderer2(this);
+		final TrakiMapRenderer mapRenderer = new TrakiMapRenderer(this);
 
 		if (supportsEs2) {
 			// OpenGL ES 2 context
