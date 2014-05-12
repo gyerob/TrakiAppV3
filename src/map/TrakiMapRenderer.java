@@ -24,6 +24,8 @@ import javax.microedition.khronos.opengles.GL10;
 import map.utils.MatrixHelper;
 import map.utils.TextureHelper;
 import android.content.Context;
+import android.graphics.drawable.BitmapDrawable;
+import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
 import android.util.Log;
 
@@ -49,24 +51,31 @@ public class TrakiMapRenderer implements GLSurfaceView.Renderer {
 	private Buoy buoy;
 	private int buoytexture;
 	
-	private LineShaderProgram lineprogram;
-	private Line line;
-
-	private float xRotation, yRotation;
+	//private LineShaderProgram lineprogram;
+	//private Line line;
+	private NewLine line;
+	
+	private PlaneShaderProgram planeprogram;
+	private Plane plane;
+	
+	private HeightmapShaderProgram heightmapProgram;
+    private Heightmap heightmap;
+        
+	private float xRotation;//, yRotation;
 	private float moveX, moveY;
 	
-	private float angle = 0f;
+	private float angle;
 	private float xpos, zpos;
 	
 	private float[] obstacles = {
 			//bálák
 			8.0f,		5.0f,
 			32.0f,		8.0f,
-			65.0f,		5.0f,
+			65.0f,		8.0f,
 			
 			8.0f,		-5.0f,
 			32.0f,		-8.0f,
-			65.0f,		-5.0f,
+			65.0f,		-8.0f,
 
 			//bólyák
 			16.0f,		5.0f,
@@ -152,16 +161,15 @@ public class TrakiMapRenderer implements GLSurfaceView.Renderer {
 	}
 
 	public void handledrag(float deltax, float deltay) {
-		float xrot, yrot;
 		xRotation += deltax / 16f;
-		yRotation += deltay / 16f;
-		
-		if (yRotation > (yRotation + deltay / 16f)) yrot = 1f;
-		else yrot = -1f;
+		//yRotation += deltay / 16f;
 						
 		angle = -xRotation;
 		
-		if (angle > 359f || angle < -359f) angle = 0f;
+		if (angle > 359f || angle < -359f) {
+			angle = 0f;
+			xRotation = 0f;
+		}
 		
 		moveX = (float) Math.sin(angle / 180 * Math.PI);
 		moveY = (float) Math.cos(angle / 180 * Math.PI);
@@ -204,13 +212,16 @@ public class TrakiMapRenderer implements GLSurfaceView.Renderer {
 
 	@Override
 	public void onSurfaceCreated(GL10 gl, EGLConfig config) {
-		glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+		glClearColor(0.0f, 0.6f, 1.0f, 0.0f);
 
 		glEnable(GL_CULL_FACE);
 		glEnable(GL_DEPTH_TEST);
 		glLineWidth(5.0f);
 		
-		moveX = moveY = 0.0f;
+		xRotation = -90f;
+		angle = 90f;
+		moveX = 0f;
+		moveY = 1f;
 
 		baleprogram = new BaleShaderProgram(context);
 		bale = new Bale();
@@ -218,8 +229,14 @@ public class TrakiMapRenderer implements GLSurfaceView.Renderer {
 		buoyprogram = new BuoyShaderProgram(context);
 		buoy = new Buoy();
 		
-		lineprogram = new LineShaderProgram(context);
-		line = new Line();
+		line = new NewLine();
+		
+		planeprogram = new PlaneShaderProgram(context);
+		plane = new Plane();
+		
+		heightmapProgram = new HeightmapShaderProgram(context);
+        heightmap = new Heightmap(((BitmapDrawable)context.getResources()
+            .getDrawable(R.drawable.palya2)).getBitmap());
 
 		baletexture = TextureHelper.loadTexture(context, R.drawable.balaside);
 		buoytexture = TextureHelper.loadTexture(context, R.drawable.buoy);
@@ -231,6 +248,9 @@ public class TrakiMapRenderer implements GLSurfaceView.Renderer {
 	public void onDrawFrame(GL10 gl) {
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
+		//drawPlane();
+		
+		drawHeightmap();
 		drawLine();
 		
 		int j = 0;
@@ -240,20 +260,40 @@ public class TrakiMapRenderer implements GLSurfaceView.Renderer {
 		}
 	}
 	
-	private void drawLine() {
+	private void drawHeightmap() {
+        setIdentityM(modelMatrix, 0);        
+        scaleM(modelMatrix, 0, 155f, 0.3f, 155f);
+        updateMvpMatrix();        
+        
+        heightmapProgram.useProgram();   
+        heightmapProgram.setUniforms(modelViewMatrix, it_modelViewMatrix, 
+                modelViewProjectionMatrix);
+        heightmap.bindData(heightmapProgram);
+        heightmap.draw(); 
+    }
+	
+	@SuppressWarnings("unused")
+	private void drawPlane() {
 		setIdentityM(modelMatrix, 0);
-		translateM(modelMatrix, 0, 0, 0f, 0);
+		scaleM(modelMatrix, 0, 200, 1, 200);
 		updateMvpMatrix();
 
-		lineprogram.useProgram();
-		lineprogram.setUniforms(modelViewProjectionMatrix, 0);
-		line.bindData(lineprogram);
-		line.draw();
+		planeprogram.useProgram();
+		planeprogram.setUniforms(modelViewProjectionMatrix, 0);
+		plane.bindData(planeprogram);
+		plane.draw();
+	}
+	
+	private void drawLine() {
+		setIdentityM(modelMatrix, 0);
+		updateMvpMatrix();
+
+		line.draw(modelViewProjectionMatrix);
 	}
 
 	private void drawBale(float x, float z) {
 		setIdentityM(modelMatrix, 0);
-		translateM(modelMatrix, 0, x, 1f, z);
+		translateM(modelMatrix, 0, x, 0.8f, z);
 		scaleM(modelMatrix, 0, 0.75f, 0.75f, 0.75f);
 		updateMvpMatrix();
 
@@ -265,7 +305,7 @@ public class TrakiMapRenderer implements GLSurfaceView.Renderer {
 
 	private void drawBuoy(float x, float z) {
 		setIdentityM(modelMatrix, 0);
-		translateM(modelMatrix, 0, x, 1f, z);
+		translateM(modelMatrix, 0, x, 0.3f, z);
 		scaleM(modelMatrix, 0, 0.2f, 0.2f, 0.2f);
 		updateMvpMatrix();
 
@@ -274,4 +314,17 @@ public class TrakiMapRenderer implements GLSurfaceView.Renderer {
 		buoy.bindData(buoyprogram);
 		buoy.draw();
 	}
+	
+	public static int loadShader(int type, String shaderCode){
+
+        // create a vertex shader type (GLES20.GL_VERTEX_SHADER)
+        // or a fragment shader type (GLES20.GL_FRAGMENT_SHADER)
+        int shader = GLES20.glCreateShader(type);
+
+        // add the source code to the shader and compile it
+        GLES20.glShaderSource(shader, shaderCode);
+        GLES20.glCompileShader(shader);
+
+        return shader;
+    }
 }

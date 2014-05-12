@@ -24,10 +24,10 @@ public class Line {
         		
         	//X			Y			Z			R		G		B		A
             //1. lap
-            0.0f,		1.0f,		0.0f,		1.0f,	0.0f,	0.0f,	0.0f,	//0
-        	128.0f,		1.0f,		0.0f,		1.0f,	0.0f,	0.0f,	0.0f	//1
+            0.0f,		1f,		0.0f,		1.0f,	0.0f,	0.0f,	0.0f,	//0
+        	128.0f,		1f,		0.0f,		1.0f,	0.0f,	0.0f,	0.0f	//1
         });
-        sideindexArray = ByteBuffer.allocateDirect(2 * 1).put(new byte[] {
+        sideindexArray = ByteBuffer.allocateDirect(14*4).put(new byte[] {
             // 1            
             0,	1
         });

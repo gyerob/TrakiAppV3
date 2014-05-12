@@ -1002,20 +1002,23 @@ containing a value of this type.
         public static final int bumpy_bricks_public_domain=0x7f020059;
         public static final int buoy=0x7f02005a;
         public static final int grid_color_selector=0x7f02005b;
-        public static final int ic_launcher=0x7f02005c;
-        public static final int icon=0x7f02005d;
-        public static final int land=0x7f02005e;
-        public static final int land_light=0x7f02005f;
-        public static final int land_light_old=0x7f020060;
-        public static final int land_old=0x7f020061;
-        public static final int listviewbg=0x7f020062;
-        public static final int noisy_grass_public_domain=0x7f020063;
-        public static final int portrait=0x7f020064;
-        public static final int portrait_light=0x7f020065;
-        public static final int portrait_light_old=0x7f020066;
-        public static final int portrait_old=0x7f020067;
-        public static final int roundbutton=0x7f020068;
-        public static final int stone_wall_public_domain=0x7f020069;
+        public static final int heightmap=0x7f02005c;
+        public static final int ic_launcher=0x7f02005d;
+        public static final int icon=0x7f02005e;
+        public static final int land=0x7f02005f;
+        public static final int land_light=0x7f020060;
+        public static final int land_light_old=0x7f020061;
+        public static final int land_old=0x7f020062;
+        public static final int listviewbg=0x7f020063;
+        public static final int noisy_grass_public_domain=0x7f020064;
+        public static final int palya=0x7f020065;
+        public static final int palya2=0x7f020066;
+        public static final int portrait=0x7f020067;
+        public static final int portrait_light=0x7f020068;
+        public static final int portrait_light_old=0x7f020069;
+        public static final int portrait_old=0x7f02006a;
+        public static final int roundbutton=0x7f02006b;
+        public static final int stone_wall_public_domain=0x7f02006c;
     }
     public static final class id {
         public static final int FragmentContainer=0x7f070043;
