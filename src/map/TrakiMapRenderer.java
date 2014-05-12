@@ -143,7 +143,7 @@ public class TrakiMapRenderer implements GLSurfaceView.Renderer {
 	private void updateview() {
 		setIdentityM(viewMatrix, 0);
 		// rotateM(viewMatrix, 0, -yRotation, 1f, 0f, 0f);
-		rotateM(viewMatrix, 0, -xRotation, 0f, 1f, 0f);
+		//rotateM(viewMatrix, 0, -xRotation, 0f, 1f, 0f);
 
 		rotateM(viewMatrix, 0, angle, 0f, 1f, 0f);
 		
@@ -152,16 +152,28 @@ public class TrakiMapRenderer implements GLSurfaceView.Renderer {
 	}
 
 	public void handledrag(float deltax, float deltay) {
+		float xrot, yrot;
 		xRotation += deltax / 16f;
 		yRotation += deltay / 16f;
-
-		if (yRotation < -180) {
-			yRotation = -180;
-		} else if (yRotation > 180) {
-			yRotation = 180;
-		}
 		
-		Log.d("forgatás", "x: " + xRotation + " y: " + yRotation);
+		if (yRotation > (yRotation + deltay / 16f)) yrot = 1f;
+		else yrot = -1f;
+						
+		angle = -xRotation;
+		
+		if (angle > 359f || angle < -359f) angle = 0f;
+		
+		moveX = (float) Math.sin(angle / 180 * Math.PI);
+		moveY = (float) Math.cos(angle / 180 * Math.PI);
+		if (Math.abs(moveX) < 0.00001) moveX = 0f;
+		if (Math.abs(moveY) < 0.00001) moveY = 0f;
+		
+		xpos += -deltay / 16f * moveX;
+		zpos += deltay / 16f * moveY;
+		
+		Log.d("szögek", "movex: " + moveX + " moveY: " + moveY);
+		Log.d("pozíciók", "xpos: " + xpos + " zpos: " + zpos);
+		Log.d("renderer nyomás", "angle: " + Float.toString(angle));
 		
 		updateview();
 	}
