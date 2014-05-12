@@ -55,6 +55,9 @@ public class TrakiMapRenderer implements GLSurfaceView.Renderer {
 	private float xRotation, yRotation;
 	private float moveX, moveY;
 	
+	private float angle = 0f;
+	private float xpos, zpos;
+	
 	private float[] obstacles = {
 			//bálák
 			8.0f,		5.0f,
@@ -104,25 +107,51 @@ public class TrakiMapRenderer implements GLSurfaceView.Renderer {
 	public TrakiMapRenderer(Context context) {
 		this.context = context;
 	}
+	
+	public void keyHandle(int irany) {
+		//0:elõre
+		//1:hátra
+		//2:balra
+		//3:jobbra
+		if (irany == 0 || irany == 1) {
+			if (irany == 0) {
+				xpos -= 5*moveX;
+				zpos += 5*moveY;
+			} else {
+				xpos += 5*moveX;
+				zpos -= 5*moveY;
+			}
+		} else if (irany == 2 || irany == 3) {
+			if (irany == 2) angle -= 45f;
+			if (irany == 3) angle += 45f;
+			
+			if (angle > 359f || angle < -359f) angle = 0f;
+			
+			moveX = (float) Math.sin(angle / 180 * Math.PI);
+			moveY = (float) Math.cos(angle / 180 * Math.PI);
+			if (Math.abs(moveX) < 0.00001) moveX = 0f;
+			if (Math.abs(moveY) < 0.00001) moveY = 0f;
+		} 
+		
+		updateview();
+		
+		Log.d("szögek", "movex: " + moveX + " moveY: " + moveY);
+		Log.d("pozíciók", "xpos: " + xpos + " zpos: " + zpos);
+		Log.d("renderer nyomás", "angle: " + Float.toString(angle));
+	}
 
-	private void updateview(boolean moved) {
+	private void updateview() {
 		setIdentityM(viewMatrix, 0);
 		// rotateM(viewMatrix, 0, -yRotation, 1f, 0f, 0f);
 		rotateM(viewMatrix, 0, -xRotation, 0f, 1f, 0f);
+
+		rotateM(viewMatrix, 0, angle, 0f, 1f, 0f);
 		
-		if (moved){
-			moveX += (float) Math.sin(xRotation / 180 * Math.PI);
-			moveY += (float) Math.cos(xRotation / 180 * Math.PI);
-			Log.d("szögek", "movex: " + moveX + " moveY: " + moveY);
-		}
-		translateM(viewMatrix, 0, 0f + moveX, -3.5f, 0f + moveY);
+		translateM(viewMatrix, 0, xpos, -3.5f, zpos);
 		//translateM(viewMatrix, 0, 0f, -3.5f, 0f + yRotation);
-		rotateM(viewMatrix, 0, 90f, 0f, 1f, 0f);
 	}
 
 	public void handledrag(float deltax, float deltay) {
-		boolean moved = false;
-		float yrot = yRotation;
 		xRotation += deltax / 16f;
 		yRotation += deltay / 16f;
 
@@ -131,11 +160,10 @@ public class TrakiMapRenderer implements GLSurfaceView.Renderer {
 		} else if (yRotation > 180) {
 			yRotation = 180;
 		}
-
-		if (yrot == yRotation) moved = false; 
-		else moved = true;
 		
-		updateview(moved);
+		Log.d("forgatás", "x: " + xRotation + " y: " + yRotation);
+		
+		updateview();
 	}
 
 	private void updateMvpMatrix() {
@@ -159,7 +187,7 @@ public class TrakiMapRenderer implements GLSurfaceView.Renderer {
 		MatrixHelper.perspectiveM(projectionMatrix, 45, (float) width
 				/ (float) height, 1f, 300f);
 
-		updateview(false);
+		updateview();
 	}
 
 	@Override
@@ -184,7 +212,7 @@ public class TrakiMapRenderer implements GLSurfaceView.Renderer {
 		baletexture = TextureHelper.loadTexture(context, R.drawable.balaside);
 		buoytexture = TextureHelper.loadTexture(context, R.drawable.buoy);
 		
-		updateview(false);
+		updateview();
 	}
 
 	@Override

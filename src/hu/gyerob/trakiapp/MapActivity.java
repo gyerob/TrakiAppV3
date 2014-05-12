@@ -8,8 +8,11 @@ import android.content.pm.ConfigurationInfo;
 import android.opengl.GLSurfaceView;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.OnKeyListener;
 import android.view.View.OnTouchListener;
 import android.widget.Toast;
 
@@ -48,6 +51,54 @@ public class MapActivity extends Activity {
 					Toast.LENGTH_LONG).show();
 			return;
 		}
+
+		felulet.setFocusable(true);
+		felulet.setFocusableInTouchMode(true);
+		felulet.requestFocus();
+		
+		felulet.setOnKeyListener(new OnKeyListener() {
+
+			@Override
+			public boolean onKey(View v, int keyCode, KeyEvent event) {
+				if (event.getAction() == KeyEvent.ACTION_DOWN)
+					Log.d("nyomott gomb",
+							"lenyomva: " + Integer.toString(keyCode));
+				if (keyCode == KeyEvent.KEYCODE_W && event.getAction() == KeyEvent.ACTION_DOWN) {
+					felulet.queueEvent(new Runnable() {
+						@Override
+						public void run() {
+							mapRenderer.keyHandle(0);
+						}
+					});
+					return true;
+				} else if (keyCode == KeyEvent.KEYCODE_S && event.getAction() == KeyEvent.ACTION_DOWN) {
+					felulet.queueEvent(new Runnable() {
+						@Override
+						public void run() {
+							mapRenderer.keyHandle(1);
+						}
+					});
+					return true;
+				} else if (keyCode == KeyEvent.KEYCODE_A && event.getAction() == KeyEvent.ACTION_DOWN) {
+					felulet.queueEvent(new Runnable() {
+						@Override
+						public void run() {
+							mapRenderer.keyHandle(2);
+						}
+					});
+					return true;
+				} else if (keyCode == KeyEvent.KEYCODE_D && event.getAction() == KeyEvent.ACTION_DOWN) {
+					felulet.queueEvent(new Runnable() {
+						@Override
+						public void run() {
+							mapRenderer.keyHandle(3);
+						}
+					});
+					return true;
+				} else
+					return false;
+			}
+		});
 
 		felulet.setOnTouchListener(new OnTouchListener() {
 			float previousX, previousY;
