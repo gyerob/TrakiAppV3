@@ -1162,13 +1162,17 @@ containing a value of this type.
         public static final int inputtrailerViewTime=0x7f0700a4;
         public static final int inputtrailerbtn=0x7f0700a9;
         public static final int itemImageUpload=0x7f0700eb;
-        public static final int itemPreferences=0x7f0700ed;
+        public static final int itemPreferences=0x7f0700f1;
         public static final int linearLayout1=0x7f0700b6;
         public static final int linearLayout2=0x7f0700c1;
         public static final int linearLayout3=0x7f0700c0;
         public static final int linearLayout4=0x7f070054;
         public static final int listMode=0x7f070001;
         public static final int list_item=0x7f070029;
+        public static final int listmenu150le=0x7f0700ee;
+        public static final int listmenuupdate=0x7f0700ed;
+        public static final int listmenuveteran=0x7f0700ef;
+        public static final int listmenuwomen=0x7f0700f0;
         public static final int mainView=0x7f070049;
         public static final int middle=0x7f070012;
         public static final int never=0x7f070009;
@@ -1344,7 +1348,8 @@ containing a value of this type.
     }
     public static final class menu {
         public static final int gallery=0x7f0f0000;
-        public static final int mymenu=0x7f0f0001;
+        public static final int listmenu=0x7f0f0001;
+        public static final int mymenu=0x7f0f0002;
     }
     public static final class raw {
         public static final int heightmap_fragment_shader=0x7f060000;

@@ -2,9 +2,12 @@
 
     <item
         android:id="@+id/itemImageUpload"
+        android:showAsAction="always"
         android:title="@string/imgupload"/>
     <item 
-        android:id="@+id/switchgalleryview" android:title="@string/switchGalleryView">
+        android:id="@+id/switchgalleryview" 
+        android:showAsAction="always"
+        android:title="@string/switchGalleryView">
     </item>
 
 </menu>

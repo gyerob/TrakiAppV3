@@ -46,7 +46,11 @@ public class TrailerFragment extends ListFragment {
 
 		trailerList = new ArrayList<Trailer>();
 
-		new LoadAllTrailer().execute();
+		new LoadAllTrailer(false).execute();
+	}
+	
+	public void refresh() {
+		new LoadAllTrailer(true).execute();
 	}
 
 	@Override
@@ -59,6 +63,11 @@ public class TrailerFragment extends ListFragment {
 	class LoadAllTrailer extends AsyncTask<String, String, String> {
 
 		boolean failed = false;
+		boolean update = false;
+		
+		public LoadAllTrailer(boolean up) {
+			this.update = up;
+		}
 
 		@Override
 		protected void onPreExecute() {
@@ -127,6 +136,7 @@ public class TrailerFragment extends ListFragment {
 			} else {
 				adapter = new TrailerAdapter(trailerList);
 				setListAdapter(adapter);
+				if(update) adapter.notifyDataSetChanged();
 			}
 		}
 	}

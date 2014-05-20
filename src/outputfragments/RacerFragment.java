@@ -46,7 +46,11 @@ public class RacerFragment extends ListFragment {
 
 		racerList = new ArrayList<Racer>();
 
-		new LoadAllRacer().execute();
+		new LoadAllRacer(false).execute();
+	}
+
+	public void refresh() {
+		new LoadAllRacer(true).execute();
 	}
 
 	@Override
@@ -59,6 +63,11 @@ public class RacerFragment extends ListFragment {
 	class LoadAllRacer extends AsyncTask<String, String, String> {
 
 		boolean failed = false;
+		boolean update = false;
+
+		public LoadAllRacer(boolean up) {
+			this.update = up;
+		}
 
 		/**
 		 * Before starting background thread Show Progress Dialog
@@ -135,6 +144,8 @@ public class RacerFragment extends ListFragment {
 			} else {
 				adapter = new RacerAdapter(racerList);
 				setListAdapter(adapter);
+				if (update)
+					adapter.notifyDataSetChanged();
 			}
 		}
 	}

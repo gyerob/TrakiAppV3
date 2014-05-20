@@ -3,6 +3,7 @@
 
     <item
         android:id="@+id/itemPreferences"
+        android:showAsAction="always"
         android:title="@string/itemPreferences"/>
 
 </menu>

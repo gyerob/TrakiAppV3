@@ -1,5 +1,7 @@
 package hu.gyerob.trakiapp;
 
+import android.annotation.SuppressLint;
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.PorterDuff.Mode;
@@ -18,6 +20,8 @@ public class MainActivity extends Activity {
 	private Button finals;
 	private Button gallery;
 	private Button map;
+	
+	private ActionBar actionbar;
 
 	private OnClickListener startlistener = new OnClickListener() {
 
@@ -50,10 +54,16 @@ public class MainActivity extends Activity {
 		}
 	};
 
+	@SuppressLint("NewApi")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		
+		if (android.os.Build.VERSION.SDK_INT >= 11) {
+			actionbar = getActionBar();
+			actionbar.setHomeButtonEnabled(true);
+		}
 
 		input = (Button) findViewById(R.id.btnIn);
 		output = (Button) findViewById(R.id.btnOut);

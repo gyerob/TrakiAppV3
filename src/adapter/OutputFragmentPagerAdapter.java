@@ -6,21 +6,28 @@ import outputfragments.SlalomFragment;
 import outputfragments.TrailerFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
 
-public class OutputFragmentPagerAdapter extends FragmentPagerAdapter {
+public class OutputFragmentPagerAdapter extends FragmentStatePagerAdapter {
 
 	RacerFragment racer;
 	TrailerFragment trailer;
 	SlalomFragment slalom;
 	DragFragment drag;
 	
+	FragmentManager fm;
+	
 	public OutputFragmentPagerAdapter(FragmentManager fm) {
 		super(fm);
+		this.fm = fm;
 		racer = new RacerFragment();
 		trailer = new TrailerFragment();
 		slalom = new SlalomFragment();
 		drag = new DragFragment();		
+	}
+	
+	public void refresh() {
+		
 	}
 
 	@Override

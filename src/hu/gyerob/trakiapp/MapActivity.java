@@ -19,6 +19,7 @@ import android.widget.Toast;
 public class MapActivity extends Activity {
 
 	private GLSurfaceView felulet;
+	private boolean rendererset;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -44,18 +45,22 @@ public class MapActivity extends Activity {
 			// OpenGL ES 2 context
 			felulet.setEGLContextClientVersion(2);
 
+			felulet.setEGLConfigChooser(8 , 8, 8, 8, 16, 0);
+			
 			// Renderer beállítás
 			felulet.setRenderer(mapRenderer);
+			rendererset = true;
 		} else {
 			Toast.makeText(this, "Az eszköz nem támogatja az OpenGL ES 2.0-t.",
 					Toast.LENGTH_LONG).show();
+			rendererset = false;
 			return;
 		}
 
 		felulet.setFocusable(true);
 		felulet.setFocusableInTouchMode(true);
 		felulet.requestFocus();
-		
+
 		felulet.setOnKeyListener(new OnKeyListener() {
 
 			@Override
@@ -63,7 +68,8 @@ public class MapActivity extends Activity {
 				if (event.getAction() == KeyEvent.ACTION_DOWN)
 					Log.d("nyomott gomb",
 							"lenyomva: " + Integer.toString(keyCode));
-				if (keyCode == KeyEvent.KEYCODE_W && event.getAction() == KeyEvent.ACTION_DOWN) {
+				if (keyCode == KeyEvent.KEYCODE_W
+						&& event.getAction() == KeyEvent.ACTION_DOWN) {
 					felulet.queueEvent(new Runnable() {
 						@Override
 						public void run() {
@@ -71,7 +77,8 @@ public class MapActivity extends Activity {
 						}
 					});
 					return true;
-				} else if (keyCode == KeyEvent.KEYCODE_S && event.getAction() == KeyEvent.ACTION_DOWN) {
+				} else if (keyCode == KeyEvent.KEYCODE_S
+						&& event.getAction() == KeyEvent.ACTION_DOWN) {
 					felulet.queueEvent(new Runnable() {
 						@Override
 						public void run() {
@@ -79,7 +86,8 @@ public class MapActivity extends Activity {
 						}
 					});
 					return true;
-				} else if (keyCode == KeyEvent.KEYCODE_A && event.getAction() == KeyEvent.ACTION_DOWN) {
+				} else if (keyCode == KeyEvent.KEYCODE_A
+						&& event.getAction() == KeyEvent.ACTION_DOWN) {
 					felulet.queueEvent(new Runnable() {
 						@Override
 						public void run() {
@@ -87,7 +95,8 @@ public class MapActivity extends Activity {
 						}
 					});
 					return true;
-				} else if (keyCode == KeyEvent.KEYCODE_D && event.getAction() == KeyEvent.ACTION_DOWN) {
+				} else if (keyCode == KeyEvent.KEYCODE_D
+						&& event.getAction() == KeyEvent.ACTION_DOWN) {
 					felulet.queueEvent(new Runnable() {
 						@Override
 						public void run() {
@@ -137,12 +146,14 @@ public class MapActivity extends Activity {
 	@Override
 	protected void onPause() {
 		super.onPause();
-		felulet.onPause();
+		if (rendererset)
+			felulet.onPause();
 	}
 
 	@Override
 	protected void onResume() {
 		super.onResume();
-		felulet.onResume();
+		if (rendererset)
+			felulet.onResume();
 	}
 }

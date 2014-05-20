@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/listmenuupdate"
+        android:showAsAction="always"
+        android:title="Frissítés"/>
+    
+    <item
+        android:id="@+id/listmenu150le"
+        android:showAsAction="always"
+        android:title="150le"/>
+    
+    <item
+        android:id="@+id/listmenuveteran"
+        android:showAsAction="always"
+        android:title="Veterán"/>
+    
+    <item
+        android:id="@+id/listmenuwomen"
+        android:showAsAction="always"
+        android:title="Női"/>
+
+</menu>
