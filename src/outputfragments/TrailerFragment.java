@@ -48,10 +48,6 @@ public class TrailerFragment extends ListFragment {
 
 		new LoadAllTrailer(false).execute();
 	}
-	
-	public void refresh() {
-		new LoadAllTrailer(true).execute();
-	}
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,

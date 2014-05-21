@@ -19,11 +19,7 @@ public class OutputFragmentPagerAdapter extends FragmentStatePagerAdapter {
 	
 	public OutputFragmentPagerAdapter(FragmentManager fm) {
 		super(fm);
-		this.fm = fm;
-		racer = new RacerFragment();
-		trailer = new TrailerFragment();
-		slalom = new SlalomFragment();
-		drag = new DragFragment();		
+		this.fm = fm;	
 	}
 	
 	public void refresh() {
@@ -34,18 +30,24 @@ public class OutputFragmentPagerAdapter extends FragmentStatePagerAdapter {
 	public Fragment getItem(int pos) {
 		switch(pos) {
 		case 0:
-			return racer;
+			return racer = new RacerFragment();
 		case 1:
-			return trailer;
+			return trailer = new TrailerFragment();
 		case 2:
-			return slalom;
+			return slalom = new SlalomFragment();
 		case 3:
-			return drag;
+			return drag = new DragFragment();
 		default:
 			return null;
 		}
 	}
 	
+	@Override
+	public int getItemPosition(Object object) {
+		//return super.getItemPosition(object);
+		return POSITION_NONE;
+	}
+
 	@Override
 	public CharSequence getPageTitle(int pos) {
 		switch (pos) {

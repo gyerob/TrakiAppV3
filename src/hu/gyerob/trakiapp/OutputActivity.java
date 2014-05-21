@@ -1,15 +1,12 @@
 package hu.gyerob.trakiapp;
 
-import outputfragments.DragFragment;
-import outputfragments.RacerFragment;
-import outputfragments.SlalomFragment;
-import outputfragments.TrailerFragment;
 import adapter.OutputFragmentPagerAdapter;
 import android.app.ActionBar;
 import android.content.pm.ActivityInfo;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.ListFragment;
+import android.support.v4.view.PagerTabStrip;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.Menu;
@@ -19,6 +16,7 @@ import android.view.MenuItem;
 public class OutputActivity extends FragmentActivity {
 
 	private ViewPager pager;
+	private PagerTabStrip strip;
 	private OutputFragmentPagerAdapter outputadapter;
 	private ActionBar actionbar;
 	
@@ -32,9 +30,14 @@ public class OutputActivity extends FragmentActivity {
 		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 		
 		pager = (ViewPager) findViewById(R.id.outputViewPager);
+		strip = (PagerTabStrip) findViewById(R.id.outputPagerTabStrip);
+		
 		outputadapter = new OutputFragmentPagerAdapter(
 				getSupportFragmentManager());
 		pager.setAdapter(outputadapter);
+				
+		strip.setTextColor(Color.BLACK);
+		strip.setTabIndicatorColor(Color.BLACK);
 		
 		pager.setOnPageChangeListener(new OnPageChangeListener() {
 			
@@ -83,14 +86,13 @@ public class OutputActivity extends FragmentActivity {
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		if (item.getItemId() == R.id.listmenuupdate) {
-			int pos = pager.getCurrentItem();
-			ListFragment frag = (ListFragment) outputadapter.getItem(pos);
-			if (pos == 0) ((RacerFragment) frag).refresh();
-			else if (pos == 1) ((TrailerFragment) frag).refresh();
-			//else if (pos == 2) ((SlalomFragment) frag).refresh();
-			//else if (pos == 3) ((DragFragment) frag).refresh();
-			
 			outputadapter.notifyDataSetChanged();
+		} else if (item.getItemId() == R.id.listmenuveteran) {
+			
+		} else if (item.getItemId() == R.id.listmenu150le) {
+			
+		} else if (item.getItemId() == R.id.listmenuwomen) {
+			
 		}
 		return super.onOptionsItemSelected(item);
 	}

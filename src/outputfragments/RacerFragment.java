@@ -49,10 +49,6 @@ public class RacerFragment extends ListFragment {
 		new LoadAllRacer(false).execute();
 	}
 
-	public void refresh() {
-		new LoadAllRacer(true).execute();
-	}
-
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {

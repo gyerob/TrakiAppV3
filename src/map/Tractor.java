@@ -36,7 +36,6 @@ public class Tractor {
             // Note that the uMVPMatrix factor *must be first* in order
             // for the matrix multiplication product to be correct.
             "  gl_Position = uMVPMatrix * vPosition; \n" +
-            " gl_PointSize = 10.0; \n" + 
             "}";
 
     private final String fragmentShaderCode =
