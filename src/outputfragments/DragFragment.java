@@ -27,23 +27,29 @@ public class DragFragment extends ListFragment {
 	public static final String TITLE = "Gyorsulás";
 
 	private DragAdapter adapter;
-	ArrayList<Drag> dragList;
+	private ArrayList<Drag> dragList;
 
 	public ProgressDialog pDialog;
 
-	JSONParser jsonParser = new JSONParser();
+	private JSONParser jsonParser = new JSONParser();
 
 	private static String url_all_drag = "http://gyerob.no-ip.biz/trakiweb/get_all_drag.php";
 
 	private static final String TAG_SUCCESS = "success";
 	private static final String TAG_PRODUCTS = "drag";
 
-	JSONArray drags = null;
+	private JSONArray drags = null;
+	
+	public static DragFragment newInstance(int mode) {
+		DragFragment drag = new DragFragment();
+
+		return drag;
+	}
 
 	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		
+	public void onCreate(Bundle bundle) {
+		super.onCreate(bundle);
+				
 		dragList = new ArrayList<Drag>();
 		
 		new LoadAllDrag().execute();

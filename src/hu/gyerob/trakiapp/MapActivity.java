@@ -1,25 +1,29 @@
 package hu.gyerob.trakiapp;
 
 import map.TrakiMapRenderer;
-import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.pm.ConfigurationInfo;
 import android.opengl.GLSurfaceView;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnKeyListener;
 import android.view.View.OnTouchListener;
 import android.widget.Toast;
 
-public class MapActivity extends Activity {
+public class MapActivity extends ActionBarActivity {
 
 	private GLSurfaceView felulet;
 	private boolean rendererset;
+	private TrakiMapRenderer mapRenderer;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -39,14 +43,14 @@ public class MapActivity extends Activity {
 						|| Build.MODEL.contains("Emulator") || Build.MODEL
 							.contains("Android SDK built for x86")));
 
-		final TrakiMapRenderer mapRenderer = new TrakiMapRenderer(this);
+		mapRenderer = new TrakiMapRenderer(this);
 
 		if (supportsEs2) {
 			// OpenGL ES 2 context
 			felulet.setEGLContextClientVersion(2);
 
-			felulet.setEGLConfigChooser(8 , 8, 8, 8, 16, 0);
-			
+			felulet.setEGLConfigChooser(8, 8, 8, 8, 16, 0);
+
 			// Renderer beállítás
 			felulet.setRenderer(mapRenderer);
 			rendererset = true;
@@ -141,6 +145,28 @@ public class MapActivity extends Activity {
 		});
 
 		setContentView(felulet);
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		super.onCreateOptionsMenu(menu);
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.mapmenu, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		if (item.getItemId() == R.id.mapstart) {
+			mapRenderer.start();
+		} else if (item.getItemId() == R.id.mapa) {
+			mapRenderer.settrakiview(true, false);
+		} else if (item.getItemId() == R.id.mapb) {
+			mapRenderer.settrakiview(false, true);
+		} else if (item.getItemId() == R.id.mapfree) {
+			mapRenderer.settrakiview(false, false);
+		}
+		return super.onOptionsItemSelected(item);
 	}
 
 	@Override

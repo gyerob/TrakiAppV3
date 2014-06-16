@@ -11,6 +11,7 @@
     <string name="trailer_title">Pórkocsis</string>
     <string name="slalom_title">Szlalom</string>
     <string name="drag_title">Gyorsulás</string>
+    <string name="data_150">150le +</string>
     <string name="data_name">Név</string>
     <string name="data_number">#</string>
     <string name="data_town">Város</string>
@@ -43,5 +44,20 @@
     <string name="switchGalleryView">Nézetváltás</string>
     <string name="main_map">Térkép</string>
     <string name="title_activity_map">Térkép</string>
+    <string name="listmenuall">Összesített</string>
+    <string name="listmenuupdate">Frissítés</string>
+    <string name="listmenuwomen">Női</string>
+    <string name="listmenumen">Férfi</string>
+    <string name="listmenuabove150">150le+</string>
+    <string name="listmenubelow150">150le-</string>
+    <string name="listmenuveteran">Veterán</string>
+    <string name="listmenumodern">Modern</string>
+    <string name="mapmenufree">Szabad</string>
+    <string name="mapmenua">A</string>
+    <string name="mapmenub">B</string>
+    <string name="mapmenustart">Indít</string>
+    <string name="finalsabove">150le feletti</string>
+    <string name="finalsbelow">150le alatti</string>
+    <string name="topname">Versenyző</string>
 
 </resources>

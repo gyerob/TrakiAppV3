@@ -1,24 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+<menu xmlns:android="http://schemas.android.com/apk/res/android" xmlns:compat="http://schemas.android.com/apk/res-auto">
 
     <item
         android:id="@+id/listmenuupdate"
-        android:showAsAction="always"
-        android:title="Frissítés"/>
+        compat:showAsAction="always"
+        android:title="@string/listmenuupdate"/>
     
     <item
-        android:id="@+id/listmenu150le"
-        android:showAsAction="always"
-        android:title="150le"/>
+        android:id="@+id/listmenuall"
+        compat:showAsAction="always"
+        android:title="@string/listmenuall"/>
+    
+    <item
+        android:id="@+id/listmenuabove150le"
+        compat:showAsAction="always"
+        android:title="@string/listmenuabove150"/>
+    
+    <item
+        android:id="@+id/listmenubelow150le"
+        compat:showAsAction="always"
+        android:title="@string/listmenubelow150"/>
     
     <item
         android:id="@+id/listmenuveteran"
-        android:showAsAction="always"
-        android:title="Veterán"/>
+        compat:showAsAction="always"
+        android:title="@string/listmenuveteran"/>
+    
+    <item
+        android:id="@+id/listmenumodern"
+        compat:showAsAction="always"
+        android:title="@string/listmenumodern"/>
     
     <item
         android:id="@+id/listmenuwomen"
-        android:showAsAction="always"
-        android:title="Női"/>
+        compat:showAsAction="always"
+        android:title="@string/listmenuwomen"/>
+    
+    <item
+        android:id="@+id/listmenumen"
+        compat:showAsAction="always"
+        android:title="@string/listmenumen"/>
 
 </menu>

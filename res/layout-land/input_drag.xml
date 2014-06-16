@@ -11,7 +11,8 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="40dp"
         android:text="@string/data_number"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/black" />
 
     <TextView
         android:id="@+id/inputdragViewTime"
@@ -21,7 +22,8 @@
         android:layout_below="@+id/inputdragViewNumber"
         android:layout_marginTop="30dp"
         android:text="@string/data_time"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/black" />
 
     <EditText
         android:id="@+id/inputdragEditMS"
@@ -29,9 +31,10 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/inputdragViewTime"
         android:layout_alignBottom="@+id/inputdragViewTime"
-        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@+id/colon"
         android:ems="10"
-        android:inputType="number" />
+        android:inputType="number"
+        android:textColor="@color/black" />
 
     <EditText
         android:id="@+id/inputdragEditNumber"
@@ -39,21 +42,14 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/inputdragViewNumber"
         android:layout_alignBottom="@+id/inputdragViewNumber"
-        android:layout_alignParentRight="true"
+        android:layout_marginLeft="30dp"
+        android:layout_toRightOf="@+id/inputdragViewNumber"
         android:ems="10"
-        android:inputType="number" >
-        
+        android:inputType="number"
+        android:textColor="@color/black" >
+
         <requestFocus />
     </EditText>
-
-    <Button
-        android:id="@+id/inputdragbtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/inputdragCheckBox"
-        android:layout_below="@+id/inputdragCheckBox"
-        android:layout_marginTop="30dp"
-        android:text="@string/btn_save" />
 
     <EditText
         android:id="@+id/inputdragEditMP"
@@ -63,7 +59,8 @@
         android:layout_alignBottom="@+id/inputdragEditMS"
         android:layout_alignLeft="@+id/inputdragEditNumber"
         android:ems="10"
-        android:inputType="number" />
+        android:inputType="number"
+        android:textColor="@color/black" />
 
     <CheckBox
         android:id="@+id/inputdragCheckBox"
@@ -72,16 +69,29 @@
         android:layout_alignLeft="@+id/inputdragEditMP"
         android:layout_below="@+id/inputdragEditMP"
         android:layout_marginTop="30dp"
+        android:button="@drawable/checkboxselector"
         android:text="@string/data_round"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/black" />
 
     <TextView
         android:id="@+id/colon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/inputdragCheckBox"
-        android:layout_toLeftOf="@+id/inputdragEditMS"
+        android:layout_toRightOf="@+id/inputdragEditMP"
         android:text=":"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/black" />
+
+    <Button
+        android:id="@+id/inputdragbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/inputdragCheckBox"
+        android:layout_marginLeft="55dp"
+        android:layout_toRightOf="@+id/inputdragEditNumber"
+        android:text="@string/btn_save"
+        android:textColor="@color/black" />
 
 </RelativeLayout>

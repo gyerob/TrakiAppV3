@@ -8,6 +8,7 @@ import java.util.List;
 import jsonParser.JSONParser;
 
 import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -27,22 +28,39 @@ public class SlalomFragment extends ListFragment {
 	public static final String TITLE = "Szlalom";
 
 	private SlalomAdapter adapter;
-	ArrayList<Slalom> slalomList;
+	private ArrayList<Slalom> slalomList;
 
 	public ProgressDialog pDialog;
 
-	JSONParser jsonParser = new JSONParser();
+	private JSONParser jsonParser = new JSONParser();
 
 	private static String url_all_slalom = "http://gyerob.no-ip.biz/trakiweb/get_all_slalom.php";
 
 	private static final String TAG_SUCCESS = "success";
 	private static final String TAG_PRODUCTS = "slalom";
 
-	JSONArray trailers = null;
+	private JSONArray trailers = null;
+
+	private static int MODE = 0;
+
+	public static SlalomFragment newInstance(int mode) {
+		SlalomFragment slalom = new SlalomFragment();
+
+		Bundle args = new Bundle();
+		args.putInt("mode", mode);
+		slalom.setArguments(args);
+
+		return slalom;
+	}
 
 	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
+	public void onCreate(Bundle bundle) {
+		super.onCreate(bundle);
+
+		int mode = getArguments() != null ? getArguments().getInt("mode") : 0;
+		if (mode >=0 && mode <8) {
+			MODE = mode;
+		}
 
 		slalomList = new ArrayList<Slalom>();
 
@@ -70,32 +88,35 @@ public class SlalomFragment extends ListFragment {
 			pDialog.show();
 		}
 
-		/**
-		 * getting All products from url
-		 * */
 		protected String doInBackground(String... args) {
-			// Building Parameters
 			List<NameValuePair> params = new ArrayList<NameValuePair>();
-			// getting JSON string from URL
+			if (MODE == 2)
+				params.add(new BasicNameValuePair("type", "150le+"));
+			else if (MODE == 3)
+				params.add(new BasicNameValuePair("type", "150le-"));
+			else if (MODE == 4)
+				params.add(new BasicNameValuePair("type", "veteran"));
+			else if (MODE == 5)
+				params.add(new BasicNameValuePair("type", "modern"));
+			else if (MODE == 6)
+				params.add(new BasicNameValuePair("type", "women"));
+			else if (MODE == 7)
+				params.add(new BasicNameValuePair("type", "men"));
+
 			JSONObject json = jsonParser.makeHttpRequest(url_all_slalom, "GET",
 					params);
 
 			try {
-				// Checking for SUCCESS TAG
 				int success = json.getInt(TAG_SUCCESS);
 
 				if (success == 1) {
-					// products found
-					// Getting Array of Products
 					trailers = json.getJSONArray(TAG_PRODUCTS);
 
-					// looping through All Products
 					for (int i = 0; i < trailers.length(); i++) {
 						JSONObject c = trailers.getJSONObject(i);
 
 						Slalom slalom = new Slalom();
 
-						// Storing each json item in variable
 						slalom.setNumber(Integer.parseInt(c.getString("rajt")));
 						slalom.setName(c.getString("nev"));
 						slalom.setIdo(c.getString("ido"));

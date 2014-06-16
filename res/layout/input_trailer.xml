@@ -11,7 +11,8 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="40dp"
         android:text="@string/data_number"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/black" />
 
     <TextView
         android:id="@+id/inputtrailerViewTime"
@@ -21,7 +22,8 @@
         android:layout_below="@+id/inputtrailerViewNumber"
         android:layout_marginTop="30dp"
         android:text="@string/data_time"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/black" />
 
     <TextView
         android:id="@+id/inputtrailerViewError"
@@ -31,7 +33,8 @@
         android:layout_below="@+id/inputtrailerViewTime"
         android:layout_marginTop="30dp"
         android:text="@string/data_error"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/black" />
 
     <EditText
         android:id="@+id/inputtrailerEditError"
@@ -41,7 +44,8 @@
         android:layout_alignBottom="@+id/inputtrailerViewError"
         android:layout_alignParentRight="true"
         android:ems="10"
-        android:inputType="number" />
+        android:inputType="number"
+        android:textColor="@color/black" />
 
     <EditText
         android:id="@+id/inputtrailerEditMS"
@@ -51,7 +55,8 @@
         android:layout_alignBottom="@+id/inputtrailerViewTime"
         android:layout_alignParentRight="true"
         android:ems="10"
-        android:inputType="number|text" />
+        android:inputType="number|text"
+        android:textColor="@color/black" />
 
     <EditText
         android:id="@+id/inputtrailerEditNumber"
@@ -61,8 +66,9 @@
         android:layout_alignBottom="@+id/inputtrailerViewNumber"
         android:layout_alignParentRight="true"
         android:ems="10"
-        android:inputType="number" >
-        
+        android:inputType="number"
+        android:textColor="@color/black" >
+
         <requestFocus />
     </EditText>
 
@@ -73,7 +79,8 @@
         android:layout_alignLeft="@+id/inputtrailerEditError"
         android:layout_below="@+id/inputtrailerEditError"
         android:layout_marginTop="30dp"
-        android:text="@string/btn_save" />
+        android:text="@string/btn_save"
+        android:textColor="@color/black" />
 
     <EditText
         android:id="@+id/inputtrailerEditP"
@@ -83,7 +90,8 @@
         android:layout_alignBottom="@+id/inputtrailerEditMS"
         android:layout_alignLeft="@+id/inputtrailerEditError"
         android:ems="10"
-        android:inputType="number" />
+        android:inputType="number"
+        android:textColor="@color/black" />
 
     <EditText
         android:id="@+id/inputtrailerEditMP"
@@ -93,6 +101,7 @@
         android:layout_alignBottom="@+id/inputtrailerEditMS"
         android:layout_toLeftOf="@+id/inputtrailerEditMS"
         android:ems="10"
-        android:inputType="number" />
+        android:inputType="number"
+        android:textColor="@color/black" />
 
 </RelativeLayout>

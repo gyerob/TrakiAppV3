@@ -5,16 +5,6 @@
     android:layout_height="match_parent"
     tools:context=".FinalsDragActivity" >
     
-    <ImageView
-        android:id="@+id/bgportraitView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:scaleType="centerCrop"
-        android:src="@drawable/portrait_light"
-        tools:ignore="ContentDescription" />
-    
     <android.support.v4.view.ViewPager
         android:id="@+id/dragViewPager"
         android:layout_width="fill_parent"

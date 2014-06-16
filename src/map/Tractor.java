@@ -70,6 +70,10 @@ public class Tractor {
     private final int vertexStride = COORDS_PER_VERTEX * 4; // 4 bytes per vertex
 
     float color[] = { 1.0f, 0.0f, 0.0f, 0.0f };
+    
+    public void setColor(float szin[]) {
+    	color = szin;
+    }
 
     /**
      * Sets up the drawing object data for use in an OpenGL ES context.

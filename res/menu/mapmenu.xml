@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" xmlns:compat="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/mapfree"
+        compat:showAsAction="always"
+        android:title="@string/mapmenufree"/>
+    <item
+        android:id="@+id/mapa"
+        compat:showAsAction="always"
+        android:title="@string/mapmenua"/>
+    <item
+        android:id="@+id/mapb"
+        compat:showAsAction="always"
+        android:title="@string/mapmenub"/>
+    <item
+        android:id="@+id/mapstart"
+        compat:showAsAction="always"
+        android:title="@string/mapmenustart"/>
+
+</menu>

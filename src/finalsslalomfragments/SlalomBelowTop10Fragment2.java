@@ -29,8 +29,8 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 import data.SlalomTop;
 
-public class SlalomTop10Fragment2 extends ListFragment {
-	public static final String TITLE = "Helyezések";
+public class SlalomBelowTop10Fragment2 extends ListFragment {
+	public static final String TITLE = "Helyezések-";
 	
 	private SlalomTop10Adapter adapter;
 	private ArrayList<SlalomTop> racerList;
@@ -39,7 +39,7 @@ public class SlalomTop10Fragment2 extends ListFragment {
 
 	private JSONParser jParser = new JSONParser();
 
-	private static String url_all_slalom_top_results = "http://gyerob.no-ip.biz/trakiweb/get_all_slalom_top_results.php";
+	private static String url_all_slalom_top_results = "http://gyerob.no-ip.biz/trakiweb/get_all_slalom_b_top_results.php";
 
 	private static final String TAG_SUCCESS = "success";
 	private static final String TAG_PRODUCTS = "slalom";
@@ -53,6 +53,12 @@ public class SlalomTop10Fragment2 extends ListFragment {
 			Log.d("broadcast", "elkapva");
 			adapter.notifyDataSetChanged();
 		}
+	}
+	
+	public static SlalomBelowTop10Fragment2 newInstance() {
+		SlalomBelowTop10Fragment2 fragment = new SlalomBelowTop10Fragment2();
+		
+		return fragment;
 	}
 	
 	@Override
@@ -74,50 +80,36 @@ public class SlalomTop10Fragment2 extends ListFragment {
 	}
 	
 	class LoadAllRacer extends AsyncTask<String, String, String> {
-
 		boolean failed = false;
 
-		/**
-		 * Before starting background thread Show Progress Dialog
-		 * */
 		@Override
 		protected void onPreExecute() {
 			super.onPreExecute();
-			pDialog = new ProgressDialog(SlalomTop10Fragment2.this.getActivity());
+			pDialog = new ProgressDialog(SlalomBelowTop10Fragment2.this.getActivity());
 			pDialog.setMessage("Versenyzõk betöltése, kérlek várj...");
 			pDialog.setIndeterminate(false);
 			pDialog.setCancelable(false);
 			pDialog.show();
 		}
 
-		/**
-		 * getting All products from url
-		 * */
 		protected String doInBackground(String... args) {
-			// Building Parameters
 			List<NameValuePair> params = new ArrayList<NameValuePair>();
-			// getting JSON string from URL
 			JSONObject json = jParser.makeHttpRequest(url_all_slalom_top_results, "GET",
 					params);
 
 			try {
-				// Checking for SUCCESS TAG
 				int success = json.getInt(TAG_SUCCESS);
 
 				if (success == 1) {
-					// products found
-					// Getting Array of Products
 					racers = json.getJSONArray(TAG_PRODUCTS);
 					
 					racerList = new ArrayList<SlalomTop>();
 
-					// looping through All Products
 					for (int i = 0; i < racers.length(); i++) {
 						JSONObject c = racers.getJSONObject(i);
 
 						SlalomTop racer = new SlalomTop();
 
-						// Storing each json item in variable
 						racer.setNumber(Integer.parseInt(c.getString("rajt")));
 						racer.setName(c.getString("nev"));
 						racer.setPid(Integer.parseInt(c.getString("pid")));
@@ -141,7 +133,7 @@ public class SlalomTop10Fragment2 extends ListFragment {
 
 			if (failed) {
 				Toast.makeText(
-						SlalomTop10Fragment2.this.getActivity(),
+						SlalomBelowTop10Fragment2.this.getActivity(),
 						"Sikertelen lekérés, ellenõrizd az internetkapcsolatot",
 						Toast.LENGTH_LONG).show();
 			} else {

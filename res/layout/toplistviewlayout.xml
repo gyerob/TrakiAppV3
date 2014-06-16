@@ -9,19 +9,21 @@
         android:id="@+id/toplisttext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:text="@string/topname"
         android:textColor="@color/black" />
 
     <CheckBox
         android:id="@+id/toplistcheck1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:button="@drawable/checkboxselector"
         android:clickable="false" />
 
     <CheckBox
         android:id="@+id/toplistcheck2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:button="@drawable/checkboxselector"
         android:clickable="false" />
 
 </LinearLayout>

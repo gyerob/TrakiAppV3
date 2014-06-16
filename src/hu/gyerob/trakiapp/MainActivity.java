@@ -1,11 +1,13 @@
 package hu.gyerob.trakiapp;
 
-import android.annotation.SuppressLint;
-import android.app.ActionBar;
-import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.PorterDuff.Mode;
 import android.os.Bundle;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBar.Tab;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -13,15 +15,13 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
-public class MainActivity extends Activity {
+public class MainActivity extends ActionBarActivity implements ActionBar.TabListener{
 
 	private Button input;
 	private Button output;
 	private Button finals;
 	private Button gallery;
 	private Button map;
-	
-	private ActionBar actionbar;
 
 	private OnClickListener startlistener = new OnClickListener() {
 
@@ -54,16 +54,10 @@ public class MainActivity extends Activity {
 		}
 	};
 
-	@SuppressLint("NewApi")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		
-		if (android.os.Build.VERSION.SDK_INT >= 11) {
-			actionbar = getActionBar();
-			actionbar.setHomeButtonEnabled(true);
-		}
 
 		input = (Button) findViewById(R.id.btnIn);
 		output = (Button) findViewById(R.id.btnOut);
@@ -71,7 +65,7 @@ public class MainActivity extends Activity {
 		gallery = (Button) findViewById(R.id.btnGallery);
 		map = (Button) findViewById(R.id.btnMap);
 
-		input.getBackground().setColorFilter(0xFF00FF00, Mode.MULTIPLY);
+		input.getBackground().setColorFilter(Color.YELLOW, Mode.MULTIPLY);
 		output.getBackground().setColorFilter(0xFF00FF00, Mode.MULTIPLY);
 		finals.getBackground().setColorFilter(0xFF00FF00, Mode.MULTIPLY);
 		gallery.getBackground().setColorFilter(0xFF00FF00, Mode.MULTIPLY);
@@ -82,7 +76,6 @@ public class MainActivity extends Activity {
 		finals.setOnClickListener(startlistener);
 		gallery.setOnClickListener(startlistener);
 		map.setOnClickListener(startlistener);
-
 	}
 
 	@Override
@@ -101,5 +94,23 @@ public class MainActivity extends Activity {
 			startActivity(settingsActivity);
 		}
 		return super.onOptionsItemSelected(item);
+	}
+
+	@Override
+	public void onTabReselected(Tab arg0, FragmentTransaction arg1) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onTabSelected(Tab arg0, FragmentTransaction arg1) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onTabUnselected(Tab arg0, FragmentTransaction arg1) {
+		// TODO Auto-generated method stub
+		
 	}
 }

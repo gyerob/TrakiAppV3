@@ -28,12 +28,10 @@ public class RacerFragment extends Fragment {
 
 	public static final String TITLE = "Versenyzõk";
 
-	// url to create new product
 	private static String url_create_racer = "http://gyerob.no-ip.biz/trakiweb/create_racer.php";
 	private static String url_delete_racer = "http://gyerob.no-ip.biz/trakiweb/delete_racer.php";
 	private static String url_update_racer = "http://gyerob.no-ip.biz/trakiweb/update_racer.php";
 
-	// Progress Dialog
 	private ProgressDialog pDialog;
 
 	private JSONParser jsonParser = new JSONParser();
@@ -48,6 +46,7 @@ public class RacerFragment extends Fragment {
 	private CheckBox trailer;
 	private CheckBox slalom;
 	private CheckBox drag;
+	private CheckBox hp;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -65,6 +64,7 @@ public class RacerFragment extends Fragment {
 		trailer = (CheckBox) v.findViewById(R.id.inputracerTrailer);
 		slalom = (CheckBox) v.findViewById(R.id.inputracerSlalom);
 		drag = (CheckBox) v.findViewById(R.id.inputracerDrag);
+		hp = (CheckBox) v.findViewById(R.id.inputracer150le);
 
 		save.setOnClickListener(savemethod);
 		update.setOnClickListener(updatemethod);
@@ -116,18 +116,19 @@ public class RacerFragment extends Fragment {
 			pDialog.show();
 		}
 
-		/**
-		 * Creating product
-		 * */
 		protected String doInBackground(String... args) {
 			String nev = name.getText().toString();
 			String rajt = number.getText().toString();
 			String varos = town.getText().toString();
-			String nem, potk, szlalom, gyors;
+			String nem, potk, szlalom, gyors, le;
 			if (sex.isChecked())
 				nem = "true";
 			else
 				nem = "false";
+			if (hp.isChecked())
+				le = "true";
+			else
+				le = "false";
 			if (trailer.isChecked())
 				potk = "true";
 			else
@@ -141,32 +142,25 @@ public class RacerFragment extends Fragment {
 			else
 				gyors = "false";
 
-			// Building Parameters
 			List<NameValuePair> params = new ArrayList<NameValuePair>();
 			params.add(new BasicNameValuePair("name", nev));
 			params.add(new BasicNameValuePair("number", rajt));
 			params.add(new BasicNameValuePair("town", varos));
 			params.add(new BasicNameValuePair("sex", nem));
+			params.add(new BasicNameValuePair("hp", le));
 			params.add(new BasicNameValuePair("trailer", potk));
 			params.add(new BasicNameValuePair("slalom", szlalom));
 			params.add(new BasicNameValuePair("drag", gyors));
 
-			// getting JSON Object
-			// Note that create product url accepts POST method
 			JSONObject json = jsonParser.makeHttpRequest(url_create_racer,
 					"POST", params);
 
-			// check log cat fro response
 			Log.d("Create Response", json.toString());
 
 			return null;
 		}
 
-		/**
-		 * After completing background task Dismiss the progress dialog
-		 * **/
 		protected void onPostExecute(String file_url) {
-			// dismiss the dialog once done
 			pDialog.dismiss();
 
 			name.setText("");
@@ -243,11 +237,15 @@ public class RacerFragment extends Fragment {
 			String nev = name.getText().toString();
 			String rajt = number.getText().toString();
 			String varos = town.getText().toString();
-			String nem, potk, szlalom, gyors;
+			String nem, potk, szlalom, gyors, le;
 			if (sex.isChecked())
 				nem = "true";
 			else
 				nem = "false";
+			if (hp.isChecked())
+				le = "true";
+			else
+				le = "false";
 			if (trailer.isChecked())
 				potk = "true";
 			else
@@ -268,6 +266,7 @@ public class RacerFragment extends Fragment {
 			params.add(new BasicNameValuePair("number", rajt));
 			params.add(new BasicNameValuePair("town", varos));
 			params.add(new BasicNameValuePair("sex", nem));
+			params.add(new BasicNameValuePair("hp", le));
 			params.add(new BasicNameValuePair("trailer", potk));
 			params.add(new BasicNameValuePair("slalom", szlalom));
 			params.add(new BasicNameValuePair("drag", gyors));

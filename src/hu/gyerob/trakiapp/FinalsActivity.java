@@ -8,24 +8,26 @@ import jsonParser.JSONParser;
 import org.apache.http.NameValuePair;
 import org.json.JSONObject;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
-public class FinalsActivity extends Activity {
+public class FinalsActivity extends ActionBarActivity {
 
 	private Button drag;
 	private Button slalom;
 	private Button slalomlock;
 	private Button draglock;
-	
+
 	private static String url_lock_slalom = "http://gyerob.no-ip.biz/trakiweb/create_slalom_top.php";
+	//private static String url_lock_slalom_a = "http://gyerob.no-ip.biz/trakiweb/create_slalom_a_top.php";
+	//private static String url_lock_slalom_b = "http://gyerob.no-ip.biz/trakiweb/create_slalom_b_top.php";
 	private static String url_lock_drag = "http://gyerob.no-ip.biz/trakiweb/create_drag_top.php";
 
 	private ProgressDialog pDialog;
@@ -95,21 +97,24 @@ public class FinalsActivity extends Activity {
 
 		@Override
 		protected String doInBackground(String... param) {
-			// Building Parameters
 			List<NameValuePair> params = new ArrayList<NameValuePair>();
-
-			// getting JSON Object
-			// Note that create product url accepts POST method
-			JSONObject json = jsonParser.makeHttpRequest(url_lock_slalom,
+/*
+			JSONObject json = jsonParser.makeHttpRequest(url_lock_slalom_a,
+					"POST", params);
+			Log.d("Create Response", json.toString());
+			
+			json = jsonParser.makeHttpRequest(url_lock_slalom_b,
 					"POST", params);
 
-			// check log cat fro response
+			Log.d("Create Response", json.toString());*/
+			
+			JSONObject json = jsonParser.makeHttpRequest(url_lock_slalom,
+					"POST", params);
 			Log.d("Create Response", json.toString());
 			return null;
 		}
 
 		protected void onPostExecute(String file_url) {
-			// dismiss the dialog once done
 			pDialog.dismiss();
 		}
 	}
@@ -128,21 +133,16 @@ public class FinalsActivity extends Activity {
 
 		@Override
 		protected String doInBackground(String... param) {
-			// Building Parameters
 			List<NameValuePair> params = new ArrayList<NameValuePair>();
 
-			// getting JSON Object
-			// Note that create product url accepts POST method
 			JSONObject json = jsonParser.makeHttpRequest(url_lock_drag,
 					"POST", params);
 
-			// check log cat fro response
 			Log.d("Create Response", json.toString());
 			return null;
 		}
 
 		protected void onPostExecute(String file_url) {
-			// dismiss the dialog once done
 			pDialog.dismiss();
 		}
 	}

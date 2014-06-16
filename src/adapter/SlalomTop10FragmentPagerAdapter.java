@@ -3,42 +3,61 @@ package adapter;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import finalsslalomfragments.SlalomTop10Fragment1;
-import finalsslalomfragments.SlalomTop10Fragment2;
+import finalsslalomfragments.SlalomAboveTop10Fragment1;
+import finalsslalomfragments.SlalomAboveTop10Fragment2;
+import finalsslalomfragments.SlalomBelowTop10Fragment1;
+import finalsslalomfragments.SlalomBelowTop10Fragment2;
 
 public class SlalomTop10FragmentPagerAdapter extends FragmentPagerAdapter {
-	
-	private SlalomTop10Fragment1 f1;
-	private SlalomTop10Fragment2 f2;
+	private int MODE = 0;
 
 	public SlalomTop10FragmentPagerAdapter(FragmentManager fm) {
 		super(fm);
-		f1 = new SlalomTop10Fragment1();
-		f2 = new SlalomTop10Fragment2();
+	}
+
+	public void setMode(int mode) {
+		MODE = mode;
 	}
 
 	@Override
 	public Fragment getItem(int pos) {
-		switch(pos) {
-			case 0:
-				return f1;
-			case 1:
-				return f2;
-			default:
-				return null;
+		switch (pos) {
+		case 0:
+			if (MODE == 0)
+				return SlalomAboveTop10Fragment1.newInstance();
+			else
+				return SlalomBelowTop10Fragment1.newInstance();
+		case 1:
+			if (MODE == 0)
+				return SlalomAboveTop10Fragment2.newInstance();
+			else
+				return SlalomBelowTop10Fragment2.newInstance();
+		default:
+			return null;
 		}
 	}
-	
+
 	@Override
 	public CharSequence getPageTitle(int pos) {
 		switch (pos) {
-			case 0:
-				return SlalomTop10Fragment1.TITLE;
-			case 1:
-				return SlalomTop10Fragment2.TITLE;
-			default:
-				return null;
+		case 0:
+			if (MODE == 0)
+				return SlalomAboveTop10Fragment1.TITLE;
+			else
+				return SlalomBelowTop10Fragment1.TITLE;
+		case 1:
+			if (MODE == 1)
+				return SlalomAboveTop10Fragment2.TITLE;
+			else
+				return SlalomBelowTop10Fragment2.TITLE;
+		default:
+			return null;
 		}
+	}
+
+	@Override
+	public int getItemPosition(Object object) {
+		return POSITION_NONE;
 	}
 
 	@Override

@@ -3,17 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/palegreen"
     tools:context=".FinalsSlalomActivity" >
-    
-    <ImageView
-        android:id="@+id/bgportraitView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:scaleType="centerCrop"
-        android:src="@drawable/portrait_light"
-        tools:ignore="ContentDescription" />
     
     <android.support.v4.view.ViewPager
         android:id="@+id/slalomViewPager"
@@ -23,8 +14,6 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true" >
-
-        <!-- PagerTitleStrip is lehet -->
 
         <android.support.v4.view.PagerTabStrip
             android:id="@+id/inputPagerTabStrip"

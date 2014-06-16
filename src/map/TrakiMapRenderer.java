@@ -56,7 +56,8 @@ public class TrakiMapRenderer implements GLSurfaceView.Renderer {
 	//private Line line;
 	private NewLine line;
 	
-	private Tractor tractor;
+	private Tractor tractorA;
+	private Tractor tractorB;
 	
 	private PlaneShaderProgram planeprogram;
 	private Plane plane;
@@ -74,6 +75,11 @@ public class TrakiMapRenderer implements GLSurfaceView.Renderer {
 	private float trakiangle;
 	
 	private boolean birdview;
+	private boolean trakiA = false;
+	private boolean trakiB = false;
+	
+	private Thread t;
+	private boolean running = false;
 	
 	private float[] obstacles = {
 			//bálák
@@ -179,14 +185,41 @@ public class TrakiMapRenderer implements GLSurfaceView.Renderer {
 		
 		updateview();
 	}
+	
+	public void settrakiview(boolean a, boolean b) {
+		if (!a && !b) {
+			if (trakiA) {
+				xpos = -trakix;
+				zpos = -trakiz;
+			} else if (trakiB) {
+				xpos = -trakix;
+				zpos = trakiz;
+			}
+		}
+		trakiA = a;
+		trakiB = b;
+		updateview();
+	}
+	
+	public void start() {
+		Log.d("isalaive", Boolean.toString(t.isAlive()));
+		if(!t.isAlive()) {
+			if (!running) initThread();
+			t.start();
+		}
+	}
 
 	private void updateview() {
 		setIdentityM(viewMatrix, 0);
 
 		if (birdview) {
 			rotateM(viewMatrix, 0, 90, 1f, 0f, 0f);
-			//translateM(viewMatrix, 0, xpos, -50.5f, zpos);
-			translateM(viewMatrix, 0, -trakix, -50.5f, -trakiz);
+			if (!trakiA && !trakiB) 
+				translateM(viewMatrix, 0, xpos, -50.5f, zpos);
+			else if (trakiA)
+				translateM(viewMatrix, 0, -trakix, -50.5f, -trakiz);
+			else if (trakiB)
+				translateM(viewMatrix, 0, -trakix, -50.5f, trakiz);
 		}
 		else {
 			rotateM(viewMatrix, 0, angle, 0f, 1f, 0f);
@@ -228,52 +261,53 @@ public class TrakiMapRenderer implements GLSurfaceView.Renderer {
 				modelViewMatrix, 0);
 	}
 	
-	private Thread t = new Thread(new Runnable() {
-		@Override
-		public void run() {
-			float x, y, deltax = 0, deltay = 0, d;
-			int i, k;
-			int j;
-			j = 0;
-			i  = k = 0;
-			
-			while (i < (track.length / 2) - 1) {
-				if (j == 0) {
-					x = track[k+2] - track[k];
-					y = track[k+3] - track[k+1];
+	private void initThread() {
+		t = new Thread(new Runnable() {
+			@Override
+			public void run() {
+				running = true;
+				float x, y, deltax = 0, deltay = 0, d;
+				int i, k;
+				int j;
+				j = 0;
+				i  = k = 0;
+				
+				while (i < (track.length / 2) - 1) {
+					if (j == 0) {
+						x = track[k+2] - track[k];
+						y = track[k+3] - track[k+1];
+						
+						deltax = x / 100f;
+						if (deltax >= 0f ) deltay = y / 100f; 
+						else deltay = y / (-100f); 
+						
+						trakiangle = (float) Math.atan(y/x);
+						trakiangle *= 180 / Math.PI;
+						
+						if (i>14) trakiangle = -180 + trakiangle;
+					} else if (j == 100) {
+						j = -1;
+						k += 2;
+						i++;
+					}
+					if (deltax >= 0f ) trakiz += deltay;
+					else trakiz -= deltay;
+					trakix += deltax;
 					
-					deltax = x / 100f;
-					if (deltax >= 0f ) deltay = y / 100f; 
-					else deltay = y / (-100f); 
-					Log.d("delták", "delta: " + deltax + " deltay: " + deltay);
+					d = Math.round(trakix * 100);
+					d = d / 100;
+					trakix = d;
 					
-					trakiangle = (float) Math.atan(y/x);
-					trakiangle *= 180 / Math.PI;
+					j++;
 					
-					if (i>14) trakiangle = -180 + trakiangle;
-				} else if (j == 100) {
-					Log.d("j=delta", "Elérte");
-					j = -1;
-					k += 2;
-					i++;
+					updateview();
+					SystemClock.sleep(10);
 				}
-				if (deltax >= 0f ) trakiz += deltay;
-				else trakiz -= deltay;
-				trakix += deltax;
-				
-				d = Math.round(trakix * 100);
-				d = d / 100;
-				trakix = d;
-				
-				j++;
-				//Log.d("j", "j: " + j);
-				
-				updateview();
-				SystemClock.sleep(10);
+				running = false;
 			}
-		}
-	});
-	
+		});
+	}
+		
 	@Override
 	public void onSurfaceChanged(GL10 gl, int width, int height) {
 		glViewport(0, 0, width, height);
@@ -309,7 +343,10 @@ public class TrakiMapRenderer implements GLSurfaceView.Renderer {
 		buoy = new Buoy();
 		
 		line = new NewLine();
-		tractor = new Tractor();
+		tractorA = new Tractor();
+		tractorB = new Tractor();
+		float szin[] = {0.0f, 0.0f, 1.0f, 0.0f};
+		tractorB.setColor(szin);
 		
 		planeprogram = new PlaneShaderProgram(context);
 		plane = new Plane();
@@ -321,9 +358,9 @@ public class TrakiMapRenderer implements GLSurfaceView.Renderer {
 		baletexture = TextureHelper.loadTexture(context, R.drawable.balaside);
 		buoytexture = TextureHelper.loadTexture(context, R.drawable.buoy);
 		
-		updateview();
+		initThread();
 		
-		t.start();
+		updateview();
 	}
 
 	@Override
@@ -373,7 +410,7 @@ public class TrakiMapRenderer implements GLSurfaceView.Renderer {
 		rotateM(modelMatrix, 0, -trakiangle, 0f, 1f, 0f);
 		updateMvpMatrix();
 
-		tractor.draw(modelViewProjectionMatrix);
+		tractorA.draw(modelViewProjectionMatrix);
 		
 		
 		setIdentityM(modelMatrix, 0);
@@ -381,7 +418,7 @@ public class TrakiMapRenderer implements GLSurfaceView.Renderer {
 		rotateM(modelMatrix, 0, trakiangle, 0f, 1f, 0f);
 		updateMvpMatrix();
 
-		tractor.draw(modelViewProjectionMatrix);
+		tractorB.draw(modelViewProjectionMatrix);
 	}
 	
 	private void drawLine() {

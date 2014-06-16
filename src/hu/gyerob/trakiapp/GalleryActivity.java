@@ -25,9 +25,9 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Base64;
 import android.util.Log;
 import android.view.Menu;
@@ -35,7 +35,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-public class GalleryActivity extends FragmentActivity {
+public class GalleryActivity extends ActionBarActivity {
 
 	// private static final int SELECT_PHOTO = 100;
 	private static String url_upload_img = "http://gyerob.no-ip.biz/trakiweb/img_up.php";

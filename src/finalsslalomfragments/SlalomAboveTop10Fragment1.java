@@ -28,12 +28,12 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 import data.SlalomTop;
 
-public class SlalomTop10Fragment1 extends Fragment implements IListViewUpdate {
-	public static final String TITLE = "Lépcsõk";
+public class SlalomAboveTop10Fragment1 extends Fragment implements IListViewUpdate {
+	public static final String TITLE = "Lépcsõk+";
 
-	private static String url_get_slalom_top = "http://gyerob.no-ip.biz/trakiweb/get_all_slalom_top.php";
-	private static String url_update_slalom_top = "http://gyerob.no-ip.biz/trakiweb/update_slalom_top.php";
-	private static String url_update_next_slalom_top = "http://gyerob.no-ip.biz/trakiweb/update_next_slalom_top.php";
+	private static String url_get_slalom_top = "http://gyerob.no-ip.biz/trakiweb/get_all_slalom_a_top.php";
+	private static String url_update_slalom_top = "http://gyerob.no-ip.biz/trakiweb/update_slalom_a_top.php";
+	private static String url_update_next_slalom_top = "http://gyerob.no-ip.biz/trakiweb/update_next_slalom_a_top.php";
 
 	private static final String TAG_SUCCESS = "success";
 	private static final String TAG_PRODUCTS = "racers";
@@ -74,6 +74,12 @@ public class SlalomTop10Fragment1 extends Fragment implements IListViewUpdate {
 	ToplistView tvRound44;
 
 	ArrayList<ToplistView> topracers;
+	
+	public static SlalomAboveTop10Fragment1 newInstance() {
+		SlalomAboveTop10Fragment1 fragment = new SlalomAboveTop10Fragment1();
+		
+		return fragment;
+	}
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -181,7 +187,7 @@ public class SlalomTop10Fragment1 extends Fragment implements IListViewUpdate {
 		protected void onPreExecute() {
 			super.onPreExecute();
 			pDialog = new ProgressDialog(
-					SlalomTop10Fragment1.this.getActivity());
+					SlalomAboveTop10Fragment1.this.getActivity());
 			pDialog.setMessage("Versenyzõ eltárolása..");
 			pDialog.setIndeterminate(false);
 			pDialog.setCancelable(true);
@@ -203,12 +209,9 @@ public class SlalomTop10Fragment1 extends Fragment implements IListViewUpdate {
 					param[0].getName() + " " + param[0].getNumber() + " "
 							+ param[0].getWin() + " " + param[0].getRound());
 
-			// getting JSON Object
-			// Note that create product url accepts POST method
 			JSONObject json = jsonParser.makeHttpRequest(url_update_slalom_top,
 					"POST", params);
 
-			// check log cat fro response
 			Log.d("Create Response", json.toString());
 
 			if (param[0].getWin() == 2) {
@@ -317,7 +320,6 @@ public class SlalomTop10Fragment1 extends Fragment implements IListViewUpdate {
 		}
 
 		protected void onPostExecute(ToplistView nev) {
-			// dismiss the dialog once done
 			pDialog.dismiss();
 			if (nev.getWin() == 2) {
 				if (nev.getRound() == 1) {
@@ -389,7 +391,7 @@ public class SlalomTop10Fragment1 extends Fragment implements IListViewUpdate {
 		protected void onPreExecute() {
 			super.onPreExecute();
 			pDialog = new ProgressDialog(
-					SlalomTop10Fragment1.this.getActivity());
+					SlalomAboveTop10Fragment1.this.getActivity());
 			pDialog.setMessage("Versenyzõ frissítése..");
 			pDialog.setIndeterminate(false);
 			pDialog.setCancelable(true);
@@ -398,29 +400,22 @@ public class SlalomTop10Fragment1 extends Fragment implements IListViewUpdate {
 
 		@Override
 		protected String doInBackground(String... param) {
-			// Building Parameters
 			List<NameValuePair> params = new ArrayList<NameValuePair>();
-			// getting JSON string from URL
 			JSONObject json = jsonParser.makeHttpRequest(url_get_slalom_top,
 					"GET", params);
 
 			try {
-				// Checking for SUCCESS TAG
 				int success = json.getInt(TAG_SUCCESS);
 
 				if (success == 1) {
-					// products found
-					// Getting Array of Products
 					racers = json.getJSONArray(TAG_PRODUCTS);
 
 					Log.d("racers hossza:", Integer.toString(racers.length()));
-					// looping through All Products
 					for (int i = 0; i < racers.length(); i++) {
 						JSONObject c = racers.getJSONObject(i);
 
 						SlalomTop racer = new SlalomTop();
 
-						// Storing each json item in variable
 						racer.setNumber(Integer.parseInt(c.getString("rajt")));
 						racer.setName(c.getString("nev"));
 						racer.setWon(Integer.parseInt(c.getString("nyert")));
@@ -452,7 +447,7 @@ public class SlalomTop10Fragment1 extends Fragment implements IListViewUpdate {
 
 			if (failed) {
 				Toast.makeText(
-						SlalomTop10Fragment1.this.getActivity(),
+						SlalomAboveTop10Fragment1.this.getActivity(),
 						"Sikertelen lekérés\n, ellenõrizd az internetkapcsolatot.",
 						Toast.LENGTH_LONG).show();
 			} else {

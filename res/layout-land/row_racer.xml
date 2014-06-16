@@ -32,6 +32,7 @@
         android:layout_centerVertical="true"
         android:layout_marginLeft="20dp"
         android:layout_toRightOf="@+id/row_racerNumber"
+        android:button="@drawable/checkboxselector"
         android:clickable="false" />
 
     <TextView
@@ -51,6 +52,7 @@
         android:layout_centerVertical="true"
         android:layout_marginLeft="20dp"
         android:layout_toRightOf="@+id/row_racerTown"
+        android:button="@drawable/checkboxselector"
         android:clickable="false" />
 
     <CheckBox
@@ -60,6 +62,7 @@
         android:layout_centerVertical="true"
         android:layout_marginLeft="20dp"
         android:layout_toRightOf="@+id/row_racerTrailer"
+        android:button="@drawable/checkboxselector"
         android:clickable="false" />
 
     <CheckBox
@@ -69,6 +72,7 @@
         android:layout_centerVertical="true"
         android:layout_marginLeft="20dp"
         android:layout_toRightOf="@+id/row_racerSlalom"
+        android:button="@drawable/checkboxselector"
         android:clickable="false" />
 
 </RelativeLayout>

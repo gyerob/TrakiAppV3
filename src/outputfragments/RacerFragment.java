@@ -40,13 +40,19 @@ public class RacerFragment extends ListFragment {
 
 	private JSONArray racers = null;
 
+	public static RacerFragment newInstance(int mode) {
+		RacerFragment racer = new RacerFragment();
+
+		return racer;
+	}
+
 	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
+	public void onCreate(Bundle bundle) {
+		super.onCreate(bundle);
 
 		racerList = new ArrayList<Racer>();
 
-		new LoadAllRacer(false).execute();
+		new LoadAllRacer().execute();
 	}
 
 	@Override
@@ -59,15 +65,7 @@ public class RacerFragment extends ListFragment {
 	class LoadAllRacer extends AsyncTask<String, String, String> {
 
 		boolean failed = false;
-		boolean update = false;
 
-		public LoadAllRacer(boolean up) {
-			this.update = up;
-		}
-
-		/**
-		 * Before starting background thread Show Progress Dialog
-		 * */
 		@Override
 		protected void onPreExecute() {
 			super.onPreExecute();
@@ -78,32 +76,22 @@ public class RacerFragment extends ListFragment {
 			pDialog.show();
 		}
 
-		/**
-		 * getting All products from url
-		 * */
 		protected String doInBackground(String... args) {
-			// Building Parameters
 			List<NameValuePair> params = new ArrayList<NameValuePair>();
-			// getting JSON string from URL
 			JSONObject json = jsonParser.makeHttpRequest(url_all_racer, "GET",
 					params);
 
 			try {
-				// Checking for SUCCESS TAG
 				int success = json.getInt(TAG_SUCCESS);
 
 				if (success == 1) {
-					// products found
-					// Getting Array of Products
 					racers = json.getJSONArray(TAG_PRODUCTS);
 
-					// looping through All Products
 					for (int i = 0; i < racers.length(); i++) {
 						JSONObject c = racers.getJSONObject(i);
 
 						Racer racer = new Racer();
 
-						// Storing each json item in variable
 						racer.setNumber(Integer.parseInt(c.getString("rajt")));
 						racer.setName(c.getString("nev"));
 						racer.setTown(c.getString("varos"));
@@ -140,8 +128,6 @@ public class RacerFragment extends ListFragment {
 			} else {
 				adapter = new RacerAdapter(racerList);
 				setListAdapter(adapter);
-				if (update)
-					adapter.notifyDataSetChanged();
 			}
 		}
 	}

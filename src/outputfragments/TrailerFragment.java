@@ -8,6 +8,7 @@ import java.util.List;
 import jsonParser.JSONParser;
 
 import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -17,6 +18,7 @@ import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,26 +29,45 @@ public class TrailerFragment extends ListFragment {
 	public static final String TITLE = "Pótkocsis";
 
 	private TrailerAdapter adapter;
-	ArrayList<Trailer> trailerList;
+	private ArrayList<Trailer> trailerList;
 
 	public ProgressDialog pDialog;
 
-	JSONParser jParser = new JSONParser();
+	private JSONParser jParser = new JSONParser();
 
 	private static String url_all_trailer = "http://gyerob.no-ip.biz/trakiweb/get_all_trailer.php";
 
 	private static final String TAG_SUCCESS = "success";
 	private static final String TAG_PRODUCTS = "trailer";
 
-	JSONArray trailers = null;
+	private JSONArray trailers = null;
+
+	private static int MODE = 0;
+
+	public static TrailerFragment newInstance(int mode) {
+		TrailerFragment trailer = new TrailerFragment();
+
+		Bundle args = new Bundle();
+		args.putInt("mode", mode);
+		trailer.setArguments(args);
+
+		return trailer;
+	}
 
 	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
+	public void onCreate(Bundle bundle) {
+		super.onCreate(bundle);
+
+		int mode = getArguments() != null ? getArguments().getInt("mode") : 0;
+		if (mode == 1 || mode == 4 || mode == 5) {
+			MODE = mode;
+		}
+
+		Log.d("módok", "mode: " + mode + " MODE: " + MODE);
 
 		trailerList = new ArrayList<Trailer>();
 
-		new LoadAllTrailer(false).execute();
+		new LoadAllTrailer().execute();
 	}
 
 	@Override
@@ -59,11 +80,6 @@ public class TrailerFragment extends ListFragment {
 	class LoadAllTrailer extends AsyncTask<String, String, String> {
 
 		boolean failed = false;
-		boolean update = false;
-		
-		public LoadAllTrailer(boolean up) {
-			this.update = up;
-		}
 
 		@Override
 		protected void onPreExecute() {
@@ -75,32 +91,27 @@ public class TrailerFragment extends ListFragment {
 			pDialog.show();
 		}
 
-		/**
-		 * getting All products from url
-		 * */
 		protected String doInBackground(String... args) {
-			// Building Parameters
 			List<NameValuePair> params = new ArrayList<NameValuePair>();
-			// getting JSON string from URL
+			if (MODE == 4)
+				params.add(new BasicNameValuePair("type", "veteran"));
+			else if (MODE == 5)
+				params.add(new BasicNameValuePair("type", "modern"));
+
 			JSONObject json = jParser.makeHttpRequest(url_all_trailer, "GET",
 					params);
 
 			try {
-				// Checking for SUCCESS TAG
 				int success = json.getInt(TAG_SUCCESS);
 
 				if (success == 1) {
-					// products found
-					// Getting Array of Products
 					trailers = json.getJSONArray(TAG_PRODUCTS);
 
-					// looping through All Products
 					for (int i = 0; i < trailers.length(); i++) {
 						JSONObject c = trailers.getJSONObject(i);
 
 						Trailer trailer = new Trailer();
 
-						// Storing each json item in variable
 						trailer.setNumber(Integer.parseInt(c.getString("rajt")));
 						trailer.setName(c.getString("nev"));
 						trailer.setIdo(c.getString("ido"));
@@ -132,7 +143,6 @@ public class TrailerFragment extends ListFragment {
 			} else {
 				adapter = new TrailerAdapter(trailerList);
 				setListAdapter(adapter);
-				if(update) adapter.notifyDataSetChanged();
 			}
 		}
 	}
