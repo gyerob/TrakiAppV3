@@ -1,12 +1,7 @@
 package hu.gyerob.trakiapp;
 
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.PorterDuff.Mode;
 import android.os.Bundle;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBar.Tab;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -15,7 +10,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
-public class MainActivity extends ActionBarActivity implements ActionBar.TabListener{
+public class MainActivity extends ActionBarActivity {
 
 	private Button input;
 	private Button output;
@@ -65,12 +60,6 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
 		gallery = (Button) findViewById(R.id.btnGallery);
 		map = (Button) findViewById(R.id.btnMap);
 
-		input.getBackground().setColorFilter(Color.YELLOW, Mode.MULTIPLY);
-		output.getBackground().setColorFilter(0xFF00FF00, Mode.MULTIPLY);
-		finals.getBackground().setColorFilter(0xFF00FF00, Mode.MULTIPLY);
-		gallery.getBackground().setColorFilter(0xFF00FF00, Mode.MULTIPLY);
-		map.getBackground().setColorFilter(0xFF00FF00, Mode.MULTIPLY);
-
 		input.setOnClickListener(startlistener);
 		output.setOnClickListener(startlistener);
 		finals.setOnClickListener(startlistener);
@@ -94,23 +83,5 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
 			startActivity(settingsActivity);
 		}
 		return super.onOptionsItemSelected(item);
-	}
-
-	@Override
-	public void onTabReselected(Tab arg0, FragmentTransaction arg1) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void onTabSelected(Tab arg0, FragmentTransaction arg1) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void onTabUnselected(Tab arg0, FragmentTransaction arg1) {
-		// TODO Auto-generated method stub
-		
 	}
 }

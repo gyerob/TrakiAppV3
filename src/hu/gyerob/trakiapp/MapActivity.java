@@ -14,6 +14,8 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.MotionEvent;
+import android.view.ScaleGestureDetector;
+import android.view.ScaleGestureDetector.SimpleOnScaleGestureListener;
 import android.view.View;
 import android.view.View.OnKeyListener;
 import android.view.View.OnTouchListener;
@@ -24,6 +26,8 @@ public class MapActivity extends ActionBarActivity {
 	private GLSurfaceView felulet;
 	private boolean rendererset;
 	private TrakiMapRenderer mapRenderer;
+	private float scale = 1f;
+	private ScaleGestureDetector sgd;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -113,38 +117,52 @@ public class MapActivity extends ActionBarActivity {
 			}
 		});
 
+		sgd = new ScaleGestureDetector(this, new ScaleListener());
+
 		felulet.setOnTouchListener(new OnTouchListener() {
 			float previousX, previousY;
-
+			float deltaX, deltaY;
 			@Override
 			public boolean onTouch(View v, MotionEvent event) {
-				if (event != null) {
-					if (event.getAction() == MotionEvent.ACTION_DOWN) {
-						previousX = event.getX();
-						previousY = event.getY();
-					} else if (event.getAction() == MotionEvent.ACTION_MOVE) {
-						final float deltaX = event.getX() - previousX;
-						final float deltaY = event.getY() - previousY;
+				sgd.onTouchEvent(event);
 
-						previousX = event.getX();
-						previousY = event.getY();
-
-						felulet.queueEvent(new Runnable() {
-							@Override
-							public void run() {
-								mapRenderer.handledrag(deltaX, deltaY);
-							}
-						});
+				if (event.getAction() == MotionEvent.ACTION_DOWN) {
+					previousX = event.getX();
+					previousY = event.getY();
+				} else if (event.getAction() == MotionEvent.ACTION_MOVE) {
+					if (!sgd.isInProgress()) {
+						deltaX = event.getX() - previousX;
+						deltaY = event.getY() - previousY;
 					}
 
-					return true;
-				} else {
-					return false;
+					previousX = event.getX();
+					previousY = event.getY();
+
+					felulet.queueEvent(new Runnable() {
+						@Override
+						public void run() {
+							mapRenderer.handledrag(deltaX, deltaY);
+							mapRenderer.setZoom(scale);
+						}
+					});
 				}
+
+				return true;
 			}
+
 		});
 
 		setContentView(felulet);
+	}
+
+	private class ScaleListener extends SimpleOnScaleGestureListener {
+
+		@Override
+		public boolean onScale(ScaleGestureDetector detector) {
+			scale *= detector.getScaleFactor();
+			scale = Math.max(0.1f, Math.min(scale, 5.0f));
+			return true;
+		}
 	}
 
 	@Override

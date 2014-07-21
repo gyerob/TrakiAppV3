@@ -28,9 +28,9 @@ public class RacerFragment extends Fragment {
 
 	public static final String TITLE = "Versenyzõk";
 
-	private static String url_create_racer = "http://gyerob.no-ip.biz/trakiweb/create_racer.php";
-	private static String url_delete_racer = "http://gyerob.no-ip.biz/trakiweb/delete_racer.php";
-	private static String url_update_racer = "http://gyerob.no-ip.biz/trakiweb/update_racer.php";
+	private static String url_create_racer = "http://tv2014.ddns.net/trakiweb/create_racer.php";
+	private static String url_delete_racer = "http://tv2014.ddns.net/trakiweb/delete_racer.php";
+	private static String url_update_racer = "http://tv2014.ddns.net/trakiweb/update_racer.php";
 
 	private ProgressDialog pDialog;
 

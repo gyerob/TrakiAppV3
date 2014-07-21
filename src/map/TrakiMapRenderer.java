@@ -34,7 +34,7 @@ public class TrakiMapRenderer implements GLSurfaceView.Renderer {
 
 	private final float[] modelMatrix = new float[16];
 	private final float[] viewMatrix = new float[16];
-	//private final float[] viewMatrixForSkybox = new float[16];
+	// private final float[] viewMatrixForSkybox = new float[16];
 	private final float[] projectionMatrix = new float[16];
 
 	private final float[] tempMatrix = new float[16];
@@ -51,141 +51,105 @@ public class TrakiMapRenderer implements GLSurfaceView.Renderer {
 	private BuoyShaderProgram buoyprogram;
 	private Buoy buoy;
 	private int buoytexture;
-	
-	//private LineShaderProgram lineprogram;
-	//private Line line;
+
 	private NewLine line;
-	
+
 	private Tractor tractorA;
 	private Tractor tractorB;
-	
+
 	private PlaneShaderProgram planeprogram;
 	private Plane plane;
-	
+	private int planetexture;
+
 	private HeightmapShaderProgram heightmapProgram;
-    private Heightmap heightmap;
-        
-	private float xRotation;//, yRotation;
+	private Heightmap heightmap;
+
+	private float xRotation;
 	private float moveX, moveY;
-	
+
 	private float angle;
 	private float xpos, zpos;
-	
+
+	private float zoom = 30.5f;
+
 	private float trakix, trakiz;
 	private float trakiangle;
-	
+
 	private boolean birdview;
 	private boolean trakiA = false;
 	private boolean trakiB = false;
-	
+
 	private Thread t;
 	private boolean running = false;
-	
+
 	private float[] obstacles = {
-			//bálák
-			8.0f,		5.0f,
-			32.0f,		8.0f,
-			65.0f,		8.0f,
-			
-			8.0f,		-5.0f,
-			32.0f,		-8.0f,
-			65.0f,		-8.0f,
+			// bálák
+			8.0f, 5.0f, 32.0f, 8.0f, 65.0f, 8.0f,
 
-			//bólyák
-			16.0f,		5.0f,
-			24.0f,		8.0f,
-			40.0f,		8.0f,
-			42.75f,		8.0f,
-			45.5f,		8.0f,
-			48.0f,		8.0f,
-			48.0f,		4.0f,
-			48.0f,		2.0f,
-			48.0f,		12.0f,
-			48.0f,		16.0f,
-			48.0f,		20.0f,
-			48.0f,		24.0f,
-			60.0f,		16.0f,
-			60.0f,		21.0f,
-			69.0f,		8.0f,
-			
-			64.0f,		0.0f,
+			8.0f,
+			-5.0f,
+			32.0f,
+			-8.0f,
+			65.0f,
+			-8.0f,
 
-			16.0f,		-5.0f,
-			24.0f,		-8.0f,
-			40.0f,		-8.0f,
-			42.75f,		-8.0f,
-			45.5f,		-8.0f,
-			48.0f,		-8.0f,
-			48.0f,		-4.0f,
-			48.0f,		-2.0f,
-			48.0f,		-12.0f,
-			48.0f,		-16.0f,
-			48.0f,		-20.0f,
-			48.0f,		-24.0f,
-			60.0f,		-16.0f,
-			60.0f,		-21.0f,
-			69.0f,		-8.0f
-	};
-	
-	private float[] track = {
-			0.0f,	2.5f,
-			8.0f,	2.5f,
-			16.0f,	7.5f,
-			24.0f,	5.5f,
-			32.0f,	9.5f,
-			40.0f,	5.5f,
-			48.0f,	5.5f,
-			55.0f,	8.0f,
-			42.0f,	12.0f,
-			55.0f,	16.0f,
-			42.0f,	20.0f,
-			48.0f,	22.0f,
-			56.0f,	19.0f,
-			64.0f,	18.0f,
-			66.5f,	12.0f,
-			66.5f,	6.5f,
-			64.0f,	3.0f,
-			48.0f,	5.5f,
-			40.0f,	5.5f,
-			32.0f,	9.5f,
-			24.0f,	5.5f,
-			16.0f,	7.5f,
-			8.0f,	2.5f,			
-			0.0f,	2.5f,
-	};
+			// bólyák
+			16.0f, 5.0f, 24.0f, 8.0f, 40.0f, 8.0f, 42.75f, 8.0f, 45.5f, 8.0f,
+			48.0f, 8.0f, 48.0f, 4.0f, 48.0f, 2.0f, 48.0f, 12.0f, 48.0f, 16.0f,
+			48.0f, 20.0f, 48.0f, 24.0f, 60.0f, 16.0f, 60.0f, 21.0f, 69.0f,
+			8.0f,
+
+			64.0f, 0.0f,
+
+			16.0f, -5.0f, 24.0f, -8.0f, 40.0f, -8.0f, 42.75f, -8.0f, 45.5f,
+			-8.0f, 48.0f, -8.0f, 48.0f, -4.0f, 48.0f, -2.0f, 48.0f, -12.0f,
+			48.0f, -16.0f, 48.0f, -20.0f, 48.0f, -24.0f, 60.0f, -16.0f, 60.0f,
+			-21.0f, 69.0f, -8.0f };
+
+	private float[] track = { 0.0f, 2.5f, 8.0f, 2.5f, 16.0f, 7.5f, 24.0f, 5.5f,
+			32.0f, 10.5f, 40.0f, 5.5f, 48.0f, 5.5f, 55.0f, 8.0f, 42.0f, 12.0f,
+			55.0f, 16.0f, 42.0f, 20.0f, 48.0f, 22.0f, 56.0f, 19.0f, 64.0f,
+			18.0f, 66.0f, 12.0f, 66.0f, 6.5f, 64.0f, 3.0f, 48.0f, 5.5f, 40.0f,
+			5.5f, 32.0f, 10.5f, 24.0f, 5.5f, 16.0f, 7.5f, 8.0f, 2.5f, 0.0f,
+			2.5f, };
 
 	public TrakiMapRenderer(Context context) {
 		this.context = context;
 	}
-	
+
 	public void keyHandle(int irany) {
-		//0:elõre
-		//1:hátra
-		//2:balra
-		//3:jobbra
+		// 0:elõre
+		// 1:hátra
+		// 2:balra
+		// 3:jobbra
 		if (irany == 0 || irany == 1) {
 			if (irany == 0) {
-				xpos -= 5*moveX;
-				zpos += 5*moveY;
+				xpos -= 5 * moveX;
+				zpos += 5 * moveY;
 			} else {
-				xpos += 5*moveX;
-				zpos -= 5*moveY;
+				xpos += 5 * moveX;
+				zpos -= 5 * moveY;
 			}
 		} else if (irany == 2 || irany == 3) {
-			if (irany == 2) angle -= 45f;
-			if (irany == 3) angle += 45f;
-			
-			if (angle > 359f || angle < -359f) angle = 0f;
-			
+			if (irany == 2)
+				angle -= 45f;
+			if (irany == 3)
+				angle += 45f;
+
+			if (angle > 359f || angle < -359f)
+				angle = 0f;
+
 			moveX = (float) Math.sin(angle / 180 * Math.PI);
 			moveY = (float) Math.cos(angle / 180 * Math.PI);
-			if (Math.abs(moveX) < 0.00001) moveX = 0f;
-			if (Math.abs(moveY) < 0.00001) moveY = 0f;
-		} 
-		
+			if (Math.abs(moveX) < 0.00001)
+				moveX = 0f;
+			if (Math.abs(moveY) < 0.00001)
+				moveY = 0f;
+		}
+
 		updateview();
 	}
-	
+
 	public void settrakiview(boolean a, boolean b) {
 		if (!a && !b) {
 			if (trakiA) {
@@ -200,12 +164,14 @@ public class TrakiMapRenderer implements GLSurfaceView.Renderer {
 		trakiB = b;
 		updateview();
 	}
-	
+
 	public void start() {
 		Log.d("isalaive", Boolean.toString(t.isAlive()));
-		if(!t.isAlive()) {
-			if (!running) initThread();
-			t.start();
+		if (!t.isAlive()) {
+			if (!running) {
+				initThread();
+				t.start();
+			}
 		}
 	}
 
@@ -214,42 +180,47 @@ public class TrakiMapRenderer implements GLSurfaceView.Renderer {
 
 		if (birdview) {
 			rotateM(viewMatrix, 0, 90, 1f, 0f, 0f);
-			if (!trakiA && !trakiB) 
-				translateM(viewMatrix, 0, xpos, -50.5f, zpos);
+			if (!trakiA && !trakiB)
+				translateM(viewMatrix, 0, xpos, -zoom, zpos);
 			else if (trakiA)
-				translateM(viewMatrix, 0, -trakix, -50.5f, -trakiz);
+				translateM(viewMatrix, 0, -trakix, -zoom, -trakiz);
 			else if (trakiB)
-				translateM(viewMatrix, 0, -trakix, -50.5f, trakiz);
-		}
-		else {
+				translateM(viewMatrix, 0, -trakix, -zoom, trakiz);
+		} else {
 			rotateM(viewMatrix, 0, angle, 0f, 1f, 0f);
 			translateM(viewMatrix, 0, xpos, -3.5f, zpos);
 		}
 	}
 
+	public void setZoom(float scale) {
+		zoom = 25f * scale;
+	}
+
 	public void handledrag(float deltax, float deltay) {
 		if (!birdview) {
 			xRotation += deltax / 16f;
-			
+
 			angle = -xRotation;
-			
+
 			if (angle > 359f || angle < -359f) {
 				angle = 0f;
 				xRotation = 0f;
 			}
-			
+
 			moveX = (float) Math.sin(angle / 180 * Math.PI);
 			moveY = (float) Math.cos(angle / 180 * Math.PI);
-			if (Math.abs(moveX) < 0.00001) moveX = 0f;
-			if (Math.abs(moveY) < 0.00001) moveY = 0f;
-			
+			if (Math.abs(moveX) < 0.00001)
+				moveX = 0f;
+			if (Math.abs(moveY) < 0.00001)
+				moveY = 0f;
+
 			xpos += ((-deltay / 16f) * moveX);
 			zpos += ((deltay / 16f) * moveY);
 		} else {
 			xpos += deltax / 16.0f;
 			zpos += deltay / 16.0f;
 		}
-		
+
 		updateview();
 	}
 
@@ -260,7 +231,7 @@ public class TrakiMapRenderer implements GLSurfaceView.Renderer {
 		multiplyMM(modelViewProjectionMatrix, 0, projectionMatrix, 0,
 				modelViewMatrix, 0);
 	}
-	
+
 	private void initThread() {
 		t = new Thread(new Runnable() {
 			@Override
@@ -270,44 +241,51 @@ public class TrakiMapRenderer implements GLSurfaceView.Renderer {
 				int i, k;
 				int j;
 				j = 0;
-				i  = k = 0;
-				
+				i = k = 0;
+
 				while (i < (track.length / 2) - 1) {
 					if (j == 0) {
-						x = track[k+2] - track[k];
-						y = track[k+3] - track[k+1];
-						
+						x = track[k + 2] - track[k];
+						y = track[k + 3] - track[k + 1];
+
 						deltax = x / 100f;
-						if (deltax >= 0f ) deltay = y / 100f; 
-						else deltay = y / (-100f); 
-						
-						trakiangle = (float) Math.atan(y/x);
+						if (deltax >= 0f)
+							deltay = y / 100f;
+						else
+							deltay = y / (-100f);
+
+						trakiangle = (float) Math.atan(y / x);
 						trakiangle *= 180 / Math.PI;
-						
-						if (i>14) trakiangle = -180 + trakiangle;
+
+						if (i > 14)
+							trakiangle = -180 + trakiangle;
 					} else if (j == 100) {
 						j = -1;
 						k += 2;
 						i++;
 					}
-					if (deltax >= 0f ) trakiz += deltay;
-					else trakiz -= deltay;
+					if (deltax >= 0f)
+						trakiz += deltay;
+					else
+						trakiz -= deltay;
 					trakix += deltax;
-					
+
 					d = Math.round(trakix * 100);
 					d = d / 100;
 					trakix = d;
-					
+
 					j++;
-					
+
 					updateview();
 					SystemClock.sleep(10);
 				}
 				running = false;
+				trakix = track[0];
+				trakiz = track[1];
 			}
 		});
 	}
-		
+
 	@Override
 	public void onSurfaceChanged(GL10 gl, int width, int height) {
 		glViewport(0, 0, width, height);
@@ -320,12 +298,12 @@ public class TrakiMapRenderer implements GLSurfaceView.Renderer {
 
 	@Override
 	public void onSurfaceCreated(GL10 gl, EGLConfig config) {
-		glClearColor(0.0f, 0.6f, 1.0f, 0.0f);
+		glClearColor(0.753f, 0.878f, 0.643f, 0.0f);
 
 		glEnable(GL_CULL_FACE);
 		glEnable(GL_DEPTH_TEST);
 		glLineWidth(5.0f);
-		
+
 		xRotation = -90f;
 		angle = 90f;
 		moveX = 0f;
@@ -333,7 +311,7 @@ public class TrakiMapRenderer implements GLSurfaceView.Renderer {
 		trakix = track[0];
 		trakiz = track[1];
 		trakiangle = 0.0f;
-		
+
 		birdview = true;
 
 		baleprogram = new BaleShaderProgram(context);
@@ -341,25 +319,26 @@ public class TrakiMapRenderer implements GLSurfaceView.Renderer {
 
 		buoyprogram = new BuoyShaderProgram(context);
 		buoy = new Buoy();
-		
+
 		line = new NewLine();
 		tractorA = new Tractor();
 		tractorB = new Tractor();
-		float szin[] = {0.0f, 0.0f, 1.0f, 0.0f};
+		float szin[] = { 0.0f, 0.0f, 1.0f, 0.0f };
 		tractorB.setColor(szin);
-		
+
 		planeprogram = new PlaneShaderProgram(context);
 		plane = new Plane();
-		
+
 		heightmapProgram = new HeightmapShaderProgram(context);
-        heightmap = new Heightmap(((BitmapDrawable)context.getResources()
-            .getDrawable(R.drawable.palya2)).getBitmap());
+		heightmap = new Heightmap(((BitmapDrawable) context.getResources()
+				.getDrawable(R.drawable.palya2)).getBitmap());
 
 		baletexture = TextureHelper.loadTexture(context, R.drawable.balaside);
 		buoytexture = TextureHelper.loadTexture(context, R.drawable.buoy);
-		
+		planetexture = TextureHelper.loadTexture(context, R.drawable.palya);
+
 		initThread();
-		
+
 		updateview();
 	}
 
@@ -367,60 +346,60 @@ public class TrakiMapRenderer implements GLSurfaceView.Renderer {
 	public void onDrawFrame(GL10 gl) {
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-		//drawPlane();
-		
-		drawHeightmap();
-		drawLine();
+		drawPlane();
 		drawTractor();
-		
+
 		int j = 0;
-		for (int i = 0; i < obstacles.length / 2; i++){
-			if (i < 6) drawBale(obstacles[j++], obstacles[j++]);
-			else drawBuoy(obstacles[j++], obstacles[j++]);
+		for (int i = 0; i < obstacles.length / 2; i++) {
+			if (i < 6)
+				drawBale(obstacles[j++], obstacles[j++]);
+			else
+				drawBuoy(obstacles[j++], obstacles[j++]);
 		}
 	}
-	
-	private void drawHeightmap() {
-        setIdentityM(modelMatrix, 0);        
-        scaleM(modelMatrix, 0, 148f, 0.3f, 148f);
-        updateMvpMatrix();        
-        
-        heightmapProgram.useProgram();   
-        heightmapProgram.setUniforms(modelViewMatrix, it_modelViewMatrix, 
-                modelViewProjectionMatrix);
-        heightmap.bindData(heightmapProgram);
-        heightmap.draw(); 
-    }
-	
+
 	@SuppressWarnings("unused")
+	private void drawHeightmap() {
+		setIdentityM(modelMatrix, 0);
+		scaleM(modelMatrix, 0, 148f, 0.3f, 148f);
+		updateMvpMatrix();
+
+		heightmapProgram.useProgram();
+		heightmapProgram.setUniforms(modelViewMatrix, it_modelViewMatrix,
+				modelViewProjectionMatrix);
+		heightmap.bindData(heightmapProgram);
+		heightmap.draw();
+	}
+
 	private void drawPlane() {
 		setIdentityM(modelMatrix, 0);
-		scaleM(modelMatrix, 0, 200, 1, 200);
+		translateM(modelMatrix, 0, 27f, 0f, 0f);
+		scaleM(modelMatrix, 0, 45, 1, 45);
 		updateMvpMatrix();
 
 		planeprogram.useProgram();
-		planeprogram.setUniforms(modelViewProjectionMatrix, 0);
+		planeprogram.setUniforms(modelViewProjectionMatrix, planetexture);
 		plane.bindData(planeprogram);
 		plane.draw();
 	}
-	
+
 	private void drawTractor() {
 		setIdentityM(modelMatrix, 0);
-		translateM(modelMatrix, 0, (float)trakix, 0f, (float)trakiz);
+		translateM(modelMatrix, 0, (float) trakix, 0f, (float) trakiz);
 		rotateM(modelMatrix, 0, -trakiangle, 0f, 1f, 0f);
 		updateMvpMatrix();
 
 		tractorA.draw(modelViewProjectionMatrix);
-		
-		
+
 		setIdentityM(modelMatrix, 0);
-		translateM(modelMatrix, 0, (float)trakix, 0f, (float)-trakiz);
+		translateM(modelMatrix, 0, (float) trakix, 0f, (float) -trakiz);
 		rotateM(modelMatrix, 0, trakiangle, 0f, 1f, 0f);
 		updateMvpMatrix();
 
 		tractorB.draw(modelViewProjectionMatrix);
 	}
-	
+
+	@SuppressWarnings("unused")
 	private void drawLine() {
 		setIdentityM(modelMatrix, 0);
 		updateMvpMatrix();
@@ -443,7 +422,7 @@ public class TrakiMapRenderer implements GLSurfaceView.Renderer {
 	private void drawBuoy(float x, float z) {
 		setIdentityM(modelMatrix, 0);
 		translateM(modelMatrix, 0, x, 0.3f, z);
-		scaleM(modelMatrix, 0, 0.2f, 0.2f, 0.2f);
+		scaleM(modelMatrix, 0, 0.6f, 0.2f, 0.6f);
 		updateMvpMatrix();
 
 		buoyprogram.useProgram();
@@ -451,14 +430,14 @@ public class TrakiMapRenderer implements GLSurfaceView.Renderer {
 		buoy.bindData(buoyprogram);
 		buoy.draw();
 	}
-	
-	public static int loadShader(int type, String shaderCode){
-        int shader = GLES20.glCreateShader(type);
 
-        // add the source code to the shader and compile it
-        GLES20.glShaderSource(shader, shaderCode);
-        GLES20.glCompileShader(shader);
+	public static int loadShader(int type, String shaderCode) {
+		int shader = GLES20.glCreateShader(type);
 
-        return shader;
-    }
+		// add the source code to the shader and compile it
+		GLES20.glShaderSource(shader, shaderCode);
+		GLES20.glCompileShader(shader);
+
+		return shader;
+	}
 }

@@ -13,8 +13,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import toplistview.ToplistView;
-import toplistview.ToplistView.IListViewUpdate;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -26,14 +24,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
+import customviews.ToplistView;
+import customviews.ToplistView.IListViewUpdate;
 import data.DragTop;
 
 public class DragTop10Fragment1 extends Fragment implements IListViewUpdate {
 	public static final String TITLE = "Lépcsõk";
 
-	private static String url_get_drag_top = "http://gyerob.no-ip.biz/trakiweb/get_all_drag_top.php";
-	private static String url_update_drag_top = "http://gyerob.no-ip.biz/trakiweb/update_drag_top.php";
-	private static String url_update_next_drag_top = "http://gyerob.no-ip.biz/trakiweb/update_next_drag_top.php";
+	private static String url_get_drag_top = "http://tv2014.ddns.net/trakiweb/get_all_drag_top.php";
+	private static String url_update_drag_top = "http://tv2014.ddns.net/trakiweb/update_drag_top.php";
+	private static String url_update_next_drag_top = "http://tv2014.ddns.net/trakiweb/update_next_drag_top.php";
 
 	private static final String TAG_SUCCESS = "success";
 	private static final String TAG_PRODUCTS = "racers";
@@ -75,6 +75,12 @@ public class DragTop10Fragment1 extends Fragment implements IListViewUpdate {
 
 	ArrayList<ToplistView> topracers;
 
+	public static DragTop10Fragment1 newInstance() {
+		DragTop10Fragment1 fragment = new DragTop10Fragment1();
+		
+		return fragment;
+	}
+	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -170,8 +176,6 @@ public class DragTop10Fragment1 extends Fragment implements IListViewUpdate {
 
 	@Override
 	public void onRacerClick(ToplistView tv) {
-		Log.d("katt elfogás", "sikeres");
-
 		new UpdateList().execute(tv);
 	}
 
@@ -203,12 +207,9 @@ public class DragTop10Fragment1 extends Fragment implements IListViewUpdate {
 					param[0].getName() + " " + param[0].getNumber() + " "
 							+ param[0].getWin() + " " + param[0].getRound());
 
-			// getting JSON Object
-			// Note that create product url accepts POST method
 			JSONObject json = jsonParser.makeHttpRequest(url_update_drag_top,
 					"POST", params);
 
-			// check log cat fro response
 			Log.d("Create Response", json.toString());
 
 			if (param[0].getWin() == 2) {
@@ -315,7 +316,6 @@ public class DragTop10Fragment1 extends Fragment implements IListViewUpdate {
 		}
 
 		protected void onPostExecute(ToplistView nev) {
-			// dismiss the dialog once done
 			pDialog.dismiss();
 			if (nev.getWin() == 2) {
 				if (nev.getRound() == 1) {
@@ -396,29 +396,22 @@ public class DragTop10Fragment1 extends Fragment implements IListViewUpdate {
 
 		@Override
 		protected String doInBackground(String... param) {
-			// Building Parameters
 			List<NameValuePair> params = new ArrayList<NameValuePair>();
-			// getting JSON string from URL
 			JSONObject json = jsonParser.makeHttpRequest(url_get_drag_top,
 					"GET", params);
 
 			try {
-				// Checking for SUCCESS TAG
 				int success = json.getInt(TAG_SUCCESS);
 
 				if (success == 1) {
-					// products found
-					// Getting Array of Products
 					racers = json.getJSONArray(TAG_PRODUCTS);
 
 					Log.d("racers hossza:", Integer.toString(racers.length()));
-					// looping through All Products
 					for (int i = 0; i < racers.length(); i++) {
 						JSONObject c = racers.getJSONObject(i);
 
 						DragTop racer = new DragTop();
 
-						// Storing each json item in variable
 						racer.setNumber(Integer.parseInt(c.getString("rajt")));
 						racer.setName(c.getString("nev"));
 						racer.setWon(Integer.parseInt(c.getString("nyert")));
@@ -457,35 +450,35 @@ public class DragTop10Fragment1 extends Fragment implements IListViewUpdate {
 				tvRound11.setData(dragListr1.get(4).getName(), dragListr1
 						.get(4).getNumber(), dragListr1.get(4).getWon(),
 						dragListr1.get(4).getPid());
-				Log.d("1round", tvRound11.getName() + " " + tvRound11.getPid());
+				
 				tvRound12.setData(dragListr1.get(3).getName(), dragListr1
 						.get(3).getNumber(), dragListr1.get(3).getWon(),
 						dragListr1.get(3).getPid());
-				Log.d("1round", tvRound12.getName() + " " + tvRound12.getPid());
+
 				tvRound13.setData(dragListr1.get(1).getName(), dragListr1
 						.get(1).getNumber(), dragListr1.get(1).getWon(),
 						dragListr1.get(1).getPid());
-				Log.d("1round", tvRound13.getName() + " " + tvRound13.getPid());
+
 				tvRound14.setData(dragListr1.get(6).getName(), dragListr1
 						.get(6).getNumber(), dragListr1.get(6).getWon(),
 						dragListr1.get(6).getPid());
-				Log.d("1round", tvRound14.getName() + " " + tvRound14.getPid());
+
 				tvRound15.setData(dragListr1.get(7).getName(), dragListr1
 						.get(7).getNumber(), dragListr1.get(7).getWon(),
 						dragListr1.get(7).getPid());
-				Log.d("1round", tvRound15.getName() + " " + tvRound15.getPid());
+
 				tvRound16.setData(dragListr1.get(0).getName(), dragListr1
 						.get(0).getNumber(), dragListr1.get(0).getWon(),
 						dragListr1.get(0).getPid());
-				Log.d("1round", tvRound16.getName() + " " + tvRound16.getPid());
+
 				tvRound17.setData(dragListr1.get(2).getName(), dragListr1
 						.get(2).getNumber(), dragListr1.get(2).getWon(),
 						dragListr1.get(2).getPid());
-				Log.d("1round", tvRound17.getName() + " " + tvRound17.getPid());
+
 				tvRound18.setData(dragListr1.get(5).getName(), dragListr1
 						.get(5).getNumber(), dragListr1.get(5).getWon(),
 						dragListr1.get(5).getPid());
-				Log.d("1round", tvRound18.getName() + " " + tvRound18.getPid());
+
 
 				tvRound21.setData(dragListr2.get(0).getName(), dragListr2
 						.get(0).getNumber(), dragListr2.get(0).getWon(),

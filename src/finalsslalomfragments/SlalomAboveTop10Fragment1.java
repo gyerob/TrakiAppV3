@@ -13,8 +13,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import toplistview.ToplistView;
-import toplistview.ToplistView.IListViewUpdate;
+import customviews.ToplistView;
+import customviews.ToplistView.IListViewUpdate;
+
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -31,9 +32,9 @@ import data.SlalomTop;
 public class SlalomAboveTop10Fragment1 extends Fragment implements IListViewUpdate {
 	public static final String TITLE = "Lépcsõk+";
 
-	private static String url_get_slalom_top = "http://gyerob.no-ip.biz/trakiweb/get_all_slalom_a_top.php";
-	private static String url_update_slalom_top = "http://gyerob.no-ip.biz/trakiweb/update_slalom_a_top.php";
-	private static String url_update_next_slalom_top = "http://gyerob.no-ip.biz/trakiweb/update_next_slalom_a_top.php";
+	private static String url_get_slalom_top = "http://tv2014.ddns.net/trakiweb/get_all_slalom_a_top.php";
+	private static String url_update_slalom_top = "http://tv2014.ddns.net/trakiweb/update_slalom_a_top.php";
+	private static String url_update_next_slalom_top = "http://tv2014.ddns.net/trakiweb/update_next_slalom_a_top.php";
 
 	private static final String TAG_SUCCESS = "success";
 	private static final String TAG_PRODUCTS = "racers";
@@ -176,8 +177,6 @@ public class SlalomAboveTop10Fragment1 extends Fragment implements IListViewUpda
 
 	@Override
 	public void onRacerClick(ToplistView tv) {
-		Log.d("katt elfogás", "sikeres");
-
 		new UpdateList().execute(tv);
 	}
 
@@ -309,10 +308,8 @@ public class SlalomAboveTop10Fragment1 extends Fragment implements IListViewUpda
 				}
 
 				Intent intent = new Intent("szfrissit");
-				if(LocalBroadcastManager.getInstance(getActivity()).sendBroadcast(intent)) {
-					Log.d("broadcast", "elküldve");
-				}
-				
+				LocalBroadcastManager.getInstance(getActivity()).sendBroadcast(intent);
+								
 				Log.d("Create Response", json.toString());
 			}
 
@@ -454,35 +451,35 @@ public class SlalomAboveTop10Fragment1 extends Fragment implements IListViewUpda
 				tvRound11.setData(slalomListr1.get(4).getName(), slalomListr1
 						.get(4).getNumber(), slalomListr1.get(4).getWon(),
 						slalomListr1.get(4).getPid());
-				Log.d("1round", tvRound11.getName() + " " + tvRound11.getPid());
+
 				tvRound12.setData(slalomListr1.get(3).getName(), slalomListr1
 						.get(3).getNumber(), slalomListr1.get(3).getWon(),
 						slalomListr1.get(3).getPid());
-				Log.d("1round", tvRound12.getName() + " " + tvRound12.getPid());
+
 				tvRound13.setData(slalomListr1.get(1).getName(), slalomListr1
 						.get(1).getNumber(), slalomListr1.get(1).getWon(),
 						slalomListr1.get(1).getPid());
-				Log.d("1round", tvRound13.getName() + " " + tvRound13.getPid());
+
 				tvRound14.setData(slalomListr1.get(6).getName(), slalomListr1
 						.get(6).getNumber(), slalomListr1.get(6).getWon(),
 						slalomListr1.get(6).getPid());
-				Log.d("1round", tvRound14.getName() + " " + tvRound14.getPid());
+
 				tvRound15.setData(slalomListr1.get(7).getName(), slalomListr1
 						.get(7).getNumber(), slalomListr1.get(7).getWon(),
 						slalomListr1.get(7).getPid());
-				Log.d("1round", tvRound15.getName() + " " + tvRound15.getPid());
+
 				tvRound16.setData(slalomListr1.get(0).getName(), slalomListr1
 						.get(0).getNumber(), slalomListr1.get(0).getWon(),
 						slalomListr1.get(0).getPid());
-				Log.d("1round", tvRound16.getName() + " " + tvRound16.getPid());
+
 				tvRound17.setData(slalomListr1.get(2).getName(), slalomListr1
 						.get(2).getNumber(), slalomListr1.get(2).getWon(),
 						slalomListr1.get(2).getPid());
-				Log.d("1round", tvRound17.getName() + " " + tvRound17.getPid());
+
 				tvRound18.setData(slalomListr1.get(5).getName(), slalomListr1
 						.get(5).getNumber(), slalomListr1.get(5).getWon(),
 						slalomListr1.get(5).getPid());
-				Log.d("1round", tvRound18.getName() + " " + tvRound18.getPid());
+
 
 				tvRound21.setData(slalomListr2.get(0).getName(), slalomListr2
 						.get(0).getNumber(), slalomListr2.get(0).getWon(),

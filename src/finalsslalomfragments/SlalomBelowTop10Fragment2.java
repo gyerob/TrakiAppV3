@@ -39,7 +39,7 @@ public class SlalomBelowTop10Fragment2 extends ListFragment {
 
 	private JSONParser jParser = new JSONParser();
 
-	private static String url_all_slalom_top_results = "http://gyerob.no-ip.biz/trakiweb/get_all_slalom_b_top_results.php";
+	private static String url_all_slalom_top_results = "http://tv2014.ddns.net/trakiweb/get_all_slalom_b_top_results.php";
 
 	private static final String TAG_SUCCESS = "success";
 	private static final String TAG_PRODUCTS = "slalom";

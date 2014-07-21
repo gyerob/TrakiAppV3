@@ -2,13 +2,13 @@ package adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
 import finalsslalomfragments.SlalomAboveTop10Fragment1;
 import finalsslalomfragments.SlalomAboveTop10Fragment2;
 import finalsslalomfragments.SlalomBelowTop10Fragment1;
 import finalsslalomfragments.SlalomBelowTop10Fragment2;
 
-public class SlalomTop10FragmentPagerAdapter extends FragmentPagerAdapter {
+public class SlalomTop10FragmentPagerAdapter extends FragmentStatePagerAdapter {
 	private int MODE = 0;
 
 	public SlalomTop10FragmentPagerAdapter(FragmentManager fm) {
@@ -38,6 +38,11 @@ public class SlalomTop10FragmentPagerAdapter extends FragmentPagerAdapter {
 	}
 
 	@Override
+	public int getItemPosition(Object object) {
+		return POSITION_NONE;
+	}
+
+	@Override
 	public CharSequence getPageTitle(int pos) {
 		switch (pos) {
 		case 0:
@@ -46,18 +51,13 @@ public class SlalomTop10FragmentPagerAdapter extends FragmentPagerAdapter {
 			else
 				return SlalomBelowTop10Fragment1.TITLE;
 		case 1:
-			if (MODE == 1)
+			if (MODE == 0)
 				return SlalomAboveTop10Fragment2.TITLE;
 			else
 				return SlalomBelowTop10Fragment2.TITLE;
 		default:
 			return null;
 		}
-	}
-
-	@Override
-	public int getItemPosition(Object object) {
-		return POSITION_NONE;
 	}
 
 	@Override

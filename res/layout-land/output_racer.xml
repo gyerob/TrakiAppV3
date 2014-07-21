@@ -25,8 +25,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:text="@string/data_name"
-            android:textColor="@color/black"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/black" />
 
         <TextView
             android:id="@+id/headerracerNumber"
@@ -34,17 +34,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:text="@string/data_number"
-            android:textColor="@color/black"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
-
-        <TextView
-            android:id="@+id/headerracerSex"
-            android:layout_width="36dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:text="@string/data_sex"
-            android:textColor="@color/black"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/black" />
 
         <TextView
             android:id="@+id/headerracerTown"
@@ -52,8 +43,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:text="@string/data_town"
-            android:textColor="@color/black"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/black" />
 
         <TextView
             android:id="@+id/headerracerTrailer"
@@ -61,8 +52,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:text="P"
-            android:textColor="@color/black"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/black" />
 
         <TextView
             android:id="@+id/headerracerSlalom"
@@ -70,8 +61,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:text="Sz"
-            android:textColor="@color/black"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/black" />
 
         <TextView
             android:id="@+id/headerracerDrag"
@@ -79,8 +70,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:text="Gy"
-            android:textColor="@color/black"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/black" />
     </LinearLayout>
 
 </RelativeLayout>

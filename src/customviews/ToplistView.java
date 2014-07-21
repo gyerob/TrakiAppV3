@@ -1,4 +1,4 @@
-package toplistview;
+package customviews;
 
 import finalsdragfragments.DragTop10Fragment1;
 import finalsslalomfragments.SlalomAboveTop10Fragment1;

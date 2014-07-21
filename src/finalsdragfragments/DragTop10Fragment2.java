@@ -38,7 +38,7 @@ public class DragTop10Fragment2 extends ListFragment {
 
 	private JSONParser jParser = new JSONParser();
 
-	private static String url_all_drag_top_results = "http://gyerob.no-ip.biz/trakiweb/get_all_drag_top_results.php";
+	private static String url_all_drag_top_results = "http://tv2014.ddns.net/trakiweb/get_all_drag_top_results.php";
 
 	private static final String TAG_SUCCESS = "success";
 	private static final String TAG_PRODUCTS = "drag";
@@ -51,6 +51,12 @@ public class DragTop10Fragment2 extends ListFragment {
 			new LoadAllRacer().execute();
 			adapter.notifyDataSetChanged();
 		}
+	}
+
+	public static DragTop10Fragment2 newInstance() {
+		DragTop10Fragment2 fragment = new DragTop10Fragment2();
+
+		return fragment;
 	}
 
 	@Override
@@ -75,9 +81,6 @@ public class DragTop10Fragment2 extends ListFragment {
 
 		boolean failed = false;
 
-		/**
-		 * Before starting background thread Show Progress Dialog
-		 * */
 		@Override
 		protected void onPreExecute() {
 			super.onPreExecute();
@@ -88,34 +91,24 @@ public class DragTop10Fragment2 extends ListFragment {
 			pDialog.show();
 		}
 
-		/**
-		 * getting All products from url
-		 * */
 		protected String doInBackground(String... args) {
-			// Building Parameters
 			List<NameValuePair> params = new ArrayList<NameValuePair>();
-			// getting JSON string from URL
 			JSONObject json = jParser.makeHttpRequest(url_all_drag_top_results,
 					"GET", params);
 
 			try {
-				// Checking for SUCCESS TAG
 				int success = json.getInt(TAG_SUCCESS);
 
 				if (success == 1) {
-					// products found
-					// Getting Array of Products
 					racers = json.getJSONArray(TAG_PRODUCTS);
 
 					racerList = new ArrayList<DragTop>();
 
-					// looping through All Products
 					for (int i = 0; i < racers.length(); i++) {
 						JSONObject c = racers.getJSONObject(i);
 
 						DragTop racer = new DragTop();
 
-						// Storing each json item in variable
 						racer.setNumber(Integer.parseInt(c.getString("rajt")));
 						racer.setName(c.getString("nev"));
 						racer.setPid(Integer.parseInt(c.getString("pid")));

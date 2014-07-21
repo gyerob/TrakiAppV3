@@ -27,7 +27,7 @@ public class SlalomFragment extends Fragment {
 	public static final String TITLE = "Szlalom";
 
 	// url to create new product
-	private static String url_update_slalom = "http://gyerob.no-ip.biz/trakiweb/update_slalom.php";
+	private static String url_update_slalom = "http://tv2014.ddns.net/trakiweb/update_slalom.php";
 
 	// Progress Dialog
 	private ProgressDialog pDialog;

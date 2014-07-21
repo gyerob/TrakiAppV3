@@ -4,24 +4,12 @@
     android:layout_height="match_parent"
     android:background="@color/palegreen"
     tools:context=".OutputActivity" >
-   
-   <android.support.v4.view.ViewPager
-   		android:id="@+id/outputViewPager"
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/outputViewPager"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true" >
-
-        <!-- PagerTitleStrip is lehet -->
-
-       <android.support.v4.view.PagerTabStrip
-       		android:id="@+id/outputPagerTabStrip"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="top"
-            android:textSize="22sp" />
+        android:layout_centerInParent="true" >
     </android.support.v4.view.ViewPager>
 
 </RelativeLayout>

@@ -4,9 +4,9 @@
     <string name="app_name">TrakiApp</string>
     <string name="action_settings">Settings</string>
     <string name="main_input">Adatok bevitele</string>
-    <string name="main_output">Adatok listázása</string>
+    <string name="main_output">Eredmények</string>
     <string name="title_activity_input">Adatok bevitele</string>
-    <string name="title_activity_list">Adatok listázása</string>
+    <string name="title_activity_list">Eredmények</string>
     <string name="racer_title">Versenyzők</string>
     <string name="trailer_title">Pórkocsis</string>
     <string name="slalom_title">Szlalom</string>
@@ -53,8 +53,8 @@
     <string name="listmenuveteran">Veterán</string>
     <string name="listmenumodern">Modern</string>
     <string name="mapmenufree">Szabad</string>
-    <string name="mapmenua">A</string>
-    <string name="mapmenub">B</string>
+    <string name="mapmenua">Piros</string>
+    <string name="mapmenub">Kék</string>
     <string name="mapmenustart">Indít</string>
     <string name="finalsabove">150le feletti</string>
     <string name="finalsbelow">150le alatti</string>

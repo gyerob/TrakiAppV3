@@ -33,13 +33,13 @@ public class DragFragment extends ListFragment {
 
 	private JSONParser jsonParser = new JSONParser();
 
-	private static String url_all_drag = "http://gyerob.no-ip.biz/trakiweb/get_all_drag.php";
+	private static String url_all_drag = "http://tv2014.ddns.net/trakiweb/get_all_drag.php";
 
 	private static final String TAG_SUCCESS = "success";
 	private static final String TAG_PRODUCTS = "drag";
 
 	private JSONArray drags = null;
-	
+
 	public static DragFragment newInstance(int mode) {
 		DragFragment drag = new DragFragment();
 
@@ -49,9 +49,9 @@ public class DragFragment extends ListFragment {
 	@Override
 	public void onCreate(Bundle bundle) {
 		super.onCreate(bundle);
-				
+
 		dragList = new ArrayList<Drag>();
-		
+
 		new LoadAllDrag().execute();
 	}
 
@@ -65,7 +65,7 @@ public class DragFragment extends ListFragment {
 	class LoadAllDrag extends AsyncTask<String, String, String> {
 
 		boolean failed = false;
-		
+
 		@Override
 		protected void onPreExecute() {
 			super.onPreExecute();
@@ -131,8 +131,9 @@ public class DragFragment extends ListFragment {
 						"Sikertelen lekérés, ellenõrizd az internetkapcsolatot",
 						Toast.LENGTH_LONG).show();
 			} else {
-			adapter = new DragAdapter(dragList);
-			setListAdapter(adapter);}
+				adapter = new DragAdapter(dragList);
+				setListAdapter(adapter);
+			}
 		}
 	}
 }

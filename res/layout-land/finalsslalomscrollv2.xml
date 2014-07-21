@@ -13,13 +13,13 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal" >
 
-            <toplistview.ToplistView
+            <customviews.ToplistView
                 android:id="@+id/stoplistr11"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true" />
 
-            <toplistview.ToplistView
+            <customviews.ToplistView
                 android:id="@+id/stoplistr12"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
@@ -27,7 +27,7 @@
                 android:layout_below="@+id/stoplistr11"
                 android:layout_marginTop="30dp" />
             
-            <toplistview.ToplistView
+            <customviews.ToplistView
                 android:id="@+id/stoplistr13"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
@@ -35,7 +35,7 @@
                 android:layout_below="@+id/stoplistr12"
                 android:layout_marginTop="60dp" />
             
-            <toplistview.ToplistView
+            <customviews.ToplistView
                 android:id="@+id/stoplistr14"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
@@ -43,7 +43,7 @@
                 android:layout_below="@+id/stoplistr13"
                 android:layout_marginTop="30dp" />
             
-            <toplistview.ToplistView
+            <customviews.ToplistView
                 android:id="@+id/stoplistr15"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
@@ -51,7 +51,7 @@
                 android:layout_below="@+id/stoplistr14"
                 android:layout_marginTop="60dp" />
 
-            <toplistview.ToplistView
+            <customviews.ToplistView
                 android:id="@+id/stoplistr16"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
@@ -59,7 +59,7 @@
                 android:layout_below="@+id/stoplistr15"
                 android:layout_marginTop="30dp" />
             
-            <toplistview.ToplistView
+            <customviews.ToplistView
                 android:id="@+id/stoplistr17"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
@@ -67,7 +67,7 @@
                 android:layout_below="@+id/stoplistr16"
                 android:layout_marginTop="60dp" />
             
-            <toplistview.ToplistView
+            <customviews.ToplistView
                 android:id="@+id/stoplistr18"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
@@ -75,7 +75,7 @@
                 android:layout_below="@+id/stoplistr17"
                 android:layout_marginTop="30dp" />
             
-            <toplistview.ToplistView
+            <customviews.ToplistView
                 android:id="@+id/stoplistr21"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
@@ -84,7 +84,7 @@
                 android:layout_marginTop="0dp"
                 android:layout_marginLeft="250dp" />
             
-            <toplistview.ToplistView
+            <customviews.ToplistView
                 android:id="@+id/stoplistr22"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
@@ -93,7 +93,7 @@
                 android:layout_marginTop="0dp"
                 android:layout_marginLeft="250dp" />
             
-            <toplistview.ToplistView
+            <customviews.ToplistView
                 android:id="@+id/stoplistr23"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
@@ -102,7 +102,7 @@
                 android:layout_marginTop="0dp"
                 android:layout_marginLeft="250dp" />
             
-            <toplistview.ToplistView
+            <customviews.ToplistView
                 android:id="@+id/stoplistr24"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
@@ -111,7 +111,7 @@
                 android:layout_marginTop="0dp"
                 android:layout_marginLeft="250dp" />
             
-            <toplistview.ToplistView
+            <customviews.ToplistView
                 android:id="@+id/stoplistr31"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
@@ -120,7 +120,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginLeft="250dp" />
             
-            <toplistview.ToplistView
+            <customviews.ToplistView
                 android:id="@+id/stoplistr32"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
@@ -128,7 +128,7 @@
                 android:layout_below="@+id/stoplistr31"
                 android:layout_marginTop="20dp" />
             
-            <toplistview.ToplistView
+            <customviews.ToplistView
                 android:id="@+id/stoplistr33"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
@@ -137,7 +137,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="250dp" />
             
-            <toplistview.ToplistView
+            <customviews.ToplistView
                 android:id="@+id/stoplistr34"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
@@ -145,7 +145,7 @@
                 android:layout_below="@+id/stoplistr33"
                 android:layout_marginTop="20dp" />
             
-            <toplistview.ToplistView
+            <customviews.ToplistView
                 android:id="@+id/stoplistr41"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
@@ -154,7 +154,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginLeft="250dp" />
             
-            <toplistview.ToplistView
+            <customviews.ToplistView
                 android:id="@+id/stoplistr42"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
@@ -162,7 +162,7 @@
                 android:layout_below="@+id/stoplistr41"
                 android:layout_marginTop="20dp" />
             
-            <toplistview.ToplistView
+            <customviews.ToplistView
                 android:id="@+id/stoplistr43"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
@@ -170,7 +170,7 @@
                 android:layout_below="@+id/stoplistr42"
                 android:layout_marginTop="60dp" />
             
-            <toplistview.ToplistView
+            <customviews.ToplistView
                 android:id="@+id/stoplistr44"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"

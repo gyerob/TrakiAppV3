@@ -18,10 +18,10 @@ import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 import data.Trailer;
 
@@ -31,11 +31,14 @@ public class TrailerFragment extends ListFragment {
 	private TrailerAdapter adapter;
 	private ArrayList<Trailer> trailerList;
 
-	public ProgressDialog pDialog;
+	ArrayList<TextView> views;
+
+	private ProgressDialog pDialog;
+	private LoadAllTrailer loadtrailers;
 
 	private JSONParser jParser = new JSONParser();
 
-	private static String url_all_trailer = "http://gyerob.no-ip.biz/trakiweb/get_all_trailer.php";
+	private static String url_all_trailer = "http://tv2014.ddns.net/trakiweb/get_all_trailer.php";
 
 	private static final String TAG_SUCCESS = "success";
 	private static final String TAG_PRODUCTS = "trailer";
@@ -58,26 +61,28 @@ public class TrailerFragment extends ListFragment {
 	public void onCreate(Bundle bundle) {
 		super.onCreate(bundle);
 
+		views = new ArrayList<TextView>();
+
 		int mode = getArguments() != null ? getArguments().getInt("mode") : 0;
 		if (mode == 1 || mode == 4 || mode == 5) {
 			MODE = mode;
 		}
 
-		Log.d("módok", "mode: " + mode + " MODE: " + MODE);
-
 		trailerList = new ArrayList<Trailer>();
 
-		new LoadAllTrailer().execute();
+		loadtrailers = new LoadAllTrailer();
+		loadtrailers.execute();
 	}
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		View v = inflater.inflate(R.layout.output_trailer, container, false);
+
 		return v;
 	}
 
-	class LoadAllTrailer extends AsyncTask<String, String, String> {
+	private class LoadAllTrailer extends AsyncTask<String, String, String> {
 
 		boolean failed = false;
 
@@ -106,6 +111,8 @@ public class TrailerFragment extends ListFragment {
 
 				if (success == 1) {
 					trailers = json.getJSONArray(TAG_PRODUCTS);
+
+					trailerList = new ArrayList<Trailer>();
 
 					for (int i = 0; i < trailers.length(); i++) {
 						JSONObject c = trailers.getJSONObject(i);

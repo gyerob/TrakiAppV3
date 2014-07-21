@@ -27,7 +27,7 @@ public class TrailerFragment extends Fragment {
 	public static final String TITLE = "Pótkocsis";
 
 	// url to create new product
-	private static String url_update_trailer = "http://gyerob.no-ip.biz/trakiweb/update_trailer.php";
+	private static String url_update_trailer = "http://tv2014.ddns.net/trakiweb/update_trailer.php";
 
 	// Progress Dialog
 	private ProgressDialog pDialog;

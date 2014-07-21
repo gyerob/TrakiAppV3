@@ -36,14 +36,6 @@
             android:textAppearance="?android:attr/textAppearanceSmall" />
 
         <TextView
-            android:id="@+id/draground1Text3"
-            android:layout_width="30dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:text="Nő"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
-
-        <TextView
             android:id="@+id/draground1Text4"
             android:layout_width="70dp"
             android:layout_height="wrap_content"

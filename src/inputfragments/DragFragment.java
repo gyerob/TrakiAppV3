@@ -28,7 +28,7 @@ public class DragFragment extends Fragment {
 	public static final String TITLE = "Gyorsulás";
 
 	// url to create new product
-	private static String url_update_drag = "http://gyerob.no-ip.biz/trakiweb/update_drag.php";
+	private static String url_update_drag = "http://tv2014.ddns.net/trakiweb/update_drag.php";
 
 	// Progress Dialog
 	private ProgressDialog pDialog;

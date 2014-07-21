@@ -33,41 +33,39 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 public class GalleryActivity extends ActionBarActivity {
 
-	// private static final int SELECT_PHOTO = 100;
-	private static String url_upload_img = "http://gyerob.no-ip.biz/trakiweb/img_up.php";
+	private static String url_upload_img = "http://tv2014.ddns.net/trakiweb/img_up.php";
 	private JSONParser jsonParser = new JSONParser();
-	
-	// Progress Dialog
+
 	private ProgressDialog pDialog;
-	
+
 	private SharedPreferences prefs;
 	private String nezet;
-	
+
 	private Fragment fragment;
 
-	//private ImageView iv;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
 
-		prefs = PreferenceManager
-				.getDefaultSharedPreferences(getBaseContext());
+		prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
 		nezet = prefs.getString("galleryswitch", "Grid");
-		Toast.makeText(this, nezet, Toast.LENGTH_LONG).show();
-		
+		//Toast.makeText(this, nezet, Toast.LENGTH_LONG).show();
+
 		setContentView(R.layout.activity_gallery);
-		
+
 		FragmentManager fm = getSupportFragmentManager();
 		FragmentTransaction ft = fm.beginTransaction();
-		if (nezet.equals("Grid")) fragment = new GridFragment();
-		else fragment = new WebFragment();
+		if (nezet.equals("Grid")) {
+			fragment = new GridFragment();
+		} else
+			fragment = new WebFragment();
 		ft.add(R.id.FragmentContainer, fragment);
 		ft.commit();
+
+		//sgd = new ScaleGestureDetector(this, new ScaleListener());
 	}
 
 	protected void onActivityResult(int requestCode, int resultCode,
@@ -104,13 +102,6 @@ public class GalleryActivity extends ActionBarActivity {
 							GalleryActivity.this.getContentResolver(), param);
 					ByteArrayOutputStream baos = new ByteArrayOutputStream();
 
-					// int width = bm.getWidth();
-					// int height = bm.getHeight();
-					// double ratio = 400/width;
-					// int newheight = (int)(ratio*height);
-
-					// bm = Bitmap.createScaledBitmap(bm, 800, newheight, true);
-
 					bm.compress(Bitmap.CompressFormat.JPEG, 95, baos);
 					byte[] bytearray = baos.toByteArray();
 					String img = Base64.encodeToString(bytearray, 0);
@@ -121,7 +112,6 @@ public class GalleryActivity extends ActionBarActivity {
 					JSONObject json = jsonParser.makeHttpRequest(
 							url_upload_img, "POSTIMG", data);
 
-					// check log cat fro response
 					Log.d("Create Response", json.toString());
 
 				} catch (FileNotFoundException e) {
@@ -136,8 +126,7 @@ public class GalleryActivity extends ActionBarActivity {
 		@Override
 		protected void onPostExecute(Bitmap result) {
 			super.onPostExecute(result);
-			//iv.setImageBitmap(result);
-			// dismiss the dialog once done
+			
 			pDialog.dismiss();
 		}
 	}
@@ -162,16 +151,17 @@ public class GalleryActivity extends ActionBarActivity {
 			if (nezet.equals("Grid")) {
 				prefs.edit().putString("galleryswitch", "Web").commit();
 				nezet = "Web";
-			}
-			else {
+			} else {
 				prefs.edit().putString("galleryswitch", "Grid").commit();
 				nezet = "Grid";
 			}
-			
+
 			FragmentManager fm = getSupportFragmentManager();
 			FragmentTransaction ft = fm.beginTransaction();
-			if (nezet.equals("Grid")) fragment = new GridFragment();
-			else fragment = new WebFragment();
+			if (nezet.equals("Grid")) {
+				fragment = new GridFragment();
+			} else
+				fragment = new WebFragment();
 			ft.replace(R.id.FragmentContainer, fragment);
 			ft.commit();
 		}

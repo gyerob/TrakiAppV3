@@ -14,6 +14,7 @@ import android.widget.TextView;
 import data.SlalomTop;
 
 public class SlalomTop10Adapter extends BaseAdapter {
+	
 	ArrayList<SlalomTop> racers;
 
 	public SlalomTop10Adapter(final ArrayList<SlalomTop> Racers) {

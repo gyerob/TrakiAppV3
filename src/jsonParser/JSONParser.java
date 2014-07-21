@@ -5,6 +5,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
+import java.net.HttpURLConnection;
+import java.net.SocketTimeoutException;
+import java.net.URL;
 import java.util.List;
 
 import org.apache.http.HttpEntity;
@@ -36,11 +39,14 @@ public class JSONParser {
 	// function get json from url
 	// by making HTTP POST or GET mehtod
 	public JSONObject makeHttpRequest(String url, String method,
-			List<NameValuePair> params) {
+			List<NameValuePair> params){
 
 		// Making HTTP request
 		try {
-
+			URL urll = new URL("http://tv2014.ddns.net");
+			HttpURLConnection urlc = (HttpURLConnection) urll.openConnection();
+			urlc.setConnectTimeout(5000);
+			urlc.setReadTimeout(5000);
 			// check for request method
 			if (method == "POST") {
 				// request method is POST
@@ -83,6 +89,9 @@ public class JSONParser {
 				is = httpEntity.getContent();
 			}
 
+		} catch (SocketTimeoutException e) {
+			e.printStackTrace();
+			return null;
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		} catch (ClientProtocolException e) {

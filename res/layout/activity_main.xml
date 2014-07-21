@@ -18,46 +18,64 @@
 
     <Button
         android:id="@+id/btnOut"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/btnIn"
-        android:layout_below="@+id/btnIn"
-        android:layout_marginTop="24dp"
-        android:text="@string/main_output" />
+        android:layout_width="130dp"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/button_t_l_selector"
+        android:gravity="left|top"
+        android:paddingLeft="10dp"
+        android:paddingTop="3dp"
+        android:text="@string/main_output"
+        android:textColor="@color/gold" />
 
     <Button
-        android:id="@+id/btnIn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:id="@+id/btnFinals"
+        android:layout_width="130dp"
+        android:layout_height="50dp"
+        android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="18dp"
-        android:text="@string/main_input" />
+        android:background="@drawable/button_t_r_selector"
+        android:gravity="right|top"
+        android:paddingRight="30dp"
+        android:paddingTop="5dp"
+        android:text="@string/main_finals"
+        android:textColor="@color/gold" />
+
+    <Button
+        android:id="@+id/btnMap"
+        android:layout_width="130dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/button_b_r_selector"
+        android:gravity="right|bottom"
+        android:paddingBottom="5dp"
+        android:paddingRight="30dp"
+        android:text="@string/main_map"
+        android:textColor="@color/gold" />
 
     <Button
         android:id="@+id/btnGallery"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="130dp"
+        android:layout_height="50dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:text="@string/main_gallery" />
- 
+        android:background="@drawable/button_b_l_selector"
+        android:gravity="left|bottom"
+        android:paddingBottom="5dp"
+        android:paddingLeft="30dp"
+        android:text="@string/main_gallery"
+        android:textColor="@color/gold" />
+
     <Button
-        android:id="@+id/btnFinals"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:id="@+id/btnIn"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
         android:layout_above="@+id/btnMap"
-        android:layout_alignParentLeft="true"
-        android:layout_marginBottom="2dp"
-        android:text="@string/main_finals" />
-    
-    <Button
-        android:id="@+id/btnMap"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/btnGallery"
-        android:layout_alignParentLeft="true"
-        android:layout_marginBottom="2dp"
-        android:text="@string/main_map" />
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/button_full_selector"
+        android:text="@string/main_input"
+        android:textColor="@color/gold" />
 
 </RelativeLayout>

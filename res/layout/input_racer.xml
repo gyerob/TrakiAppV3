@@ -6,7 +6,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="393dp" >
 
         <TextView
             android:id="@+id/inputracerViewName"
@@ -42,34 +42,12 @@
             android:textColor="@color/black" />
 
         <CheckBox
-            android:id="@+id/inputracer150le"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/inputracerViewTown"
-            android:layout_marginTop="15dp"
-            android:button="@drawable/checkboxselector"
-            android:text="@string/data_150"
-            android:textColor="@color/black" />
-
-        <CheckBox
-            android:id="@+id/inputracerTrailer"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/inputracerViewTown"
-            android:layout_marginTop="60dp"
-            android:button="@drawable/checkboxselector"
-            android:text="@string/data_trailer"
-            android:textColor="@color/black" />
-
-        <CheckBox
             android:id="@+id/inputracerSlalom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_below="@+id/inputracerTrailer"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="30dp"
             android:button="@drawable/checkboxselector"
             android:text="@string/data_slalom"
             android:textColor="@color/black" />
@@ -80,20 +58,9 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_below="@+id/inputracerSlalom"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="30dp"
             android:button="@drawable/checkboxselector"
             android:text="@string/data_drag"
-            android:textColor="@color/black" />
-
-        <CheckBox
-            android:id="@+id/inputracerSex"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/inputracerTrailer"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="32dp"
-            android:button="@drawable/checkboxselector"
-            android:text="@string/data_sex"
             android:textColor="@color/black" />
 
         <EditText
@@ -133,11 +100,23 @@
             <requestFocus />
         </EditText>
 
+        <CheckBox
+            android:id="@+id/inputracerTrailer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/inputracerDrag"
+            android:layout_below="@+id/inputracerEditTown"
+            android:layout_marginTop="20dp"
+            android:button="@drawable/checkboxselector"
+            android:text="@string/data_trailer"
+            android:textColor="@color/black" />
+
         <Button
             android:id="@+id/inputracerbtnupdate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/inputracerSlalom"
+            android:layout_alignBaseline="@+id/inputracerTrailer"
+            android:layout_alignBottom="@+id/inputracerTrailer"
             android:layout_centerHorizontal="true"
             android:text="@string/btn_update"
             android:textColor="@color/black" />
@@ -146,8 +125,9 @@
             android:id="@+id/inputracerbtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/inputracerSlalom"
+            android:layout_alignBottom="@+id/inputracerSlalom"
             android:layout_alignLeft="@+id/inputracerbtnupdate"
-            android:layout_alignTop="@+id/inputracerDrag"
             android:text="@string/btn_save"
             android:textColor="@color/black" />
 
@@ -155,10 +135,12 @@
             android:id="@+id/inputracerbtndelete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/inputracerbtn"
-            android:layout_alignRight="@+id/inputracerSex"
+            android:layout_alignBaseline="@+id/inputracerDrag"
+            android:layout_alignBottom="@+id/inputracerDrag"
+            android:layout_alignLeft="@+id/inputracerbtn"
             android:text="@string/btn_delete"
             android:textColor="@color/black" />
+
     </RelativeLayout>
 
 </ScrollView>

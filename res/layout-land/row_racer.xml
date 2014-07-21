@@ -25,23 +25,13 @@
         android:text="Small Text"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
-    <CheckBox
-        android:id="@+id/row_racerSex"
-        android:layout_width="36dp"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_marginLeft="20dp"
-        android:layout_toRightOf="@+id/row_racerNumber"
-        android:button="@drawable/checkboxselector"
-        android:clickable="false" />
-
     <TextView
         android:id="@+id/row_racerTown"
         android:layout_width="70dp"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_marginLeft="20dp"
-        android:layout_toRightOf="@+id/row_racerSex"
+        android:layout_toRightOf="@+id/row_racerNumber"
         android:text="Small Text"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 

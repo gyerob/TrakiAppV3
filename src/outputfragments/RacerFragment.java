@@ -29,11 +29,12 @@ public class RacerFragment extends ListFragment {
 	private RacerAdapter adapter;
 	private ArrayList<Racer> racerList;
 
-	public ProgressDialog pDialog;
+	private ProgressDialog pDialog;
+	private LoadAllRacer loadracers;
 
 	private JSONParser jsonParser = new JSONParser();
 
-	private static String url_all_racer = "http://gyerob.no-ip.biz/trakiweb/get_all_racer.php";
+	private static String url_all_racer = "http://tv2014.ddns.net/trakiweb/get_all_racer.php";
 
 	private static final String TAG_SUCCESS = "success";
 	private static final String TAG_PRODUCTS = "racers";
@@ -52,7 +53,8 @@ public class RacerFragment extends ListFragment {
 
 		racerList = new ArrayList<Racer>();
 
-		new LoadAllRacer().execute();
+		loadracers = new LoadAllRacer();
+		loadracers.execute();
 	}
 
 	@Override
@@ -78,41 +80,46 @@ public class RacerFragment extends ListFragment {
 
 		protected String doInBackground(String... args) {
 			List<NameValuePair> params = new ArrayList<NameValuePair>();
-			JSONObject json = jsonParser.makeHttpRequest(url_all_racer, "GET",
-					params);
+			JSONObject json;
 
-			try {
-				int success = json.getInt(TAG_SUCCESS);
+			json = jsonParser.makeHttpRequest(url_all_racer, "GET", params);
+			if (json != null) {
+				try {
+					int success = json.getInt(TAG_SUCCESS);
 
-				if (success == 1) {
-					racers = json.getJSONArray(TAG_PRODUCTS);
+					if (success == 1) {
+						racers = json.getJSONArray(TAG_PRODUCTS);
 
-					for (int i = 0; i < racers.length(); i++) {
-						JSONObject c = racers.getJSONObject(i);
+						for (int i = 0; i < racers.length(); i++) {
+							JSONObject c = racers.getJSONObject(i);
 
-						Racer racer = new Racer();
+							Racer racer = new Racer();
 
-						racer.setNumber(Integer.parseInt(c.getString("rajt")));
-						racer.setName(c.getString("nev"));
-						racer.setTown(c.getString("varos"));
-						racer.setSex(Boolean.parseBoolean(c.getString("nem")));
-						racer.setTrailer((Boolean.parseBoolean(c
-								.getString("potkocsi"))));
-						racer.setSlalom(Boolean.parseBoolean(c
-								.getString("szlalom")));
-						racer.setDrag(Boolean.parseBoolean(c
-								.getString("gyorsulas")));
+							racer.setNumber(Integer.parseInt(c
+									.getString("rajt")));
+							racer.setName(c.getString("nev"));
+							racer.setTown(c.getString("varos"));
+							racer.setSex(Boolean.parseBoolean(c
+									.getString("nem")));
+							racer.setTrailer((Boolean.parseBoolean(c
+									.getString("potkocsi"))));
+							racer.setSlalom(Boolean.parseBoolean(c
+									.getString("szlalom")));
+							racer.setDrag(Boolean.parseBoolean(c
+									.getString("gyorsulas")));
 
-						racerList.add(racer);
+							racerList.add(racer);
+						}
 					}
+				} catch (JSONException e) {
+					e.printStackTrace();
+				} catch (Exception e) {
+					failed = true;
+					e.printStackTrace();
 				}
-			} catch (JSONException e) {
-				e.printStackTrace();
-			} catch (Exception e) {
+			} else {
 				failed = true;
-				e.printStackTrace();
 			}
-
 			return null;
 		}
 

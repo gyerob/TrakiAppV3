@@ -118,35 +118,13 @@
             android:text="@string/data_trailer"
             android:textColor="@color/black" />
 
-        <CheckBox
-            android:id="@+id/inputracer150le"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/inputracerSex"
-            android:layout_alignBottom="@+id/inputracerSex"
-            android:layout_marginRight="10dp"
-            android:layout_toLeftOf="@+id/inputracerSex"
-            android:button="@drawable/checkboxselector"
-            android:text="@string/data_150"
-            android:textColor="@color/black" />
-
-        <CheckBox
-            android:id="@+id/inputracerSex"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/inputracerEditTown"
-            android:layout_alignTop="@+id/inputracerbtn"
-            android:button="@drawable/checkboxselector"
-            android:text="@string/data_sex"
-            android:textColor="@color/black" />
-
         <Button
             android:id="@+id/inputracerbtnupdate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/inputracerSex"
+            android:layout_alignLeft="@+id/inputracerEditTown"
+            android:layout_alignTop="@+id/inputracerbtn"
             android:layout_marginLeft="24dp"
-            android:layout_toRightOf="@+id/inputracerSex"
             android:text="@string/btn_update"
             android:textColor="@color/black" />
 
@@ -155,8 +133,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/inputracerEditTown"
+            android:layout_centerHorizontal="true"
             android:layout_marginTop="24dp"
-            android:layout_toRightOf="@+id/inputracerbtnupdate"
             android:text="@string/btn_save"
             android:textColor="@color/black" />
 
@@ -164,11 +142,11 @@
             android:id="@+id/inputracerbtndelete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/inputracerbtn"
-            android:layout_marginTop="24dp"
-            android:layout_toRightOf="@+id/inputracerbtn"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@+id/inputracerEditTown"
             android:text="@string/btn_delete"
             android:textColor="@color/black" />
+
     </RelativeLayout>
 
 </ScrollView>

@@ -8,25 +8,25 @@ import finalsdragfragments.DragTop10Fragment2;
 
 public class DragTop10FragmentPagerAdapter extends FragmentStatePagerAdapter {
 
-	private DragTop10Fragment1 f1;
-	private DragTop10Fragment2 f2;
-
 	public DragTop10FragmentPagerAdapter(FragmentManager fm) {
 		super(fm);
-		f1 = new DragTop10Fragment1();
-		f2 = new DragTop10Fragment2();
 	}
 
 	@Override
 	public Fragment getItem(int pos) {
 		switch (pos) {
 		case 0:
-			return f1;
+			return DragTop10Fragment1.newInstance();
 		case 1:
-			return f2;
+			return DragTop10Fragment2.newInstance();
 		default:
 			return null;
 		}
+	}
+
+	@Override
+	public int getItemPosition(Object object) {
+		return POSITION_NONE;
 	}
 
 	@Override

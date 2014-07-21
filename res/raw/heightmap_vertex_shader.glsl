@@ -24,8 +24,8 @@ vec3 getDirectionalLighting();
 vec3 getPointLighting();
 void main()                    
 {    
-	materialColor = mix(vec3(0.180, 0.467, 0.153),    // A dark green 
-                        vec3(0.660, 0.670, 0.680),    // A stony gray 
+	materialColor = mix(vec3(1.0, 0.96, 0.0),    // A dark brown 
+                        vec3(0.180, 0.467, 0.153),    // A dark green
                         a_Position.y);
     eyeSpacePosition = u_MVMatrix * a_Position;                             
                                      

@@ -1,21 +1,41 @@
-<resources>
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!--
-        Base application theme, dependent on API level. This theme is replaced
-        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
-    -->
-    <style name="AppBaseTheme" parent="android:Theme.Light">
-        <!--
-            Theme customizations available in newer API levels can go in
-            res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
-        -->
+    <style name="AppTheme" parent="@style/Theme.AppCompat.Light">
+        <item name="actionBarStyle">@style/MyActionBar</item>
+        <item name="actionBarTabStyle">@style/MyActionBarTab</item>
+        <item name="actionBarTabTextStyle">@style/MyABTabText</item>
+        <item name="popupMenuStyle">@style/MyPopUp</item>
+        <item name="android:dropDownListViewStyle">@style/MyDropDownList</item>
+        <item name="actionMenuTextColor">@color/gold</item>
+        <item name="android:textColor">@color/gold</item>
     </style>
 
-    <!-- Application theme. -->
-    <style name="AppTheme" parent="AppBaseTheme">
-        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    <style name="MyABTitleText" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textColor">@color/gold</item>
     </style>
-    <string name="textColor">#000000</string>
+
+    <style name="MyABTabText" parent="@style/Widget.AppCompat.Light.ActionBar.TabText">
+        <item name="android:textColor">@color/gold</item>
+    </style>
+
+    <style name="MyActionBar" parent="@style/Widget.AppCompat.Light.ActionBar">
+        <item name="android:background">@color/green</item>
+        <item name="titleTextStyle">@style/MyABTitleText</item>
+    </style>
+
+    <style name="MyActionBarTab" parent="@style/Widget.AppCompat.Light.ActionBar.TabView">
+        <item name="android:background">@drawable/actionbar_tab_selector</item>
+    </style>
+
+    <style name="MyPopUp" parent="@style/Widget.AppCompat.Light.ListPopupWindow">
+        <item name="android:popupBackground">@color/green</item>
+    </style>
+
+    <style name="MyDropDownList" parent="@style/Widget.AppCompat.Light.ListView.DropDown">
+        <item name="android:listSelector">@drawable/dropdown_selector</item>
+    </style>
+
+    <string name="textColor">#e6b121</string>
 
 </resources>

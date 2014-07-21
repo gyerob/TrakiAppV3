@@ -10,7 +10,7 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/linearLayout2" >
     </ListView>
-    
+
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="wrap_content"
@@ -25,8 +25,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:text="@string/data_name"
-            android:textColor="@color/black"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/black" />
 
         <TextView
             android:id="@+id/headerslalomNumber"
@@ -34,8 +34,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:text="@string/data_number"
-            android:textColor="@color/black"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/black" />
 
         <TextView
             android:id="@+id/headerslalomTime"
@@ -43,8 +43,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:text="@string/data_time"
-            android:textColor="@color/black"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/black" />
 
         <TextView
             android:id="@+id/headerslalomError"
@@ -52,8 +52,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:text="@string/data_error"
-            android:textColor="@color/black"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/black" />
 
         <TextView
             android:id="@+id/headerslalomFTime"
@@ -61,8 +61,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:text="@string/data_finaltime"
-            android:textColor="@color/black"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/black" />
     </LinearLayout>
 
 </RelativeLayout>

@@ -13,8 +13,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import toplistview.ToplistView;
-import toplistview.ToplistView.IListViewUpdate;
+import customviews.ToplistView;
+import customviews.ToplistView.IListViewUpdate;
+
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -31,9 +32,9 @@ import data.SlalomTop;
 public class SlalomBelowTop10Fragment1 extends Fragment implements IListViewUpdate {
 	public static final String TITLE = "Lépcsõk-";
 
-	private static String url_get_slalom_top = "http://gyerob.no-ip.biz/trakiweb/get_all_slalom_b_top.php";
-	private static String url_update_slalom_top = "http://gyerob.no-ip.biz/trakiweb/update_slalom_b_top.php";
-	private static String url_update_next_slalom_top = "http://gyerob.no-ip.biz/trakiweb/update_next_slalom_b_top.php";
+	private static String url_get_slalom_top = "http://tv2014.ddns.net/trakiweb/get_all_slalom_b_top.php";
+	private static String url_update_slalom_top = "http://tv2014.ddns.net/trakiweb/update_slalom_b_top.php";
+	private static String url_update_next_slalom_top = "http://tv2014.ddns.net/trakiweb/update_next_slalom_b_top.php";
 
 	private static final String TAG_SUCCESS = "success";
 	private static final String TAG_PRODUCTS = "racers";

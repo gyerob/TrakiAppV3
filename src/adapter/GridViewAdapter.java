@@ -26,7 +26,7 @@ public class GridViewAdapter extends ArrayAdapter<String> {
 	private int layoutResourceId;
 	private ArrayList<String> picnames = new ArrayList<String>();
 	private ArrayList<ImageItem> pictures = new ArrayList<ImageItem>();
-	private static String url_img_folder = "http://gyerob.no-ip.biz/trakiweb/pics/gallery-images/";
+	private static String url_img_folder = "http://tv2014.ddns.net/trakiweb/pics/gallery-images/";
 
 	public GridViewAdapter(Context context, int layoutResourceId,
 			ArrayList<String> picturenames) {
@@ -59,10 +59,8 @@ public class GridViewAdapter extends ArrayAdapter<String> {
 		}
 
 		if (picnames != null) {
-			System.out.println("elem lekérdezése ha nem üres a lista");
 			String item = picnames.get(position);
 			if (holder.image != null) {
-				System.out.println("getimage elõtt");
 				new GetImage(holder.image).execute(item);
 			}
 		}
@@ -103,7 +101,6 @@ public class GridViewAdapter extends ArrayAdapter<String> {
 						return ie.getImage();
 					} else {
 						String urlstring = url_img_folder + param;
-						System.out.println(urlstring);
 						URL url;
 						try {
 							url = new URL(urlstring);
@@ -123,7 +120,6 @@ public class GridViewAdapter extends ArrayAdapter<String> {
 					ie = new ImageItem();
 					ie.setTitle(param);
 					String urlstring = url_img_folder + param;
-					System.out.println(urlstring);
 					URL url;
 					try {
 						url = new URL(urlstring);

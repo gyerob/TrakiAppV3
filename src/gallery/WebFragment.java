@@ -1,6 +1,7 @@
 package gallery;
 
 import hu.gyerob.trakiapp.R;
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -9,6 +10,7 @@ import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+@SuppressLint("SetJavaScriptEnabled")
 public class WebFragment extends Fragment {
 
 	private WebView webView;
@@ -22,7 +24,8 @@ public class WebFragment extends Fragment {
 		webView = (WebView) v.findViewById(R.id.webView1);
 		webView.setWebViewClient(new WebViewClient());
 		webView.getSettings().setJavaScriptEnabled(true);
-		webView.loadUrl("httP://gyerob.no-ip.biz/trakiweb/pics");
+		webView.getSettings().setBuiltInZoomControls(true);
+		webView.loadUrl("httP://tv2014.ddns.net/trakiweb/pics");
 
 		return v;
 	}

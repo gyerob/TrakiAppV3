@@ -3,42 +3,42 @@
 
     <item
         android:id="@+id/listmenuupdate"
-        compat:showAsAction="always"
+        compat:showAsAction="never"
         android:title="@string/listmenuupdate"/>
     
     <item
         android:id="@+id/listmenuall"
-        compat:showAsAction="always"
+        compat:showAsAction="never"
         android:title="@string/listmenuall"/>
     
     <item
         android:id="@+id/listmenuabove150le"
-        compat:showAsAction="always"
+        compat:showAsAction="never"
         android:title="@string/listmenuabove150"/>
     
     <item
         android:id="@+id/listmenubelow150le"
-        compat:showAsAction="always"
+        compat:showAsAction="never"
         android:title="@string/listmenubelow150"/>
     
     <item
         android:id="@+id/listmenuveteran"
-        compat:showAsAction="always"
+        compat:showAsAction="never"
         android:title="@string/listmenuveteran"/>
     
     <item
         android:id="@+id/listmenumodern"
-        compat:showAsAction="always"
+        compat:showAsAction="never"
         android:title="@string/listmenumodern"/>
     
     <item
         android:id="@+id/listmenuwomen"
-        compat:showAsAction="always"
+        compat:showAsAction="never"
         android:title="@string/listmenuwomen"/>
     
     <item
         android:id="@+id/listmenumen"
-        compat:showAsAction="always"
+        compat:showAsAction="never"
         android:title="@string/listmenumen"/>
 
 </menu>

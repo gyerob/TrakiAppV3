@@ -25,10 +25,10 @@ public class FinalsActivity extends ActionBarActivity {
 	private Button slalomlock;
 	private Button draglock;
 
-	private static String url_lock_slalom = "http://gyerob.no-ip.biz/trakiweb/create_slalom_top.php";
+	private static String url_lock_slalom = "http://tv2014.ddns.net/trakiweb/create_slalom_top.php";
 	//private static String url_lock_slalom_a = "http://gyerob.no-ip.biz/trakiweb/create_slalom_a_top.php";
 	//private static String url_lock_slalom_b = "http://gyerob.no-ip.biz/trakiweb/create_slalom_b_top.php";
-	private static String url_lock_drag = "http://gyerob.no-ip.biz/trakiweb/create_drag_top.php";
+	private static String url_lock_drag = "http://tv2014.ddns.net/trakiweb/create_drag_top.php";
 
 	private ProgressDialog pDialog;
 	private JSONParser jsonParser;

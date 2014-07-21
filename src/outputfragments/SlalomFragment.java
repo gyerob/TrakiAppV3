@@ -34,7 +34,7 @@ public class SlalomFragment extends ListFragment {
 
 	private JSONParser jsonParser = new JSONParser();
 
-	private static String url_all_slalom = "http://gyerob.no-ip.biz/trakiweb/get_all_slalom.php";
+	private static String url_all_slalom = "http://tv2014.ddns.net/trakiweb/get_all_slalom.php";
 
 	private static final String TAG_SUCCESS = "success";
 	private static final String TAG_PRODUCTS = "slalom";
@@ -58,7 +58,7 @@ public class SlalomFragment extends ListFragment {
 		super.onCreate(bundle);
 
 		int mode = getArguments() != null ? getArguments().getInt("mode") : 0;
-		if (mode >=0 && mode <8) {
+		if (mode >= 0 && mode < 8) {
 			MODE = mode;
 		}
 
