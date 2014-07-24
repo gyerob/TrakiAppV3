@@ -47,7 +47,6 @@ public class RacerAdapter extends BaseAdapter {
 
 		TextView name = (TextView) view.findViewById(R.id.row_racerName);
 		TextView number = (TextView) view.findViewById(R.id.row_racerNumber);
-		CheckBox sex = (CheckBox) view.findViewById(R.id.row_racerSex);
 		TextView town = (TextView) view.findViewById(R.id.row_racerTown);
 		CheckBox trailer = (CheckBox) view.findViewById(R.id.row_racerTrailer);
 		CheckBox slalom = (CheckBox) view.findViewById(R.id.row_racerSlalom);
@@ -59,7 +58,6 @@ public class RacerAdapter extends BaseAdapter {
 
 		name.setText(racer.getName());
 		number.setText(Integer.toString(racer.getNumber()));
-		sex.setChecked(racer.getSex());
 		town.setText(racer.getTown());
 		trailer.setChecked(racer.getTrailer());
 		slalom.setChecked(racer.getSlalom());

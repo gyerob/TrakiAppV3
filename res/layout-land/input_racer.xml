@@ -119,21 +119,10 @@
             android:textColor="@color/black" />
 
         <Button
-            android:id="@+id/inputracerbtnupdate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/inputracerEditTown"
-            android:layout_alignTop="@+id/inputracerbtn"
-            android:layout_marginLeft="24dp"
-            android:text="@string/btn_update"
-            android:textColor="@color/black" />
-
-        <Button
             android:id="@+id/inputracerbtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/inputracerEditTown"
-            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/inputracerViewTown"
             android:layout_marginTop="24dp"
             android:text="@string/btn_save"
             android:textColor="@color/black" />
@@ -143,8 +132,40 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_toRightOf="@+id/inputracerEditTown"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/inputracerbtnupdate"
             android:text="@string/btn_delete"
+            android:textColor="@color/black" />
+
+        <Button
+            android:id="@+id/inputracerbtnupdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/inputracerbtn"
+            android:text="@string/btn_update"
+            android:textColor="@color/black" />
+
+        <Spinner
+            android:id="@+id/myspinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/inputracerDrag"
+            android:layout_alignParentBottom="true"
+            android:layout_below="@+id/textView1"
+            android:background="@color/green"
+            android:entries="@array/csoportnev" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/myspinner"
+            android:layout_below="@+id/inputracerDrag"
+            android:layout_marginTop="10dp"
+            android:text="Csoport"
+            android:textAppearance="?android:attr/textAppearanceMedium"
             android:textColor="@color/black" />
 
     </RelativeLayout>

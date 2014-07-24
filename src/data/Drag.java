@@ -14,11 +14,11 @@ public class Drag extends People {
 	}
 	
 	public void setIdo2(String time) {
-		ido1 = time;
+		ido2 = time;
 	}
 	
 	public void setLegjobbIdo(String time) {
-		ido1 = time;
+		legjobb = time;
 	}
 	
 	public String getIdo1() {
@@ -26,10 +26,10 @@ public class Drag extends People {
 	}
 	
 	public String getIdo2() {
-		return ido1;
+		return ido2;
 	}
 	
 	public String getLegjobbIdo() {
-		return ido1;
+		return legjobb;
 	}
 }

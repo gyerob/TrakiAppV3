@@ -12,40 +12,58 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:scaleType="centerCrop"
-        android:src="@drawable/portrait" />
-
-    <Button
-        android:id="@+id/finalsSlalombtn"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="44dp"
-        android:text="Szlalom" />
-
-    <Button
-        android:id="@+id/finalsDragbtn"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/finalsSlalombtn"
-        android:layout_alignBottom="@+id/finalsSlalombtn"
-        android:layout_alignParentRight="true"
-        android:text="Gyorsulás" />
+        android:src="@drawable/land" />
 
     <Button
         android:id="@+id/btnlockslalom"
-        android:layout_width="wrap_content"
+        android:layout_width="130dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:text="Szlalomzár" />
+        android:background="@drawable/button_b_l_selector"
+        android:gravity="left|bottom"
+        android:paddingBottom="5dp"
+        android:paddingLeft="15dp"
+        android:text="Szlalomzár"
+        android:textColor="@color/gold" />
 
     <Button
         android:id="@+id/btnlockdrag"
-        android:layout_width="wrap_content"
+        android:layout_width="130dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:text="Gyorsulászár" />
+        android:background="@drawable/button_b_r_selector"
+        android:gravity="right|bottom"
+        android:paddingBottom="5dp"
+        android:paddingRight="30dp"
+        android:text="Gy. zár"
+        android:textColor="@color/gold" />
+
+    <Button
+        android:id="@+id/finalsDragbtn"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/button_t_r_selector"
+        android:gravity="right|top"
+        android:paddingRight="15dp"
+        android:paddingTop="5dp"
+        android:text="Gyorsulás"
+        android:textColor="@color/gold" />
+
+    <Button
+        android:id="@+id/finalsSlalombtn"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/button_t_l_selector"
+        android:gravity="left|top"
+        android:paddingLeft="30dp"
+        android:paddingTop="5dp"
+        android:text="Szlalom"
+        android:textColor="@color/gold" />
 
 </RelativeLayout>

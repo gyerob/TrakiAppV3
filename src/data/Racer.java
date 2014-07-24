@@ -6,9 +6,18 @@ public class Racer extends People {
 	boolean trailer;
 	boolean slalom;
 	boolean drag;
+	String group;
 
 	public Racer() {
 
+	}
+
+	public String getGroup() {
+		return group;
+	}
+
+	public void setGroup(String group) {
+		this.group = group;
 	}
 
 	public boolean getSex() {

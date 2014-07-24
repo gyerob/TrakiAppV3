@@ -76,32 +76,22 @@ public class DragFragment extends ListFragment {
 			pDialog.show();
 		}
 
-		/**
-		 * getting All products from url
-		 * */
 		protected String doInBackground(String... args) {
-			// Building Parameters
 			List<NameValuePair> params = new ArrayList<NameValuePair>();
-			// getting JSON string from URL
 			JSONObject json = jsonParser.makeHttpRequest(url_all_drag, "GET",
 					params);
 
 			try {
-				// Checking for SUCCESS TAG
 				int success = json.getInt(TAG_SUCCESS);
 
 				if (success == 1) {
-					// products found
-					// Getting Array of Products
 					drags = json.getJSONArray(TAG_PRODUCTS);
 
-					// looping through All Products
 					for (int i = 0; i < drags.length(); i++) {
 						JSONObject c = drags.getJSONObject(i);
 
 						Drag drag = new Drag();
 
-						// Storing each json item in variable
 						drag.setNumber(Integer.parseInt(c.getString("rajt")));
 						drag.setName(c.getString("nev"));
 						drag.setIdo1(c.getString("ido1"));

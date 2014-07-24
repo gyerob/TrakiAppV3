@@ -70,7 +70,7 @@ public class TrakiMapRenderer implements GLSurfaceView.Renderer {
 	private float angle;
 	private float xpos, zpos;
 
-	private float zoom = 30.5f;
+	private float zoom = 50f;
 
 	private float trakix, trakiz;
 	private float trakiangle;
@@ -193,7 +193,7 @@ public class TrakiMapRenderer implements GLSurfaceView.Renderer {
 	}
 
 	public void setZoom(float scale) {
-		zoom = 25f * scale;
+		zoom = 50f * scale;
 	}
 
 	public void handledrag(float deltax, float deltay) {
@@ -217,8 +217,10 @@ public class TrakiMapRenderer implements GLSurfaceView.Renderer {
 			xpos += ((-deltay / 16f) * moveX);
 			zpos += ((deltay / 16f) * moveY);
 		} else {
-			xpos += deltax / 16.0f;
-			zpos += deltay / 16.0f;
+			if ((xpos+deltax / 16.0f) < 10 && (xpos+deltax / 16.0f) > -80)
+				xpos += deltax / 16.0f;
+			if ((zpos+deltay / 16.0f) < 30 && (zpos+deltay / 16.0f) > -30)
+				zpos += deltay / 16.0f;
 		}
 
 		updateview();

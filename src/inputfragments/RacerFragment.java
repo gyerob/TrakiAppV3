@@ -20,9 +20,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 public class RacerFragment extends Fragment {
 
@@ -42,11 +45,12 @@ public class RacerFragment extends Fragment {
 	private EditText name;
 	private EditText number;
 	private EditText town;
-	private CheckBox sex;
 	private CheckBox trailer;
 	private CheckBox slalom;
 	private CheckBox drag;
-	private CheckBox hp;
+	private Spinner group;
+
+	private int selectedpos = 0;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -60,11 +64,24 @@ public class RacerFragment extends Fragment {
 		name = (EditText) v.findViewById(R.id.inputracerEditName);
 		number = (EditText) v.findViewById(R.id.inputracerEditNumber);
 		town = (EditText) v.findViewById(R.id.inputracerEditTown);
-		sex = (CheckBox) v.findViewById(R.id.inputracerSex);
 		trailer = (CheckBox) v.findViewById(R.id.inputracerTrailer);
 		slalom = (CheckBox) v.findViewById(R.id.inputracerSlalom);
 		drag = (CheckBox) v.findViewById(R.id.inputracerDrag);
-		hp = (CheckBox) v.findViewById(R.id.inputracer150le);
+		group = (Spinner) v.findViewById(R.id.myspinner);
+
+		group.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+			@Override
+			public void onItemSelected(AdapterView<?> parent, View view,
+					int position, long id) {
+				selectedpos = position;
+				Log.d("selected", Integer.toString(selectedpos));
+			}
+
+			@Override
+			public void onNothingSelected(AdapterView<?> parent) {
+			}
+		});
 
 		save.setOnClickListener(savemethod);
 		update.setOnClickListener(updatemethod);
@@ -85,7 +102,7 @@ public class RacerFragment extends Fragment {
 			new CreateNewRacer().execute();
 		}
 	};
-	
+
 	OnClickListener updatemethod = new OnClickListener() {
 
 		@Override
@@ -94,7 +111,7 @@ public class RacerFragment extends Fragment {
 			new UpdateRacer().execute();
 		}
 	};
-	
+
 	OnClickListener deletemethod = new OnClickListener() {
 
 		@Override
@@ -105,6 +122,7 @@ public class RacerFragment extends Fragment {
 	};
 
 	class CreateNewRacer extends AsyncTask<String, String, String> {
+		private boolean fail = false;
 
 		@Override
 		protected void onPreExecute() {
@@ -120,15 +138,9 @@ public class RacerFragment extends Fragment {
 			String nev = name.getText().toString();
 			String rajt = number.getText().toString();
 			String varos = town.getText().toString();
-			String nem, potk, szlalom, gyors, le;
-			if (sex.isChecked())
-				nem = "true";
-			else
-				nem = "false";
-			if (hp.isChecked())
-				le = "true";
-			else
-				le = "false";
+			String csoport = Integer.toString(selectedpos);
+			String potk, szlalom, gyors;
+
 			if (trailer.isChecked())
 				potk = "true";
 			else
@@ -146,14 +158,16 @@ public class RacerFragment extends Fragment {
 			params.add(new BasicNameValuePair("name", nev));
 			params.add(new BasicNameValuePair("number", rajt));
 			params.add(new BasicNameValuePair("town", varos));
-			params.add(new BasicNameValuePair("sex", nem));
-			params.add(new BasicNameValuePair("hp", le));
 			params.add(new BasicNameValuePair("trailer", potk));
 			params.add(new BasicNameValuePair("slalom", szlalom));
 			params.add(new BasicNameValuePair("drag", gyors));
+			params.add(new BasicNameValuePair("group", csoport));
 
 			JSONObject json = jsonParser.makeHttpRequest(url_create_racer,
 					"POST", params);
+
+			if (json == null)
+				fail = true;
 
 			Log.d("Create Response", json.toString());
 
@@ -163,13 +177,15 @@ public class RacerFragment extends Fragment {
 		protected void onPostExecute(String file_url) {
 			pDialog.dismiss();
 
-			name.setText("");
-			number.setText("");
-			town.setText("");
-			sex.setChecked(false);
-			trailer.setChecked(false);
-			slalom.setChecked(false);
-			drag.setChecked(false);
+			if (!fail) {
+				name.setText("");
+				number.setText("");
+				town.setText("");
+				trailer.setChecked(false);
+				slalom.setChecked(false);
+				drag.setChecked(false);
+				group.setSelection(0);
+			}
 		}
 	}
 
@@ -188,39 +204,31 @@ public class RacerFragment extends Fragment {
 		protected String doInBackground(String... args) {
 			String rajt = number.getText().toString();
 
-			// Building Parameters
 			List<NameValuePair> params = new ArrayList<NameValuePair>();
 			params.add(new BasicNameValuePair("rajt", rajt));
 
-			// getting JSON Object
-			// Note that create product url accepts POST method
 			JSONObject json = jsonParser.makeHttpRequest(url_delete_racer,
 					"POST", params);
 
-			// check log cat fro response
 			Log.d("Create Response", json.toString());
 
 			return null;
 		}
 
-		/**
-		 * After completing background task Dismiss the progress dialog
-		 * **/
 		protected void onPostExecute(String file_url) {
-			// dismiss the dialog once done
 			pDialog.dismiss();
 
 			name.setText("");
 			number.setText("");
 			town.setText("");
-			sex.setChecked(false);
 			trailer.setChecked(false);
 			slalom.setChecked(false);
 			drag.setChecked(false);
 		}
 	}
-	
+
 	class UpdateRacer extends AsyncTask<String, String, String> {
+		private boolean fail = false;
 
 		@Override
 		protected void onPreExecute() {
@@ -232,20 +240,15 @@ public class RacerFragment extends Fragment {
 			pDialog.show();
 		}
 
+		@SuppressWarnings("unused")
 		protected String doInBackground(String... args) {
-			Log.d("frissítés","kezdõdik");
+			Log.d("frissítés", "kezdõdik");
 			String nev = name.getText().toString();
 			String rajt = number.getText().toString();
 			String varos = town.getText().toString();
-			String nem, potk, szlalom, gyors, le;
-			if (sex.isChecked())
-				nem = "true";
-			else
-				nem = "false";
-			if (hp.isChecked())
-				le = "true";
-			else
-				le = "false";
+			String csoport = Integer.toString(selectedpos);
+			String potk, szlalom, gyors;
+
 			if (trailer.isChecked())
 				potk = "true";
 			else
@@ -258,44 +261,40 @@ public class RacerFragment extends Fragment {
 				gyors = "true";
 			else
 				gyors = "false";
-			Log.d("potk:szl:gy",potk+" "+szlalom+" "+gyors);
+			Log.d("potk:szl:gy", potk + " " + szlalom + " " + gyors);
 
-			// Building Parameters
 			List<NameValuePair> params = new ArrayList<NameValuePair>();
 			params.add(new BasicNameValuePair("name", nev));
 			params.add(new BasicNameValuePair("number", rajt));
 			params.add(new BasicNameValuePair("town", varos));
-			params.add(new BasicNameValuePair("sex", nem));
-			params.add(new BasicNameValuePair("hp", le));
 			params.add(new BasicNameValuePair("trailer", potk));
 			params.add(new BasicNameValuePair("slalom", szlalom));
 			params.add(new BasicNameValuePair("drag", gyors));
+			params.add(new BasicNameValuePair("group", csoport));
 
-			// getting JSON Object
-			// Note that create product url accepts POST method
 			JSONObject json = jsonParser.makeHttpRequest(url_update_racer,
 					"POST", params);
 
-			// check log cat fro response
 			Log.d("Create Response", json.toString());
+
+			if (json == null)
+				fail = true;
 
 			return null;
 		}
 
-		/**
-		 * After completing background task Dismiss the progress dialog
-		 * **/
 		protected void onPostExecute(String file_url) {
-			// dismiss the dialog once done
 			pDialog.dismiss();
 
-			name.setText("");
-			number.setText("");
-			town.setText("");
-			sex.setChecked(false);
-			trailer.setChecked(false);
-			slalom.setChecked(false);
-			drag.setChecked(false);
+			if (!fail) {
+				name.setText("");
+				number.setText("");
+				town.setText("");
+				trailer.setChecked(false);
+				slalom.setChecked(false);
+				drag.setChecked(false);
+				group.setSelection(0);
+			}
 		}
 	}
 }

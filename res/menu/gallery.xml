@@ -1,13 +1,13 @@
-<menu xmlns:android="http://schemas.android.com/apk/res/android" xmlns:compat="http://schemas.android.com/apk/res-auto">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:compat="http://schemas.android.com/apk/res-auto" >
 
     <item
         android:id="@+id/itemImageUpload"
-        compat:showAsAction="ifRoom"
-        android:title="@string/imgupload"/>
-    <item 
-        android:id="@+id/switchgalleryview" 
-        compat:showAsAction="ifRoom"
-        android:title="@string/switchGalleryView">
-    </item>
+        android:title="@string/imgupload"
+        compat:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/itemUpdate"
+        android:title="@string/listmenuupdate"
+        compat:showAsAction="ifRoom"/>
 
 </menu>

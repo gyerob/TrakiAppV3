@@ -51,8 +51,8 @@ public class GalleryActivity extends ActionBarActivity {
 		super.onCreate(savedInstanceState);
 
 		prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-		nezet = prefs.getString("galleryswitch", "Grid");
-		//Toast.makeText(this, nezet, Toast.LENGTH_LONG).show();
+		nezet = prefs.getString("galleryswitch", "Web");
+		// Toast.makeText(this, nezet, Toast.LENGTH_LONG).show();
 
 		setContentView(R.layout.activity_gallery);
 
@@ -65,7 +65,7 @@ public class GalleryActivity extends ActionBarActivity {
 		ft.add(R.id.FragmentContainer, fragment);
 		ft.commit();
 
-		//sgd = new ScaleGestureDetector(this, new ScaleListener());
+		// sgd = new ScaleGestureDetector(this, new ScaleListener());
 	}
 
 	protected void onActivityResult(int requestCode, int resultCode,
@@ -126,7 +126,7 @@ public class GalleryActivity extends ActionBarActivity {
 		@Override
 		protected void onPostExecute(Bitmap result) {
 			super.onPostExecute(result);
-			
+
 			pDialog.dismiss();
 		}
 	}
@@ -147,24 +147,29 @@ public class GalleryActivity extends ActionBarActivity {
 					Intent.createChooser(photoPickerIntent, "SELECT PICTURE"),
 					1);
 		}
-		if (item.getItemId() == R.id.switchgalleryview) {
-			if (nezet.equals("Grid")) {
-				prefs.edit().putString("galleryswitch", "Web").commit();
-				nezet = "Web";
-			} else {
-				prefs.edit().putString("galleryswitch", "Grid").commit();
-				nezet = "Grid";
-			}
-
-			FragmentManager fm = getSupportFragmentManager();
-			FragmentTransaction ft = fm.beginTransaction();
-			if (nezet.equals("Grid")) {
-				fragment = new GridFragment();
-			} else
-				fragment = new WebFragment();
-			ft.replace(R.id.FragmentContainer, fragment);
-			ft.commit();
-		}
+		if (item.getItemId() == R.id.itemUpdate) {
+			((WebFragment) fragment).update();
+		}/*
+		 * if (item.getItemId() == R.id.switchgalleryview) { if
+		 * (nezet.equals("Grid")) { prefs.edit().putString("galleryswitch",
+		 * "Web").commit(); nezet = "Web"; } else {
+		 * prefs.edit().putString("galleryswitch", "Grid").commit(); nezet =
+		 * "Grid"; }
+		 * 
+		 * FragmentManager fm = getSupportFragmentManager(); FragmentTransaction
+		 * ft = fm.beginTransaction(); if (nezet.equals("Grid")) { fragment =
+		 * new GridFragment(); } else fragment = new WebFragment();
+		 * ft.replace(R.id.FragmentContainer, fragment); ft.commit(); }
+		 */
 		return super.onOptionsItemSelected(item);
+	}
+
+	@Override
+	public void onBackPressed() {
+		if (((WebFragment) fragment).getWebView().canGoBack())
+			((WebFragment) fragment).getWebView().goBack();
+
+		else
+			super.onBackPressed();
 	}
 }

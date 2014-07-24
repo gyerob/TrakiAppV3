@@ -99,8 +99,6 @@ public class RacerFragment extends ListFragment {
 									.getString("rajt")));
 							racer.setName(c.getString("nev"));
 							racer.setTown(c.getString("varos"));
-							racer.setSex(Boolean.parseBoolean(c
-									.getString("nem")));
 							racer.setTrailer((Boolean.parseBoolean(c
 									.getString("potkocsi"))));
 							racer.setSlalom(Boolean.parseBoolean(c

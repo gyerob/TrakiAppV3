@@ -34,6 +34,7 @@
 
     <style name="MyDropDownList" parent="@style/Widget.AppCompat.Light.ListView.DropDown">
         <item name="android:listSelector">@drawable/dropdown_selector</item>
+        <item name="android:background">@color/green</item>
     </style>
 
     <string name="textColor">#e6b121</string>

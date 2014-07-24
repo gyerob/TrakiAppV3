@@ -9,12 +9,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.webkit.WebSettings.ZoomDensity;
 
 @SuppressLint("SetJavaScriptEnabled")
 public class WebFragment extends Fragment {
 
 	private WebView webView;
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -24,10 +26,21 @@ public class WebFragment extends Fragment {
 		webView = (WebView) v.findViewById(R.id.webView1);
 		webView.setWebViewClient(new WebViewClient());
 		webView.getSettings().setJavaScriptEnabled(true);
+		// webView.setInitialScale(1);
+		webView.getSettings().setDefaultZoom(ZoomDensity.FAR);
 		webView.getSettings().setBuiltInZoomControls(true);
+		// webView.getSettings().setUseWideViewPort(true);
+		webView.setBackgroundColor(0xFF9CBB87);
 		webView.loadUrl("httP://tv2014.ddns.net/trakiweb/pics");
 
 		return v;
 	}
 
+	public void update() {
+		webView.reload();
+	}
+
+	public WebView getWebView() {
+		return webView;
+	}
 }
