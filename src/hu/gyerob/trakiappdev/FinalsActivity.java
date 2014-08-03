@@ -1,4 +1,4 @@
-package hu.gyerob.trakiapp;
+package hu.gyerob.trakiappdev;
 
 import java.util.ArrayList;
 import java.util.List;

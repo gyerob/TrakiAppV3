@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android" xmlns:compat="http://schemas.android.com/apk/res-auto" >
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:compat="http://schemas.android.com/apk/res-auto" >
 
     <item
         android:id="@+id/itemPreferences"
-        compat:showAsAction="ifRoom"
-        android:title="@string/itemPreferences"/>
+        android:title="@string/itemPreferences"
+        compat:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/itemPontoz"
+        android:title="Pontoz"
+        compat:showAsAction="ifRoom"/>
 
 </menu>

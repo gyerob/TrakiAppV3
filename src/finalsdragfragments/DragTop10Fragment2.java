@@ -1,6 +1,6 @@
 package finalsdragfragments;
 
-import hu.gyerob.trakiapp.R;
+import hu.gyerob.trakiappdev.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,8 +48,7 @@ public class DragTop10Fragment2 extends ListFragment {
 	class updatebroadcast extends BroadcastReceiver {
 		@Override
 		public void onReceive(Context context, Intent intent) {
-			new LoadAllRacer().execute();
-			adapter.notifyDataSetChanged();
+			
 		}
 	}
 

@@ -1,6 +1,16 @@
-package hu.gyerob.trakiapp;
+package hu.gyerob.trakiappdev;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import jsonParser.JSONParser;
+
+import org.apache.http.NameValuePair;
+import org.json.JSONObject;
+
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
@@ -17,6 +27,12 @@ public class MainActivity extends ActionBarActivity {
 	private Button finals;
 	private Button gallery;
 	private Button map;
+
+	private ProgressDialog pDialog;
+
+	private JSONParser jsonParser = new JSONParser();
+
+	private static String url_pontoz = "http://tv2014.ddns.net/trakiweb/pontoz.php";
 
 	private OnClickListener startlistener = new OnClickListener() {
 
@@ -81,7 +97,34 @@ public class MainActivity extends ActionBarActivity {
 			Intent settingsActivity = new Intent(MainActivity.this,
 					PreferencesActivity.class);
 			startActivity(settingsActivity);
+		} else if (item.getItemId() == R.id.itemPontoz) {
+			new Pontoz().execute();
 		}
 		return super.onOptionsItemSelected(item);
+	}
+
+	class Pontoz extends AsyncTask<Void, Void, Void> {
+		@Override
+		protected void onPreExecute() {
+			super.onPreExecute();
+			pDialog = new ProgressDialog(MainActivity.this);
+			pDialog.setMessage("Pontozás..");
+			pDialog.setCancelable(true);
+			pDialog.show();
+		}
+
+		protected Void doInBackground(Void... args) {
+			List<NameValuePair> params = new ArrayList<NameValuePair>();
+
+			@SuppressWarnings("unused")
+			JSONObject json = jsonParser.makeHttpRequest(url_pontoz, "POST",
+					params);
+
+			return null;
+		}
+
+		protected void onPostExecute(Void file_url) {
+			pDialog.dismiss();
+		}
 	}
 }

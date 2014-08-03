@@ -7,9 +7,18 @@ public class Racer extends People {
 	boolean slalom;
 	boolean drag;
 	String group;
+	String point;
 
 	public Racer() {
 
+	}
+
+	public String getPoint() {
+		return point;
+	}
+
+	public void setPoint(String point) {
+		this.point = point;
 	}
 
 	public String getGroup() {

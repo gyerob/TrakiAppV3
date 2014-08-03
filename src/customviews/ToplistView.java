@@ -1,15 +1,15 @@
 package customviews;
 
-import finalsdragfragments.DragTop10Fragment1;
-import finalsslalomfragments.SlalomAboveTop10Fragment1;
-import finalsslalomfragments.SlalomBelowTop10Fragment1;
-import hu.gyerob.trakiapp.R;
+import hu.gyerob.trakiappdev.R;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import finalsdragfragments.DragTop10Fragment1;
+import finalsslalomfragments.SlalomAboveTop10Fragment1;
+import finalsslalomfragments.SlalomBelowTop10Fragment1;
 
 public class ToplistView extends LinearLayout {
 	private String name;

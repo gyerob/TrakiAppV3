@@ -1,7 +1,7 @@
 package adapter;
 
 import gallery.ImageItem;
-import hu.gyerob.trakiapp.R;
+import hu.gyerob.trakiappdev.R;
 
 import java.io.IOException;
 import java.lang.ref.WeakReference;

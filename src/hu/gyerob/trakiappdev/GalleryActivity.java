@@ -1,4 +1,4 @@
-package hu.gyerob.trakiapp;
+package hu.gyerob.trakiappdev;
 
 import gallery.GridFragment;
 import gallery.WebFragment;

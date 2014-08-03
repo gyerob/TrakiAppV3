@@ -1,6 +1,6 @@
 package inputfragments;
 
-import hu.gyerob.trakiapp.R;
+import hu.gyerob.trakiappdev.R;
 
 import java.util.ArrayList;
 import java.util.List;

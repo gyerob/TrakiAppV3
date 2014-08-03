@@ -13,7 +13,7 @@ import static android.opengl.GLES20.glGetUniformLocation;
 import static android.opengl.GLES20.glUniform3fv;
 import static android.opengl.GLES20.glUniform4fv;
 import static android.opengl.GLES20.glUniformMatrix4fv;
-import hu.gyerob.trakiapp.R;
+import hu.gyerob.trakiappdev.R;
 import android.content.Context;
 
 public class HeightmapShaderProgram extends ShaderProgram {

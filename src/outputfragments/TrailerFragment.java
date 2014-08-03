@@ -1,6 +1,6 @@
 package outputfragments;
 
-import hu.gyerob.trakiapp.R;
+import hu.gyerob.trakiappdev.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +21,6 @@ import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 import android.widget.Toast;
 import data.Trailer;
 
@@ -30,8 +29,6 @@ public class TrailerFragment extends ListFragment {
 
 	private TrailerAdapter adapter;
 	private ArrayList<Trailer> trailerList;
-
-	ArrayList<TextView> views;
 
 	private ProgressDialog pDialog;
 	private LoadAllTrailer loadtrailers;
@@ -46,12 +43,14 @@ public class TrailerFragment extends ListFragment {
 	private JSONArray trailers = null;
 
 	private static int MODE = 0;
+	private static int GROUP = 0;
 
-	public static TrailerFragment newInstance(int mode) {
+	public static TrailerFragment newInstance(int mode, int group) {
 		TrailerFragment trailer = new TrailerFragment();
 
 		Bundle args = new Bundle();
 		args.putInt("mode", mode);
+		args.putInt("group", group);
 		trailer.setArguments(args);
 
 		return trailer;
@@ -61,12 +60,12 @@ public class TrailerFragment extends ListFragment {
 	public void onCreate(Bundle bundle) {
 		super.onCreate(bundle);
 
-		views = new ArrayList<TextView>();
-
 		int mode = getArguments() != null ? getArguments().getInt("mode") : 0;
 		if (mode == 1 || mode == 4 || mode == 5) {
 			MODE = mode;
 		}
+		
+		GROUP = getArguments() != null ? getArguments().getInt("group") : 0;
 
 		trailerList = new ArrayList<Trailer>();
 
@@ -102,6 +101,14 @@ public class TrailerFragment extends ListFragment {
 				params.add(new BasicNameValuePair("type", "veteran"));
 			else if (MODE == 5)
 				params.add(new BasicNameValuePair("type", "modern"));
+
+			if (GROUP == 0) {
+				params.add(new BasicNameValuePair("group", "0"));
+			} else if (GROUP == 1) {
+				params.add(new BasicNameValuePair("group", "1"));
+			} else if (GROUP == 2) {
+				params.add(new BasicNameValuePair("group", "2"));
+			}
 
 			JSONObject json = jParser.makeHttpRequest(url_all_trailer, "GET",
 					params);

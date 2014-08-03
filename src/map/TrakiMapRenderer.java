@@ -16,7 +16,7 @@ import static android.opengl.Matrix.scaleM;
 import static android.opengl.Matrix.setIdentityM;
 import static android.opengl.Matrix.translateM;
 import static android.opengl.Matrix.transposeM;
-import hu.gyerob.trakiapp.R;
+import hu.gyerob.trakiappdev.R;
 
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;

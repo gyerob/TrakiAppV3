@@ -72,6 +72,15 @@
             android:text="Gy"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="@color/black" />
+        
+        <TextView
+            android:id="@+id/headerracerPoint"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="Pontok"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/black" />
     </LinearLayout>
 
 </RelativeLayout>

@@ -1,6 +1,6 @@
 package finalsdragfragments;
 
-import hu.gyerob.trakiapp.R;
+import hu.gyerob.trakiappdev.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,8 +32,8 @@ public class DragTop10Fragment1 extends Fragment implements IListViewUpdate {
 	public static final String TITLE = "Lépcsõk";
 
 	private static String url_get_drag_top = "http://tv2014.ddns.net/trakiweb/get_all_drag_top.php";
-	private static String url_update_drag_top = "http://tv2014.ddns.net/trakiweb/update_drag_top.php";
-	private static String url_update_next_drag_top = "http://tv2014.ddns.net/trakiweb/update_next_drag_top.php";
+	private static String url_update_drag_top = "http://tv2014.ddns.net/trakiweb/update_n_drag_top.php";
+	private static String url_update_next_drag_top = "http://tv2014.ddns.net/trakiweb/update_n_next_drag_top.php";
 
 	private static final String TAG_SUCCESS = "success";
 	private static final String TAG_PRODUCTS = "racers";

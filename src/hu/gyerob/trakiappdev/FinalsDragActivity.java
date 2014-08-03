@@ -1,4 +1,4 @@
-package hu.gyerob.trakiapp;
+package hu.gyerob.trakiappdev;
 
 import adapter.DragTop10FragmentPagerAdapter;
 import android.graphics.Color;

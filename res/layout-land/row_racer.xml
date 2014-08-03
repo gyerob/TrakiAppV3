@@ -65,4 +65,14 @@
         android:button="@drawable/checkboxselector"
         android:clickable="false" />
 
+    <TextView
+        android:id="@+id/row_racerPoints"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="20dp"
+        android:layout_toRightOf="@+id/row_racerDrag"
+        android:text="Small Text"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
 </RelativeLayout>

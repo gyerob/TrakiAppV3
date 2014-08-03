@@ -1,4 +1,4 @@
-package hu.gyerob.trakiapp;
+package hu.gyerob.trakiappdev;
 
 import adapter.InputFragmentPagerAdapter;
 import android.graphics.Color;

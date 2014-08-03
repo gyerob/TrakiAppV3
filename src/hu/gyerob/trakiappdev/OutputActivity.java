@@ -1,4 +1,4 @@
-package hu.gyerob.trakiapp;
+package hu.gyerob.trakiappdev;
 
 import java.lang.reflect.Field;
 
@@ -29,13 +29,14 @@ public class OutputActivity extends ActionBarActivity {
 
 	private int HIDE_STATE;
 	private int MODE;
+	private int GROUP;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_output);
 
-		//setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+		// setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 
 		pager = (ViewPager) findViewById(R.id.outputViewPager);
 
@@ -127,27 +128,27 @@ public class OutputActivity extends ActionBarActivity {
 		inflater.inflate(R.menu.listmenu, menu);
 
 		if (HIDE_STATE == 0) {
-			menu.getItem(1).setVisible(false);
-			menu.getItem(2).setVisible(false);
-			menu.getItem(3).setVisible(false);
 			menu.getItem(4).setVisible(false);
 			menu.getItem(5).setVisible(false);
 			menu.getItem(6).setVisible(false);
 			menu.getItem(7).setVisible(false);
+			menu.getItem(8).setVisible(false);
+			menu.getItem(9).setVisible(false);
+			menu.getItem(10).setVisible(false);
 		} else if (HIDE_STATE == 1) {
-			menu.getItem(2).setVisible(false);
-			menu.getItem(3).setVisible(false);
+			menu.getItem(5).setVisible(false);
 			menu.getItem(6).setVisible(false);
-			menu.getItem(7).setVisible(false);
+			menu.getItem(9).setVisible(false);
+			menu.getItem(10).setVisible(false);
 		} else if (HIDE_STATE == 2) {
 		} else if (HIDE_STATE == 3) {
-			menu.getItem(1).setVisible(false);
-			menu.getItem(2).setVisible(false);
-			menu.getItem(3).setVisible(false);
 			menu.getItem(4).setVisible(false);
 			menu.getItem(5).setVisible(false);
 			menu.getItem(6).setVisible(false);
 			menu.getItem(7).setVisible(false);
+			menu.getItem(8).setVisible(false);
+			menu.getItem(9).setVisible(false);
+			menu.getItem(10).setVisible(false);
 		}
 
 		return true;
@@ -158,34 +159,60 @@ public class OutputActivity extends ActionBarActivity {
 		Log.d("actionbarkatt", "frissít");
 		if (item.getItemId() == R.id.listmenuupdate) {
 			outputadapter.notifyDataSetChanged();
+			return true;
 		} else if (item.getItemId() == R.id.listmenuall) {
 			MODE = 1;
-			outputadapter.setMode(MODE);
+			outputadapter.setMode(MODE, GROUP);
 			outputadapter.notifyDataSetChanged();
+			return true;
 		} else if (item.getItemId() == R.id.listmenuabove150le) {
 			MODE = 2;
-			outputadapter.setMode(MODE);
+			outputadapter.setMode(MODE, GROUP);
 			outputadapter.notifyDataSetChanged();
+			return true;
 		} else if (item.getItemId() == R.id.listmenubelow150le) {
 			MODE = 3;
-			outputadapter.setMode(MODE);
+			outputadapter.setMode(MODE, GROUP);
 			outputadapter.notifyDataSetChanged();
+			return true;
 		} else if (item.getItemId() == R.id.listmenuveteran) {
 			MODE = 4;
-			outputadapter.setMode(MODE);
+			outputadapter.setMode(MODE, GROUP);
 			outputadapter.notifyDataSetChanged();
+			return true;
 		} else if (item.getItemId() == R.id.listmenumodern) {
 			MODE = 5;
-			outputadapter.setMode(MODE);
+			outputadapter.setMode(MODE, GROUP);
 			outputadapter.notifyDataSetChanged();
+			return true;
 		} else if (item.getItemId() == R.id.listmenuwomen) {
 			MODE = 6;
-			outputadapter.setMode(MODE);
+			outputadapter.setMode(MODE, GROUP);
 			outputadapter.notifyDataSetChanged();
+			return true;
 		} else if (item.getItemId() == R.id.listmenumen) {
 			MODE = 7;
-			outputadapter.setMode(MODE);
+			outputadapter.setMode(MODE, GROUP);
 			outputadapter.notifyDataSetChanged();
+			return true;
+		} else if (item.getItemId() == R.id.groupa) {
+			item.setChecked(true);
+			GROUP = 0;
+			outputadapter.setMode(MODE, GROUP);
+			outputadapter.notifyDataSetChanged();
+			return true;
+		} else if (item.getItemId() == R.id.groupb) {
+			item.setChecked(true);
+			GROUP = 1;
+			outputadapter.setMode(MODE, GROUP);
+			outputadapter.notifyDataSetChanged();
+			return true;
+		} else if (item.getItemId() == R.id.groupc) {
+			item.setChecked(true);
+			GROUP = 2;
+			outputadapter.setMode(MODE, GROUP);
+			outputadapter.notifyDataSetChanged();
+			return true;
 		}
 
 		supportInvalidateOptionsMenu();

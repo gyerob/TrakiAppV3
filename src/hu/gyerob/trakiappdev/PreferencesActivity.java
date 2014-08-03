@@ -1,4 +1,4 @@
-package hu.gyerob.trakiapp;
+package hu.gyerob.trakiappdev;
 
 import android.os.Bundle;
 import android.preference.PreferenceActivity;

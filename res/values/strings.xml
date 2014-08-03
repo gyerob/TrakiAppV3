@@ -52,6 +52,9 @@
     <string name="listmenubelow150">150le-</string>
     <string name="listmenuveteran">Veterán</string>
     <string name="listmenumodern">Jelenlegi</string>
+    <string name="listmenugroupagroinf">Agroinform</string>
+    <string name="listmenugroupagrolux">Agrolux</string>
+    <string name="listmenugroupempty">Mindenki</string>
     <string name="mapmenufree">Szabad</string>
     <string name="mapmenua">Piros</string>
     <string name="mapmenub">Kék</string>

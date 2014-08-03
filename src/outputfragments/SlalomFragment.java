@@ -1,6 +1,6 @@
 package outputfragments;
 
-import hu.gyerob.trakiapp.R;
+import hu.gyerob.trakiappdev.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,12 +42,14 @@ public class SlalomFragment extends ListFragment {
 	private JSONArray trailers = null;
 
 	private static int MODE = 0;
+	private static int GROUP = 0;
 
-	public static SlalomFragment newInstance(int mode) {
+	public static SlalomFragment newInstance(int mode, int group) {
 		SlalomFragment slalom = new SlalomFragment();
 
 		Bundle args = new Bundle();
 		args.putInt("mode", mode);
+		args.putInt("group", group);
 		slalom.setArguments(args);
 
 		return slalom;
@@ -61,6 +63,8 @@ public class SlalomFragment extends ListFragment {
 		if (mode >= 0 && mode < 8) {
 			MODE = mode;
 		}
+
+		GROUP = getArguments() != null ? getArguments().getInt("group") : 0;
 
 		slalomList = new ArrayList<Slalom>();
 
@@ -102,6 +106,14 @@ public class SlalomFragment extends ListFragment {
 				params.add(new BasicNameValuePair("type", "women"));
 			else if (MODE == 7)
 				params.add(new BasicNameValuePair("type", "men"));
+
+			if (GROUP == 0) {
+				params.add(new BasicNameValuePair("group", "0"));
+			} else if (GROUP == 1) {
+				params.add(new BasicNameValuePair("group", "1"));
+			} else if (GROUP == 2) {
+				params.add(new BasicNameValuePair("group", "2"));
+			}
 
 			JSONObject json = jsonParser.makeHttpRequest(url_all_slalom, "GET",
 					params);

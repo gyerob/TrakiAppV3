@@ -5,7 +5,7 @@
  * should not be modified by hand.
  */
 
-package hu.gyerob.trakiapp;
+package hu.gyerob.trakiappdev;
 
 public final class R {
     public static final class anim {
@@ -1053,10 +1053,10 @@ containing a value of this type.
     }
     public static final class id {
         public static final int FragmentContainer=0x7f070043;
-        public static final int RelativeLayout1=0x7f0700d0;
-        public static final int RelativeLayout2=0x7f0700e3;
-        public static final int RelativeLayout3=0x7f0700d7;
-        public static final int RelativeLayout4=0x7f0700c9;
+        public static final int RelativeLayout1=0x7f0700d1;
+        public static final int RelativeLayout2=0x7f0700e5;
+        public static final int RelativeLayout3=0x7f0700d9;
+        public static final int RelativeLayout4=0x7f0700ca;
         public static final int action_bar=0x7f07001c;
         public static final int action_bar_activity_content=0x7f070015;
         public static final int action_bar_container=0x7f07001b;
@@ -1123,17 +1123,21 @@ containing a value of this type.
         public static final int expanded_menu=0x7f07002c;
         public static final int finalsDragbtn=0x7f070040;
         public static final int finalsSlalombtn=0x7f07003e;
-        public static final int finalsabove=0x7f0700ed;
-        public static final int finalsbelow=0x7f0700ee;
+        public static final int finalsabove=0x7f0700ef;
+        public static final int finalsbelow=0x7f0700f0;
         public static final int finalsdraglistText1=0x7f070056;
         public static final int finalsdraglistText2=0x7f070057;
         public static final int finalsdraglistText3=0x7f070058;
-        public static final int finalsrefresh=0x7f0700ec;
+        public static final int finalsrefresh=0x7f0700ee;
         public static final int finalsslalomlistText1=0x7f07006e;
         public static final int finalsslalomlistText2=0x7f07006f;
         public static final int finalsslalomlistText3=0x7f070070;
         public static final int galleryiv=0x7f070045;
         public static final int gridview=0x7f070044;
+        public static final int group1=0x7f0700f4;
+        public static final int groupa=0x7f0700f5;
+        public static final int groupb=0x7f0700f6;
+        public static final int groupc=0x7f0700f7;
         public static final int headerdragBestTime=0x7f0700b8;
         public static final int headerdragName=0x7f0700b4;
         public static final int headerdragNumber=0x7f0700b5;
@@ -1142,14 +1146,15 @@ containing a value of this type.
         public static final int headerracerDrag=0x7f0700c1;
         public static final int headerracerName=0x7f0700bc;
         public static final int headerracerNumber=0x7f0700bd;
+        public static final int headerracerPoint=0x7f0700c2;
         public static final int headerracerSlalom=0x7f0700c0;
         public static final int headerracerTown=0x7f0700be;
         public static final int headerracerTrailer=0x7f0700bf;
-        public static final int headerslalomError=0x7f0700c7;
-        public static final int headerslalomFTime=0x7f0700c8;
-        public static final int headerslalomName=0x7f0700c4;
-        public static final int headerslalomNumber=0x7f0700c5;
-        public static final int headerslalomTime=0x7f0700c6;
+        public static final int headerslalomError=0x7f0700c8;
+        public static final int headerslalomFTime=0x7f0700c9;
+        public static final int headerslalomName=0x7f0700c5;
+        public static final int headerslalomNumber=0x7f0700c6;
+        public static final int headerslalomTime=0x7f0700c7;
         public static final int home=0x7f070014;
         public static final int homeAsUp=0x7f070005;
         public static final int icon=0x7f07002a;
@@ -1194,28 +1199,29 @@ containing a value of this type.
         public static final int inputtrailerViewNumber=0x7f0700a6;
         public static final int inputtrailerViewTime=0x7f0700a7;
         public static final int inputtrailerbtn=0x7f0700ac;
-        public static final int itemImageUpload=0x7f0700ef;
-        public static final int itemPreferences=0x7f0700fd;
-        public static final int itemUpdate=0x7f0700f0;
+        public static final int itemImageUpload=0x7f0700f1;
+        public static final int itemPontoz=0x7f070104;
+        public static final int itemPreferences=0x7f070103;
+        public static final int itemUpdate=0x7f0700f2;
         public static final int linearLayout1=0x7f0700b9;
-        public static final int linearLayout2=0x7f0700c3;
-        public static final int linearLayout3=0x7f0700c2;
+        public static final int linearLayout2=0x7f0700c4;
+        public static final int linearLayout3=0x7f0700c3;
         public static final int linearLayout4=0x7f070055;
         public static final int listMode=0x7f070001;
         public static final int list_item=0x7f070029;
-        public static final int listmenuabove150le=0x7f0700f3;
-        public static final int listmenuall=0x7f0700f2;
-        public static final int listmenubelow150le=0x7f0700f4;
-        public static final int listmenumen=0x7f0700f8;
-        public static final int listmenumodern=0x7f0700f6;
-        public static final int listmenuupdate=0x7f0700f1;
-        public static final int listmenuveteran=0x7f0700f5;
-        public static final int listmenuwomen=0x7f0700f7;
+        public static final int listmenuabove150le=0x7f0700f9;
+        public static final int listmenuall=0x7f0700f8;
+        public static final int listmenubelow150le=0x7f0700fa;
+        public static final int listmenumen=0x7f0700fe;
+        public static final int listmenumodern=0x7f0700fc;
+        public static final int listmenuupdate=0x7f0700f3;
+        public static final int listmenuveteran=0x7f0700fb;
+        public static final int listmenuwomen=0x7f0700fd;
         public static final int mainView=0x7f070049;
-        public static final int mapa=0x7f0700fa;
-        public static final int mapb=0x7f0700fb;
-        public static final int mapfree=0x7f0700f9;
-        public static final int mapstart=0x7f0700fc;
+        public static final int mapa=0x7f070100;
+        public static final int mapb=0x7f070101;
+        public static final int mapfree=0x7f0700ff;
+        public static final int mapstart=0x7f070102;
         public static final int middle=0x7f070012;
         public static final int myspinner=0x7f07009c;
         public static final int never=0x7f070009;
@@ -1226,33 +1232,34 @@ containing a value of this type.
         public static final int progress_horizontal=0x7f070019;
         public static final int racerName=0x7f07008c;
         public static final int radio=0x7f07002f;
-        public static final int row_dragIdo1=0x7f0700cc;
-        public static final int row_dragIdo2=0x7f0700cd;
-        public static final int row_dragLido=0x7f0700ce;
-        public static final int row_dragName=0x7f0700ca;
-        public static final int row_dragNumber=0x7f0700cb;
-        public static final int row_dragtopName=0x7f0700de;
-        public static final int row_dragtopNumber=0x7f0700df;
-        public static final int row_dragtopPos=0x7f0700dd;
-        public static final int row_racerDrag=0x7f0700d6;
-        public static final int row_racerName=0x7f0700d1;
-        public static final int row_racerNumber=0x7f0700d2;
-        public static final int row_racerSlalom=0x7f0700d5;
-        public static final int row_racerTown=0x7f0700d3;
-        public static final int row_racerTrailer=0x7f0700d4;
-        public static final int row_slalomHiba=0x7f0700db;
-        public static final int row_slalomIdo=0x7f0700da;
-        public static final int row_slalomName=0x7f0700d8;
-        public static final int row_slalomNumber=0x7f0700d9;
-        public static final int row_slalomVido=0x7f0700dc;
-        public static final int row_slalomtopName=0x7f0700e1;
-        public static final int row_slalomtopNumber=0x7f0700e2;
-        public static final int row_slalomtopPos=0x7f0700e0;
-        public static final int row_trailerHiba=0x7f0700e7;
-        public static final int row_trailerIdo=0x7f0700e6;
-        public static final int row_trailerName=0x7f0700e4;
-        public static final int row_trailerNumber=0x7f0700e5;
-        public static final int row_trailerVido=0x7f0700e8;
+        public static final int row_dragIdo1=0x7f0700cd;
+        public static final int row_dragIdo2=0x7f0700ce;
+        public static final int row_dragLido=0x7f0700cf;
+        public static final int row_dragName=0x7f0700cb;
+        public static final int row_dragNumber=0x7f0700cc;
+        public static final int row_dragtopName=0x7f0700e0;
+        public static final int row_dragtopNumber=0x7f0700e1;
+        public static final int row_dragtopPos=0x7f0700df;
+        public static final int row_racerDrag=0x7f0700d7;
+        public static final int row_racerName=0x7f0700d2;
+        public static final int row_racerNumber=0x7f0700d3;
+        public static final int row_racerPoints=0x7f0700d8;
+        public static final int row_racerSlalom=0x7f0700d6;
+        public static final int row_racerTown=0x7f0700d4;
+        public static final int row_racerTrailer=0x7f0700d5;
+        public static final int row_slalomHiba=0x7f0700dd;
+        public static final int row_slalomIdo=0x7f0700dc;
+        public static final int row_slalomName=0x7f0700da;
+        public static final int row_slalomNumber=0x7f0700db;
+        public static final int row_slalomVido=0x7f0700de;
+        public static final int row_slalomtopName=0x7f0700e3;
+        public static final int row_slalomtopNumber=0x7f0700e4;
+        public static final int row_slalomtopPos=0x7f0700e2;
+        public static final int row_trailerHiba=0x7f0700e9;
+        public static final int row_trailerIdo=0x7f0700e8;
+        public static final int row_trailerName=0x7f0700e6;
+        public static final int row_trailerNumber=0x7f0700e7;
+        public static final int row_trailerVido=0x7f0700ea;
         public static final int s=0x7f070059;
         public static final int scrollView1=0x7f07008e;
         public static final int search_badge=0x7f070032;
@@ -1294,13 +1301,13 @@ containing a value of this type.
         public static final int stoplistr44=0x7f070084;
         public static final int submit_area=0x7f070039;
         public static final int tabMode=0x7f070002;
-        public static final int text=0x7f0700cf;
+        public static final int text=0x7f0700d0;
         public static final int textView1=0x7f07009b;
         public static final int title=0x7f07002b;
         public static final int top_action_bar=0x7f070020;
-        public static final int toplistcheck1=0x7f0700ea;
-        public static final int toplistcheck2=0x7f0700eb;
-        public static final int toplisttext=0x7f0700e9;
+        public static final int toplistcheck1=0x7f0700ec;
+        public static final int toplistcheck2=0x7f0700ed;
+        public static final int toplisttext=0x7f0700eb;
         public static final int trakiSurfaceView1=0x7f07004f;
         public static final int up=0x7f070021;
         public static final int useLogo=0x7f070003;
@@ -1471,14 +1478,17 @@ containing a value of this type.
         public static final int data_town=0x7f0c001a;
         public static final int data_trailer=0x7f0c001e;
         public static final int drag_title=0x7f0c0016;
-        public static final int finalsabove=0x7f0c0044;
-        public static final int finalsbelow=0x7f0c0045;
+        public static final int finalsabove=0x7f0c0047;
+        public static final int finalsbelow=0x7f0c0048;
         public static final int hello_world=0x7f0c002a;
         public static final int imgupload=0x7f0c0033;
         public static final int itemPreferences=0x7f0c0030;
         public static final int listmenuabove150=0x7f0c003c;
         public static final int listmenuall=0x7f0c0038;
         public static final int listmenubelow150=0x7f0c003d;
+        public static final int listmenugroupagroinf=0x7f0c0040;
+        public static final int listmenugroupagrolux=0x7f0c0041;
+        public static final int listmenugroupempty=0x7f0c0042;
         public static final int listmenumen=0x7f0c003b;
         public static final int listmenumodern=0x7f0c003f;
         public static final int listmenuupdate=0x7f0c0039;
@@ -1489,14 +1499,14 @@ containing a value of this type.
         public static final int main_input=0x7f0c000f;
         public static final int main_map=0x7f0c0036;
         public static final int main_output=0x7f0c0010;
-        public static final int mapmenua=0x7f0c0041;
-        public static final int mapmenub=0x7f0c0042;
-        public static final int mapmenufree=0x7f0c0040;
-        public static final int mapmenustart=0x7f0c0043;
+        public static final int mapmenua=0x7f0c0044;
+        public static final int mapmenub=0x7f0c0045;
+        public static final int mapmenufree=0x7f0c0043;
+        public static final int mapmenustart=0x7f0c0046;
         public static final int racer_title=0x7f0c0013;
         public static final int slalom_title=0x7f0c0015;
         public static final int switchGalleryView=0x7f0c0035;
-        public static final int textColor=0x7f0c0047;
+        public static final int textColor=0x7f0c004a;
         public static final int title_activity_finals_drag=0x7f0c002f;
         public static final int title_activity_finals_slalom=0x7f0c002e;
         public static final int title_activity_gallery=0x7f0c0029;
@@ -1506,7 +1516,7 @@ containing a value of this type.
         public static final int title_activity_preferences=0x7f0c0032;
         public static final int title_activity_results=0x7f0c0026;
         public static final int title_activity_settings=0x7f0c0031;
-        public static final int topname=0x7f0c0046;
+        public static final int topname=0x7f0c0049;
         public static final int trailer_title=0x7f0c0014;
         public static final int update=0x7f0c0034;
     }
@@ -1723,26 +1733,26 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #ActionBar_background hu.gyerob.trakiapp:background}</code></td><td> Specifies a background drawable for the action bar.</td></tr>
-           <tr><td><code>{@link #ActionBar_backgroundSplit hu.gyerob.trakiapp:backgroundSplit}</code></td><td> Specifies a background drawable for the bottom component of a split action bar.</td></tr>
-           <tr><td><code>{@link #ActionBar_backgroundStacked hu.gyerob.trakiapp:backgroundStacked}</code></td><td> Specifies a background drawable for a second stacked row of the action bar.</td></tr>
-           <tr><td><code>{@link #ActionBar_customNavigationLayout hu.gyerob.trakiapp:customNavigationLayout}</code></td><td> Specifies a layout for custom navigation.</td></tr>
-           <tr><td><code>{@link #ActionBar_displayOptions hu.gyerob.trakiapp:displayOptions}</code></td><td> Options affecting how the action bar is displayed.</td></tr>
-           <tr><td><code>{@link #ActionBar_divider hu.gyerob.trakiapp:divider}</code></td><td> Specifies the drawable used for item dividers.</td></tr>
-           <tr><td><code>{@link #ActionBar_height hu.gyerob.trakiapp:height}</code></td><td> Specifies a fixed height.</td></tr>
-           <tr><td><code>{@link #ActionBar_homeLayout hu.gyerob.trakiapp:homeLayout}</code></td><td> Specifies a layout to use for the "home" section of the action bar.</td></tr>
-           <tr><td><code>{@link #ActionBar_icon hu.gyerob.trakiapp:icon}</code></td><td> Specifies the drawable used for the application icon.</td></tr>
-           <tr><td><code>{@link #ActionBar_indeterminateProgressStyle hu.gyerob.trakiapp:indeterminateProgressStyle}</code></td><td> Specifies a style resource to use for an indeterminate progress spinner.</td></tr>
-           <tr><td><code>{@link #ActionBar_itemPadding hu.gyerob.trakiapp:itemPadding}</code></td><td> Specifies padding that should be applied to the left and right sides of
+           <tr><td><code>{@link #ActionBar_background hu.gyerob.trakiappdev:background}</code></td><td> Specifies a background drawable for the action bar.</td></tr>
+           <tr><td><code>{@link #ActionBar_backgroundSplit hu.gyerob.trakiappdev:backgroundSplit}</code></td><td> Specifies a background drawable for the bottom component of a split action bar.</td></tr>
+           <tr><td><code>{@link #ActionBar_backgroundStacked hu.gyerob.trakiappdev:backgroundStacked}</code></td><td> Specifies a background drawable for a second stacked row of the action bar.</td></tr>
+           <tr><td><code>{@link #ActionBar_customNavigationLayout hu.gyerob.trakiappdev:customNavigationLayout}</code></td><td> Specifies a layout for custom navigation.</td></tr>
+           <tr><td><code>{@link #ActionBar_displayOptions hu.gyerob.trakiappdev:displayOptions}</code></td><td> Options affecting how the action bar is displayed.</td></tr>
+           <tr><td><code>{@link #ActionBar_divider hu.gyerob.trakiappdev:divider}</code></td><td> Specifies the drawable used for item dividers.</td></tr>
+           <tr><td><code>{@link #ActionBar_height hu.gyerob.trakiappdev:height}</code></td><td> Specifies a fixed height.</td></tr>
+           <tr><td><code>{@link #ActionBar_homeLayout hu.gyerob.trakiappdev:homeLayout}</code></td><td> Specifies a layout to use for the "home" section of the action bar.</td></tr>
+           <tr><td><code>{@link #ActionBar_icon hu.gyerob.trakiappdev:icon}</code></td><td> Specifies the drawable used for the application icon.</td></tr>
+           <tr><td><code>{@link #ActionBar_indeterminateProgressStyle hu.gyerob.trakiappdev:indeterminateProgressStyle}</code></td><td> Specifies a style resource to use for an indeterminate progress spinner.</td></tr>
+           <tr><td><code>{@link #ActionBar_itemPadding hu.gyerob.trakiappdev:itemPadding}</code></td><td> Specifies padding that should be applied to the left and right sides of
              system-provided items in the bar.</td></tr>
-           <tr><td><code>{@link #ActionBar_logo hu.gyerob.trakiapp:logo}</code></td><td> Specifies the drawable used for the application logo.</td></tr>
-           <tr><td><code>{@link #ActionBar_navigationMode hu.gyerob.trakiapp:navigationMode}</code></td><td> The type of navigation to use.</td></tr>
-           <tr><td><code>{@link #ActionBar_progressBarPadding hu.gyerob.trakiapp:progressBarPadding}</code></td><td> Specifies the horizontal padding on either end for an embedded progress bar.</td></tr>
-           <tr><td><code>{@link #ActionBar_progressBarStyle hu.gyerob.trakiapp:progressBarStyle}</code></td><td> Specifies a style resource to use for an embedded progress bar.</td></tr>
-           <tr><td><code>{@link #ActionBar_subtitle hu.gyerob.trakiapp:subtitle}</code></td><td> Specifies subtitle text used for navigationMode="normal" </td></tr>
-           <tr><td><code>{@link #ActionBar_subtitleTextStyle hu.gyerob.trakiapp:subtitleTextStyle}</code></td><td> Specifies a style to use for subtitle text.</td></tr>
-           <tr><td><code>{@link #ActionBar_title hu.gyerob.trakiapp:title}</code></td><td> Specifies title text used for navigationMode="normal" </td></tr>
-           <tr><td><code>{@link #ActionBar_titleTextStyle hu.gyerob.trakiapp:titleTextStyle}</code></td><td> Specifies a style to use for title text.</td></tr>
+           <tr><td><code>{@link #ActionBar_logo hu.gyerob.trakiappdev:logo}</code></td><td> Specifies the drawable used for the application logo.</td></tr>
+           <tr><td><code>{@link #ActionBar_navigationMode hu.gyerob.trakiappdev:navigationMode}</code></td><td> The type of navigation to use.</td></tr>
+           <tr><td><code>{@link #ActionBar_progressBarPadding hu.gyerob.trakiappdev:progressBarPadding}</code></td><td> Specifies the horizontal padding on either end for an embedded progress bar.</td></tr>
+           <tr><td><code>{@link #ActionBar_progressBarStyle hu.gyerob.trakiappdev:progressBarStyle}</code></td><td> Specifies a style resource to use for an embedded progress bar.</td></tr>
+           <tr><td><code>{@link #ActionBar_subtitle hu.gyerob.trakiappdev:subtitle}</code></td><td> Specifies subtitle text used for navigationMode="normal" </td></tr>
+           <tr><td><code>{@link #ActionBar_subtitleTextStyle hu.gyerob.trakiappdev:subtitleTextStyle}</code></td><td> Specifies a style to use for subtitle text.</td></tr>
+           <tr><td><code>{@link #ActionBar_title hu.gyerob.trakiappdev:title}</code></td><td> Specifies title text used for navigationMode="normal" </td></tr>
+           <tr><td><code>{@link #ActionBar_titleTextStyle hu.gyerob.trakiappdev:titleTextStyle}</code></td><td> Specifies a style to use for title text.</td></tr>
            </table>
            @see #ActionBar_background
            @see #ActionBar_backgroundSplit
@@ -1780,7 +1790,7 @@ containing a value of this type.
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name hu.gyerob.trakiapp:background
+          @attr name hu.gyerob.trakiappdev:background
         */
         public static final int ActionBar_background = 10;
         /**
@@ -1794,7 +1804,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
           <p>This is a private symbol.
-          @attr name hu.gyerob.trakiapp:backgroundSplit
+          @attr name hu.gyerob.trakiappdev:backgroundSplit
         */
         public static final int ActionBar_backgroundSplit = 12;
         /**
@@ -1808,7 +1818,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
           <p>This is a private symbol.
-          @attr name hu.gyerob.trakiapp:backgroundStacked
+          @attr name hu.gyerob.trakiappdev:backgroundStacked
         */
         public static final int ActionBar_backgroundStacked = 11;
         /**
@@ -1820,7 +1830,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name hu.gyerob.trakiapp:customNavigationLayout
+          @attr name hu.gyerob.trakiappdev:customNavigationLayout
         */
         public static final int ActionBar_customNavigationLayout = 13;
         /**
@@ -1843,7 +1853,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <tr><td><code>disableHome</code></td><td>0x20</td><td></td></tr>
 </table>
           <p>This is a private symbol.
-          @attr name hu.gyerob.trakiapp:displayOptions
+          @attr name hu.gyerob.trakiappdev:displayOptions
         */
         public static final int ActionBar_displayOptions = 3;
         /**
@@ -1855,7 +1865,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name hu.gyerob.trakiapp:divider
+          @attr name hu.gyerob.trakiappdev:divider
         */
         public static final int ActionBar_divider = 9;
         /**
@@ -1873,7 +1883,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name hu.gyerob.trakiapp:height
+          @attr name hu.gyerob.trakiappdev:height
         */
         public static final int ActionBar_height = 1;
         /**
@@ -1885,7 +1895,7 @@ containing a value of this type.
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name hu.gyerob.trakiapp:homeLayout
+          @attr name hu.gyerob.trakiappdev:homeLayout
         */
         public static final int ActionBar_homeLayout = 14;
         /**
@@ -1897,7 +1907,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name hu.gyerob.trakiapp:icon
+          @attr name hu.gyerob.trakiappdev:icon
         */
         public static final int ActionBar_icon = 7;
         /**
@@ -1909,7 +1919,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name hu.gyerob.trakiapp:indeterminateProgressStyle
+          @attr name hu.gyerob.trakiappdev:indeterminateProgressStyle
         */
         public static final int ActionBar_indeterminateProgressStyle = 16;
         /**
@@ -1928,7 +1938,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name hu.gyerob.trakiapp:itemPadding
+          @attr name hu.gyerob.trakiappdev:itemPadding
         */
         public static final int ActionBar_itemPadding = 18;
         /**
@@ -1940,7 +1950,7 @@ containing a value of this type.
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name hu.gyerob.trakiapp:logo
+          @attr name hu.gyerob.trakiappdev:logo
         */
         public static final int ActionBar_logo = 8;
         /**
@@ -1960,7 +1970,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <tr><td><code>tabMode</code></td><td>2</td><td> The action bar will use a series of horizontal tabs for navigation. </td></tr>
 </table>
           <p>This is a private symbol.
-          @attr name hu.gyerob.trakiapp:navigationMode
+          @attr name hu.gyerob.trakiappdev:navigationMode
         */
         public static final int ActionBar_navigationMode = 2;
         /**
@@ -1978,7 +1988,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name hu.gyerob.trakiapp:progressBarPadding
+          @attr name hu.gyerob.trakiappdev:progressBarPadding
         */
         public static final int ActionBar_progressBarPadding = 17;
         /**
@@ -1990,7 +2000,7 @@ containing a value of this type.
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name hu.gyerob.trakiapp:progressBarStyle
+          @attr name hu.gyerob.trakiappdev:progressBarStyle
         */
         public static final int ActionBar_progressBarStyle = 15;
         /**
@@ -2006,7 +2016,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name hu.gyerob.trakiapp:subtitle
+          @attr name hu.gyerob.trakiappdev:subtitle
         */
         public static final int ActionBar_subtitle = 4;
         /**
@@ -2018,7 +2028,7 @@ containing a value of this type.
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name hu.gyerob.trakiapp:subtitleTextStyle
+          @attr name hu.gyerob.trakiappdev:subtitleTextStyle
         */
         public static final int ActionBar_subtitleTextStyle = 6;
         /**
@@ -2034,7 +2044,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name hu.gyerob.trakiapp:title
+          @attr name hu.gyerob.trakiappdev:title
         */
         public static final int ActionBar_title = 0;
         /**
@@ -2046,7 +2056,7 @@ containing a value of this type.
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name hu.gyerob.trakiapp:titleTextStyle
+          @attr name hu.gyerob.trakiappdev:titleTextStyle
         */
         public static final int ActionBar_titleTextStyle = 5;
         /**  Valid LayoutParams for views placed in the action bar as custom views. 
@@ -2077,9 +2087,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #ActionBarWindow_windowActionBar hu.gyerob.trakiapp:windowActionBar}</code></td><td></td></tr>
-           <tr><td><code>{@link #ActionBarWindow_windowActionBarOverlay hu.gyerob.trakiapp:windowActionBarOverlay}</code></td><td></td></tr>
-           <tr><td><code>{@link #ActionBarWindow_windowSplitActionBar hu.gyerob.trakiapp:windowSplitActionBar}</code></td><td></td></tr>
+           <tr><td><code>{@link #ActionBarWindow_windowActionBar hu.gyerob.trakiappdev:windowActionBar}</code></td><td></td></tr>
+           <tr><td><code>{@link #ActionBarWindow_windowActionBarOverlay hu.gyerob.trakiappdev:windowActionBarOverlay}</code></td><td></td></tr>
+           <tr><td><code>{@link #ActionBarWindow_windowSplitActionBar hu.gyerob.trakiappdev:windowSplitActionBar}</code></td><td></td></tr>
            </table>
            @see #ActionBarWindow_windowActionBar
            @see #ActionBarWindow_windowActionBarOverlay
@@ -2089,7 +2099,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
             0x7f010000, 0x7f010001, 0x7f010002
         };
         /**
-          <p>This symbol is the offset where the {@link hu.gyerob.trakiapp.R.attr#windowActionBar}
+          <p>This symbol is the offset where the {@link hu.gyerob.trakiappdev.R.attr#windowActionBar}
           attribute's value can be found in the {@link #ActionBarWindow} array.
 
 
@@ -2099,11 +2109,11 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name hu.gyerob.trakiapp:windowActionBar
+          @attr name hu.gyerob.trakiappdev:windowActionBar
         */
         public static final int ActionBarWindow_windowActionBar = 0;
         /**
-          <p>This symbol is the offset where the {@link hu.gyerob.trakiapp.R.attr#windowActionBarOverlay}
+          <p>This symbol is the offset where the {@link hu.gyerob.trakiappdev.R.attr#windowActionBarOverlay}
           attribute's value can be found in the {@link #ActionBarWindow} array.
 
 
@@ -2113,11 +2123,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name hu.gyerob.trakiapp:windowActionBarOverlay
+          @attr name hu.gyerob.trakiappdev:windowActionBarOverlay
         */
         public static final int ActionBarWindow_windowActionBarOverlay = 1;
         /**
-          <p>This symbol is the offset where the {@link hu.gyerob.trakiapp.R.attr#windowSplitActionBar}
+          <p>This symbol is the offset where the {@link hu.gyerob.trakiappdev.R.attr#windowSplitActionBar}
           attribute's value can be found in the {@link #ActionBarWindow} array.
 
 
@@ -2127,7 +2137,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name hu.gyerob.trakiapp:windowSplitActionBar
+          @attr name hu.gyerob.trakiappdev:windowSplitActionBar
         */
         public static final int ActionBarWindow_windowSplitActionBar = 2;
         /** Attributes that can be used with a ActionMenuItemView.
@@ -2160,11 +2170,11 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #ActionMode_background hu.gyerob.trakiapp:background}</code></td><td> Specifies a background for the action mode bar.</td></tr>
-           <tr><td><code>{@link #ActionMode_backgroundSplit hu.gyerob.trakiapp:backgroundSplit}</code></td><td> Specifies a background for the split action mode bar.</td></tr>
-           <tr><td><code>{@link #ActionMode_height hu.gyerob.trakiapp:height}</code></td><td> Specifies a fixed height for the action mode bar.</td></tr>
-           <tr><td><code>{@link #ActionMode_subtitleTextStyle hu.gyerob.trakiapp:subtitleTextStyle}</code></td><td> Specifies a style to use for subtitle text.</td></tr>
-           <tr><td><code>{@link #ActionMode_titleTextStyle hu.gyerob.trakiapp:titleTextStyle}</code></td><td> Specifies a style to use for title text.</td></tr>
+           <tr><td><code>{@link #ActionMode_background hu.gyerob.trakiappdev:background}</code></td><td> Specifies a background for the action mode bar.</td></tr>
+           <tr><td><code>{@link #ActionMode_backgroundSplit hu.gyerob.trakiappdev:backgroundSplit}</code></td><td> Specifies a background for the split action mode bar.</td></tr>
+           <tr><td><code>{@link #ActionMode_height hu.gyerob.trakiappdev:height}</code></td><td> Specifies a fixed height for the action mode bar.</td></tr>
+           <tr><td><code>{@link #ActionMode_subtitleTextStyle hu.gyerob.trakiappdev:subtitleTextStyle}</code></td><td> Specifies a style to use for subtitle text.</td></tr>
+           <tr><td><code>{@link #ActionMode_titleTextStyle hu.gyerob.trakiappdev:titleTextStyle}</code></td><td> Specifies a style to use for title text.</td></tr>
            </table>
            @see #ActionMode_background
            @see #ActionMode_backgroundSplit
@@ -2185,7 +2195,7 @@ containing a value of this type.
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name hu.gyerob.trakiapp:background
+          @attr name hu.gyerob.trakiappdev:background
         */
         public static final int ActionMode_background = 3;
         /**
@@ -2199,7 +2209,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
           <p>This is a private symbol.
-          @attr name hu.gyerob.trakiapp:backgroundSplit
+          @attr name hu.gyerob.trakiappdev:backgroundSplit
         */
         public static final int ActionMode_backgroundSplit = 4;
         /**
@@ -2217,7 +2227,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name hu.gyerob.trakiapp:height
+          @attr name hu.gyerob.trakiappdev:height
         */
         public static final int ActionMode_height = 0;
         /**
@@ -2229,7 +2239,7 @@ containing a value of this type.
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name hu.gyerob.trakiapp:subtitleTextStyle
+          @attr name hu.gyerob.trakiappdev:subtitleTextStyle
         */
         public static final int ActionMode_subtitleTextStyle = 2;
         /**
@@ -2241,7 +2251,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name hu.gyerob.trakiapp:titleTextStyle
+          @attr name hu.gyerob.trakiappdev:titleTextStyle
         */
         public static final int ActionMode_titleTextStyle = 1;
         /**  Attrbitutes for a ActivityChooserView. 
@@ -2250,8 +2260,8 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #ActivityChooserView_expandActivityOverflowButtonDrawable hu.gyerob.trakiapp:expandActivityOverflowButtonDrawable}</code></td><td> The drawable to show in the button for expanding the activities overflow popup.</td></tr>
-           <tr><td><code>{@link #ActivityChooserView_initialActivityCount hu.gyerob.trakiapp:initialActivityCount}</code></td><td> The maximal number of items initially shown in the activity list.</td></tr>
+           <tr><td><code>{@link #ActivityChooserView_expandActivityOverflowButtonDrawable hu.gyerob.trakiappdev:expandActivityOverflowButtonDrawable}</code></td><td> The drawable to show in the button for expanding the activities overflow popup.</td></tr>
+           <tr><td><code>{@link #ActivityChooserView_initialActivityCount hu.gyerob.trakiappdev:initialActivityCount}</code></td><td> The maximal number of items initially shown in the activity list.</td></tr>
            </table>
            @see #ActivityChooserView_expandActivityOverflowButtonDrawable
            @see #ActivityChooserView_initialActivityCount
@@ -2273,7 +2283,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name hu.gyerob.trakiapp:expandActivityOverflowButtonDrawable
+          @attr name hu.gyerob.trakiappdev:expandActivityOverflowButtonDrawable
         */
         public static final int ActivityChooserView_expandActivityOverflowButtonDrawable = 1;
         /**
@@ -2289,7 +2299,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name hu.gyerob.trakiapp:initialActivityCount
+          @attr name hu.gyerob.trakiappdev:initialActivityCount
         */
         public static final int ActivityChooserView_initialActivityCount = 0;
         /** Attributes that can be used with a CompatTextView.
@@ -2298,7 +2308,7 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #CompatTextView_textAllCaps hu.gyerob.trakiapp:textAllCaps}</code></td><td> Present the text in ALL CAPS.</td></tr>
+           <tr><td><code>{@link #CompatTextView_textAllCaps hu.gyerob.trakiappdev:textAllCaps}</code></td><td> Present the text in ALL CAPS.</td></tr>
            </table>
            @see #CompatTextView_textAllCaps
          */
@@ -2315,7 +2325,7 @@ containing a value of this type.
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
           <p>This is a private symbol.
-          @attr name hu.gyerob.trakiapp:textAllCaps
+          @attr name hu.gyerob.trakiappdev:textAllCaps
         */
         public static final int CompatTextView_textAllCaps = 0;
         /** Attributes that can be used with a LinearLayoutICS.
@@ -2324,9 +2334,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #LinearLayoutICS_divider hu.gyerob.trakiapp:divider}</code></td><td> Drawable to use as a vertical divider between buttons.</td></tr>
-           <tr><td><code>{@link #LinearLayoutICS_dividerPadding hu.gyerob.trakiapp:dividerPadding}</code></td><td> Size of padding on either end of a divider.</td></tr>
-           <tr><td><code>{@link #LinearLayoutICS_showDividers hu.gyerob.trakiapp:showDividers}</code></td><td> Setting for which dividers to show.</td></tr>
+           <tr><td><code>{@link #LinearLayoutICS_divider hu.gyerob.trakiappdev:divider}</code></td><td> Drawable to use as a vertical divider between buttons.</td></tr>
+           <tr><td><code>{@link #LinearLayoutICS_dividerPadding hu.gyerob.trakiappdev:dividerPadding}</code></td><td> Size of padding on either end of a divider.</td></tr>
+           <tr><td><code>{@link #LinearLayoutICS_showDividers hu.gyerob.trakiappdev:showDividers}</code></td><td> Setting for which dividers to show.</td></tr>
            </table>
            @see #LinearLayoutICS_divider
            @see #LinearLayoutICS_dividerPadding
@@ -2344,7 +2354,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name hu.gyerob.trakiapp:divider
+          @attr name hu.gyerob.trakiappdev:divider
         */
         public static final int LinearLayoutICS_divider = 0;
         /**
@@ -2362,7 +2372,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name hu.gyerob.trakiapp:dividerPadding
+          @attr name hu.gyerob.trakiappdev:dividerPadding
         */
         public static final int LinearLayoutICS_dividerPadding = 2;
         /**
@@ -2383,7 +2393,7 @@ containing a value of this type.
 <tr><td><code>end</code></td><td>4</td><td></td></tr>
 </table>
           <p>This is a private symbol.
-          @attr name hu.gyerob.trakiapp:showDividers
+          @attr name hu.gyerob.trakiappdev:showDividers
         */
         public static final int LinearLayoutICS_showDividers = 1;
         /**  Base attributes that are available to all groups. 
@@ -2472,10 +2482,10 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #MenuItem_actionLayout hu.gyerob.trakiapp:actionLayout}</code></td><td> An optional layout to be used as an action view.</td></tr>
-           <tr><td><code>{@link #MenuItem_actionProviderClass hu.gyerob.trakiapp:actionProviderClass}</code></td><td> The name of an optional ActionProvider class to instantiate an action view
+           <tr><td><code>{@link #MenuItem_actionLayout hu.gyerob.trakiappdev:actionLayout}</code></td><td> An optional layout to be used as an action view.</td></tr>
+           <tr><td><code>{@link #MenuItem_actionProviderClass hu.gyerob.trakiappdev:actionProviderClass}</code></td><td> The name of an optional ActionProvider class to instantiate an action view
              and perform operations such as default action for that menu item.</td></tr>
-           <tr><td><code>{@link #MenuItem_actionViewClass hu.gyerob.trakiapp:actionViewClass}</code></td><td> The name of an optional View class to instantiate and use as an
+           <tr><td><code>{@link #MenuItem_actionViewClass hu.gyerob.trakiappdev:actionViewClass}</code></td><td> The name of an optional View class to instantiate and use as an
              action view.</td></tr>
            <tr><td><code>{@link #MenuItem_android_alphabeticShortcut android:alphabeticShortcut}</code></td><td> The alphabetic shortcut key.</td></tr>
            <tr><td><code>{@link #MenuItem_android_checkable android:checkable}</code></td><td> Whether the item is capable of displaying a check mark.</td></tr>
@@ -2491,7 +2501,7 @@ containing a value of this type.
            <tr><td><code>{@link #MenuItem_android_title android:title}</code></td><td> The title associated with the item.</td></tr>
            <tr><td><code>{@link #MenuItem_android_titleCondensed android:titleCondensed}</code></td><td> The condensed title associated with the item.</td></tr>
            <tr><td><code>{@link #MenuItem_android_visible android:visible}</code></td><td> Whether the item is shown/visible.</td></tr>
-           <tr><td><code>{@link #MenuItem_showAsAction hu.gyerob.trakiapp:showAsAction}</code></td><td> How this item should display in the Action Bar, if present.</td></tr>
+           <tr><td><code>{@link #MenuItem_showAsAction hu.gyerob.trakiappdev:showAsAction}</code></td><td> How this item should display in the Action Bar, if present.</td></tr>
            </table>
            @see #MenuItem_actionLayout
            @see #MenuItem_actionProviderClass
@@ -2529,7 +2539,7 @@ containing a value of this type.
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name hu.gyerob.trakiapp:actionLayout
+          @attr name hu.gyerob.trakiappdev:actionLayout
         */
         public static final int MenuItem_actionLayout = 14;
         /**
@@ -2548,7 +2558,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name hu.gyerob.trakiapp:actionProviderClass
+          @attr name hu.gyerob.trakiappdev:actionProviderClass
         */
         public static final int MenuItem_actionProviderClass = 16;
         /**
@@ -2566,7 +2576,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name hu.gyerob.trakiapp:actionViewClass
+          @attr name hu.gyerob.trakiappdev:actionViewClass
         */
         public static final int MenuItem_actionViewClass = 15;
         /**
@@ -2722,7 +2732,7 @@ containing a value of this type.
                  larger segment of its container. </td></tr>
 </table>
           <p>This is a private symbol.
-          @attr name hu.gyerob.trakiapp:showAsAction
+          @attr name hu.gyerob.trakiappdev:showAsAction
         */
         public static final int MenuItem_showAsAction = 13;
         /** Attributes that can be used with a MenuView.
@@ -2833,8 +2843,8 @@ containing a value of this type.
            <tr><td><code>{@link #SearchView_android_imeOptions android:imeOptions}</code></td><td> The IME options to set on the query text field.</td></tr>
            <tr><td><code>{@link #SearchView_android_inputType android:inputType}</code></td><td> The input type to set on the query text field.</td></tr>
            <tr><td><code>{@link #SearchView_android_maxWidth android:maxWidth}</code></td><td> An optional maximum width of the SearchView.</td></tr>
-           <tr><td><code>{@link #SearchView_iconifiedByDefault hu.gyerob.trakiapp:iconifiedByDefault}</code></td><td> The default state of the SearchView.</td></tr>
-           <tr><td><code>{@link #SearchView_queryHint hu.gyerob.trakiapp:queryHint}</code></td><td> An optional query hint string to be displayed in the empty query field.</td></tr>
+           <tr><td><code>{@link #SearchView_iconifiedByDefault hu.gyerob.trakiappdev:iconifiedByDefault}</code></td><td> The default state of the SearchView.</td></tr>
+           <tr><td><code>{@link #SearchView_queryHint hu.gyerob.trakiappdev:queryHint}</code></td><td> An optional query hint string to be displayed in the empty query field.</td></tr>
            </table>
            @see #SearchView_android_imeOptions
            @see #SearchView_android_inputType
@@ -2887,7 +2897,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name hu.gyerob.trakiapp:iconifiedByDefault
+          @attr name hu.gyerob.trakiappdev:iconifiedByDefault
         */
         public static final int SearchView_iconifiedByDefault = 3;
         /**
@@ -2903,7 +2913,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name hu.gyerob.trakiapp:queryHint
+          @attr name hu.gyerob.trakiappdev:queryHint
         */
         public static final int SearchView_queryHint = 4;
         /** Attributes that can be used with a Spinner.
@@ -2920,12 +2930,12 @@ containing a value of this type.
            <tr><td><code>{@link #Spinner_android_dropDownWidth android:dropDownWidth}</code></td><td> Width of the dropdown in spinnerMode="dropdown".</td></tr>
            <tr><td><code>{@link #Spinner_android_gravity android:gravity}</code></td><td> Gravity setting for positioning the currently selected item.</td></tr>
            <tr><td><code>{@link #Spinner_android_popupBackground android:popupBackground}</code></td><td> Background drawable to use for the dropdown in spinnerMode="dropdown".</td></tr>
-           <tr><td><code>{@link #Spinner_disableChildrenWhenDisabled hu.gyerob.trakiapp:disableChildrenWhenDisabled}</code></td><td> Whether this spinner should mark child views as enabled/disabled when
+           <tr><td><code>{@link #Spinner_disableChildrenWhenDisabled hu.gyerob.trakiappdev:disableChildrenWhenDisabled}</code></td><td> Whether this spinner should mark child views as enabled/disabled when
              the spinner itself is enabled/disabled.</td></tr>
-           <tr><td><code>{@link #Spinner_popupPromptView hu.gyerob.trakiapp:popupPromptView}</code></td><td> Reference to a layout to use for displaying a prompt in the dropdown for
+           <tr><td><code>{@link #Spinner_popupPromptView hu.gyerob.trakiappdev:popupPromptView}</code></td><td> Reference to a layout to use for displaying a prompt in the dropdown for
              spinnerMode="dropdown".</td></tr>
-           <tr><td><code>{@link #Spinner_prompt hu.gyerob.trakiapp:prompt}</code></td><td> The prompt to display when the spinner's dialog is shown.</td></tr>
-           <tr><td><code>{@link #Spinner_spinnerMode hu.gyerob.trakiapp:spinnerMode}</code></td><td> Display mode for spinner options.</td></tr>
+           <tr><td><code>{@link #Spinner_prompt hu.gyerob.trakiappdev:prompt}</code></td><td> The prompt to display when the spinner's dialog is shown.</td></tr>
+           <tr><td><code>{@link #Spinner_spinnerMode hu.gyerob.trakiappdev:spinnerMode}</code></td><td> Display mode for spinner options.</td></tr>
            </table>
            @see #Spinner_android_dropDownHorizontalOffset
            @see #Spinner_android_dropDownSelector
@@ -3013,7 +3023,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name hu.gyerob.trakiapp:disableChildrenWhenDisabled
+          @attr name hu.gyerob.trakiappdev:disableChildrenWhenDisabled
         */
         public static final int Spinner_disableChildrenWhenDisabled = 9;
         /**
@@ -3027,7 +3037,7 @@ containing a value of this type.
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name hu.gyerob.trakiapp:popupPromptView
+          @attr name hu.gyerob.trakiappdev:popupPromptView
         */
         public static final int Spinner_popupPromptView = 8;
         /**
@@ -3039,7 +3049,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name hu.gyerob.trakiapp:prompt
+          @attr name hu.gyerob.trakiappdev:prompt
         */
         public static final int Spinner_prompt = 6;
         /**
@@ -3059,7 +3069,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
                  anchored to the spinner widget itself. </td></tr>
 </table>
           <p>This is a private symbol.
-          @attr name hu.gyerob.trakiapp:spinnerMode
+          @attr name hu.gyerob.trakiappdev:spinnerMode
         */
         public static final int Spinner_spinnerMode = 7;
         /**  These are the standard attributes that make up a complete theme. 
@@ -3068,12 +3078,12 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #Theme_actionDropDownStyle hu.gyerob.trakiapp:actionDropDownStyle}</code></td><td> Default ActionBar dropdown style.</td></tr>
-           <tr><td><code>{@link #Theme_dropdownListPreferredItemHeight hu.gyerob.trakiapp:dropdownListPreferredItemHeight}</code></td><td> The preferred item height for dropdown lists.</td></tr>
-           <tr><td><code>{@link #Theme_listChoiceBackgroundIndicator hu.gyerob.trakiapp:listChoiceBackgroundIndicator}</code></td><td> Drawable used as a background for selected list items.</td></tr>
-           <tr><td><code>{@link #Theme_panelMenuListTheme hu.gyerob.trakiapp:panelMenuListTheme}</code></td><td> Default Panel Menu style.</td></tr>
-           <tr><td><code>{@link #Theme_panelMenuListWidth hu.gyerob.trakiapp:panelMenuListWidth}</code></td><td> Default Panel Menu width.</td></tr>
-           <tr><td><code>{@link #Theme_popupMenuStyle hu.gyerob.trakiapp:popupMenuStyle}</code></td><td> Default PopupMenu style.</td></tr>
+           <tr><td><code>{@link #Theme_actionDropDownStyle hu.gyerob.trakiappdev:actionDropDownStyle}</code></td><td> Default ActionBar dropdown style.</td></tr>
+           <tr><td><code>{@link #Theme_dropdownListPreferredItemHeight hu.gyerob.trakiappdev:dropdownListPreferredItemHeight}</code></td><td> The preferred item height for dropdown lists.</td></tr>
+           <tr><td><code>{@link #Theme_listChoiceBackgroundIndicator hu.gyerob.trakiappdev:listChoiceBackgroundIndicator}</code></td><td> Drawable used as a background for selected list items.</td></tr>
+           <tr><td><code>{@link #Theme_panelMenuListTheme hu.gyerob.trakiappdev:panelMenuListTheme}</code></td><td> Default Panel Menu style.</td></tr>
+           <tr><td><code>{@link #Theme_panelMenuListWidth hu.gyerob.trakiappdev:panelMenuListWidth}</code></td><td> Default Panel Menu width.</td></tr>
+           <tr><td><code>{@link #Theme_popupMenuStyle hu.gyerob.trakiappdev:popupMenuStyle}</code></td><td> Default PopupMenu style.</td></tr>
            </table>
            @see #Theme_actionDropDownStyle
            @see #Theme_dropdownListPreferredItemHeight
@@ -3095,7 +3105,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name hu.gyerob.trakiapp:actionDropDownStyle
+          @attr name hu.gyerob.trakiappdev:actionDropDownStyle
         */
         public static final int Theme_actionDropDownStyle = 0;
         /**
@@ -3113,7 +3123,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name hu.gyerob.trakiapp:dropdownListPreferredItemHeight
+          @attr name hu.gyerob.trakiappdev:dropdownListPreferredItemHeight
         */
         public static final int Theme_dropdownListPreferredItemHeight = 1;
         /**
@@ -3125,7 +3135,7 @@ containing a value of this type.
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name hu.gyerob.trakiapp:listChoiceBackgroundIndicator
+          @attr name hu.gyerob.trakiappdev:listChoiceBackgroundIndicator
         */
         public static final int Theme_listChoiceBackgroundIndicator = 5;
         /**
@@ -3137,7 +3147,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name hu.gyerob.trakiapp:panelMenuListTheme
+          @attr name hu.gyerob.trakiappdev:panelMenuListTheme
         */
         public static final int Theme_panelMenuListTheme = 4;
         /**
@@ -3155,7 +3165,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name hu.gyerob.trakiapp:panelMenuListWidth
+          @attr name hu.gyerob.trakiappdev:panelMenuListWidth
         */
         public static final int Theme_panelMenuListWidth = 3;
         /**
@@ -3167,7 +3177,7 @@ containing a value of this type.
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name hu.gyerob.trakiapp:popupMenuStyle
+          @attr name hu.gyerob.trakiappdev:popupMenuStyle
         */
         public static final int Theme_popupMenuStyle = 2;
         /** Attributes that can be used with a View.
@@ -3177,8 +3187,8 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
            <tr><td><code>{@link #View_android_focusable android:focusable}</code></td><td> Boolean that controls whether a view can take focus.</td></tr>
-           <tr><td><code>{@link #View_paddingEnd hu.gyerob.trakiapp:paddingEnd}</code></td><td> Sets the padding, in pixels, of the end edge; see {@link android.R.attr#padding}.</td></tr>
-           <tr><td><code>{@link #View_paddingStart hu.gyerob.trakiapp:paddingStart}</code></td><td> Sets the padding, in pixels, of the start edge; see {@link android.R.attr#padding}.</td></tr>
+           <tr><td><code>{@link #View_paddingEnd hu.gyerob.trakiappdev:paddingEnd}</code></td><td> Sets the padding, in pixels, of the end edge; see {@link android.R.attr#padding}.</td></tr>
+           <tr><td><code>{@link #View_paddingStart hu.gyerob.trakiappdev:paddingStart}</code></td><td> Sets the padding, in pixels, of the start edge; see {@link android.R.attr#padding}.</td></tr>
            </table>
            @see #View_android_focusable
            @see #View_paddingEnd
@@ -3216,7 +3226,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name hu.gyerob.trakiapp:paddingEnd
+          @attr name hu.gyerob.trakiappdev:paddingEnd
         */
         public static final int View_paddingEnd = 2;
         /**
@@ -3234,7 +3244,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name hu.gyerob.trakiapp:paddingStart
+          @attr name hu.gyerob.trakiappdev:paddingStart
         */
         public static final int View_paddingStart = 1;
     };

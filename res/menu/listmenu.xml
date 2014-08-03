@@ -1,44 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android" xmlns:compat="http://schemas.android.com/apk/res-auto">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:compat="http://schemas.android.com/apk/res-auto" >
 
     <item
         android:id="@+id/listmenuupdate"
-        compat:showAsAction="never"
-        android:title="@string/listmenuupdate"/>
-    
+        android:title="@string/listmenuupdate"
+        compat:showAsAction="never"/>
+
+    <group
+        android:id="@+id/group1"
+        android:checkableBehavior="single" >
+        <item
+            android:id="@+id/groupa"
+            android:checked="true"
+            android:title="@string/listmenugroupempty">
+        </item>
+        <item
+            android:id="@+id/groupb"
+            android:title="@string/listmenugroupagroinf">
+        </item>
+        <item
+            android:id="@+id/groupc"
+            android:title="@string/listmenugroupagrolux">
+        </item>
+    </group>
+
     <item
         android:id="@+id/listmenuall"
-        compat:showAsAction="never"
-        android:title="@string/listmenuall"/>
-    
+        android:title="@string/listmenuall"
+        compat:showAsAction="never"/>
     <item
         android:id="@+id/listmenuabove150le"
-        compat:showAsAction="never"
-        android:title="@string/listmenuabove150"/>
-    
+        android:title="@string/listmenuabove150"
+        compat:showAsAction="never"/>
     <item
         android:id="@+id/listmenubelow150le"
-        compat:showAsAction="never"
-        android:title="@string/listmenubelow150"/>
-    
+        android:title="@string/listmenubelow150"
+        compat:showAsAction="never"/>
     <item
         android:id="@+id/listmenuveteran"
-        compat:showAsAction="never"
-        android:title="@string/listmenuveteran"/>
-    
+        android:title="@string/listmenuveteran"
+        compat:showAsAction="never"/>
     <item
         android:id="@+id/listmenumodern"
-        compat:showAsAction="never"
-        android:title="@string/listmenumodern"/>
-    
+        android:title="@string/listmenumodern"
+        compat:showAsAction="never"/>
     <item
         android:id="@+id/listmenuwomen"
-        compat:showAsAction="never"
-        android:title="@string/listmenuwomen"/>
-    
+        android:title="@string/listmenuwomen"
+        compat:showAsAction="never"/>
     <item
         android:id="@+id/listmenumen"
-        compat:showAsAction="never"
-        android:title="@string/listmenumen"/>
+        android:title="@string/listmenumen"
+        compat:showAsAction="never"/>
 
 </menu>

@@ -10,26 +10,28 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 
 public class OutputFragmentPagerAdapter extends FragmentStatePagerAdapter {
 	private int MODE;
+	private int GROUP;
 
 	public OutputFragmentPagerAdapter(FragmentManager fm) {
 		super(fm);
 	}
 	
-	public void setMode(int mode) {
+	public void setMode(int mode, int group) {
 		MODE = mode;
+		GROUP = group;
 	}
 
 	@Override
 	public Fragment getItem(int pos) {
 		switch (pos) {
 		case 0:
-			return RacerFragment.newInstance(MODE);
+			return RacerFragment.newInstance(MODE, GROUP);
 		case 1:
-			return TrailerFragment.newInstance(MODE);
+			return TrailerFragment.newInstance(MODE, GROUP);
 		case 2:
-			return SlalomFragment.newInstance(MODE);
+			return SlalomFragment.newInstance(MODE, GROUP);
 		case 3:
-			return DragFragment.newInstance(MODE);
+			return DragFragment.newInstance(MODE, GROUP);
 		default:
 			return null;
 		}
